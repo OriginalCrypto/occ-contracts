@@ -10,3 +10,6 @@
 
 ![deployment use case](../diagrams/cofounder_creation_usecase.png)
 
+---
+(Diagrams created using [plantuml](http://plantuml.com/)
+
