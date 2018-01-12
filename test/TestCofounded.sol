@@ -11,4 +11,7 @@ contract TestCofounded {
 
   function testFailToCreateWIthTooManyCofounders() public {
   }
+
+  function testCreatesCofoundersOnlyWithValidAddresses() public {
+  }
 }

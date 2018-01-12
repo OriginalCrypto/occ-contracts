@@ -1,0 +1,21 @@
+@startuml
+:Main Founder: as Founder
+(Deploy the Contract) as (Deploy)
+:Contract: << Blockchain >>
+
+
+Founder -> (Deploy)
+(Deploy) -> Contract
+
+note right of (Deploy)
+  Founder create contract passing in cofounders
+end note
+  
+note right of Cofounder: 1-15 cofounders (for simplicity)
+note "contract parcels out tokens allotments to cofounder(s)" as parcel
+Contract .. parcel 
+parcel .. Cofounder
+
+note right of Contract: not a human actor
+
+@enduml
