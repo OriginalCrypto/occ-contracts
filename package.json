@@ -1,0 +1,29 @@
+{
+  "name": "gin-contracts",
+  "version": "0.0.1",
+  "description": "solidity contracts for a cofounder-based ethereum token",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OriginalCrypto/gin-contracts.git"
+  },
+  "keywords": [
+    "ethereum",
+    "token"
+  ],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/OriginalCrypto/gin-contracts/issues"
+  },
+  "homepage": "https://github.com/OriginalCrypto/gin-contracts#readme",
+  "devDependencies": {
+    "truffle": "^4.0.4"
+  }
+}
