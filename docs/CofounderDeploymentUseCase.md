@@ -1,4 +1,4 @@
-# gin-contracts
+# occ-contracts
 
 ## Cofounder Deployment Use Case
 

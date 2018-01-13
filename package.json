@@ -1,5 +1,5 @@
 {
-  "name": "gin-contracts",
+  "name": "occ-contracts",
   "version": "0.0.1",
   "description": "solidity contracts for a cofounder-based ethereum token",
   "main": "index.js",
@@ -7,11 +7,12 @@
     "test": "test"
   },
   "scripts": {
-    "test": "truffle test"
+    "test": "truffle test",
+    "mine": "echo 'This is my token. There are many like it, but this one is mine'"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/OriginalCrypto/gin-contracts.git"
+    "url": "git+https://github.com/OriginalCrypto/occ-contracts.git"
   },
   "keywords": [
     "ethereum",
@@ -20,9 +21,9 @@
   "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/OriginalCrypto/gin-contracts/issues"
+    "url": "https://github.com/OriginalCrypto/occ-contracts/issues"
   },
-  "homepage": "https://github.com/OriginalCrypto/gin-contracts#readme",
+  "homepage": "https://github.com/OriginalCrypto/occ-contracts#readme",
   "devDependencies": {
     "truffle": "^4.0.4"
   }
