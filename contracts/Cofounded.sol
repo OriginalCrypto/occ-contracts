@@ -1,14 +1,17 @@
 pragma solidity ^0.4.17;
 
+/// @title a non-multisignature contract with many founders/owners
+/// @author Mish Ochu
 contract Cofounded {
   mapping (address => uint) public cofounderIds;
   address public founder;
   address[] public cofounders;
 
 
+  /// @dev restrict execution to one of original cofounder addresses
   modifier restricted () {
     uint cofounderId = cofounderIds[msg.sender];
-    require(cofounderId > 0 && msg.sender == cofounders[cofounderId]);
+    require(msg.sender == cofounders[cofounderId]);
     _;
   }
 
@@ -42,10 +45,12 @@ contract Cofounded {
     }
   }
 
+  /// @dev get count of cofounders
   function getCofounderCount () public view returns (uint256) {
     return cofounders.length;
   }
 
+  /// @dev get list of cofounders
   function getCofounders () public view returns (address[]) {
     return cofounders;
   }
