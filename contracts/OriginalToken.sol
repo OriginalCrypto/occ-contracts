@@ -42,7 +42,7 @@ contract OriginalToken is Cofounded, ERC20, ERC165 {
   /// @dev creates the token
   /// NOTE  passes tokenCofounders to base contract
   /// see   Cofounded
-  function OriginalToken (address[] tokenCofounders,
+  function OriginalToken (address[15] tokenCofounders,
                           uint256 tokenTotalSupply,
                           string tokenName,
                           string tokenSymbol,
@@ -55,6 +55,7 @@ contract OriginalToken is Cofounded, ERC20, ERC165 {
     // TODO: divvy up initial token supply accross cofounders
     // TODO: ensure each cofounder gets an equal base distribution
     // TODO: ensure additional supply to cofounders with commensurate fiduciary activity to guarantee launch
+    balances[founder] = totalSupply;
   }
 
   function transfer (address to, uint256 value) public returns (bool) {

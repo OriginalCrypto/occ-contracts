@@ -20,7 +20,7 @@ contract Cofounded {
   /// @dev adds up to (MAX_COFOUNDERS) cofounders.
   ///      also adds  the deployment address as a founder (a special variable)
   ///      and as a cofounder
-  function Cofounded (address[] tokenCofounders) public {
+  function Cofounded (address[15] tokenCofounders) public {
     cofounders.push(founder = msg.sender);
     
     for (uint8 x = 0; x < MAX_COFOUNDERS; x++) {
