@@ -52,6 +52,10 @@ contract OriginalToken is Cofounded, ERC20, ERC165 {
     symbol = tokenSymbol;
     decimals = tokenDecimals;
     
+    // TODO: figure out why these fail in migration
+    //require(tokenTotalSupply > 0);
+    //require(bytes(tokenName).length > 0);
+    //require(bytes(tokenSymbol).length > 0);
     // TODO: divvy up initial token supply accross cofounders
     // TODO: ensure each cofounder gets an equal base distribution
     // TODO: ensure additional supply to cofounders with commensurate fiduciary activity to guarantee launch
