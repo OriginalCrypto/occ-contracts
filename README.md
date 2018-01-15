@@ -27,6 +27,8 @@ To run the test suite run
  $ npm run test
 ```
 
+After a while, one tends to agree (almost wholeheartedly) with this [perspective](https://news.ycombinator.com/item?id=14691212) with regards to Solidity.
+
 ### License
 MIT
 
