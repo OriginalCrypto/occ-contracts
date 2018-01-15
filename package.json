@@ -7,8 +7,11 @@
     "test": "test"
   },
   "scripts": {
-    "test": "truffle test",
-    "mine": "echo 'This is my token. There are many like it, but this one is mine'"
+    "test": "concurrently --kill-others \"npm run truffle\" \"npm run unit\"",
+    "mine": "echo 'This is my token. There are many like it, but this one is mine'",
+    "truffle": "truffle dev",
+    "unit": "truffle test"
+
   },
   "repository": {
     "type": "git",
@@ -25,6 +28,7 @@
   },
   "homepage": "https://github.com/OriginalCrypto/occ-contracts#readme",
   "devDependencies": {
+    "concurrently": "^3.5.1",
     "truffle": "^4.0.4"
   }
 }
