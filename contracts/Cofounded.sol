@@ -6,6 +6,7 @@ contract Cofounded {
   mapping (address => uint) public cofounderIds;
   address public founder;
   address[] public cofounders;
+  uint8 public constant MAX_COFOUNDERS = 15;
 
 
   /// @dev restrict execution to one of original cofounder addresses
@@ -16,14 +17,14 @@ contract Cofounded {
   }
 
   /// @notice creates the Cofounded contract instance
-  /// @dev adds a maximum of 14 cofounders as well as the
-  ///      deployment address as a founder (a special variable)
-  //       and as a cofounder
-  function Cofounded (address[14] _cofounders) public {
+  /// @dev adds up to (MAX_COFOUNDERS) cofounders.
+  ///      also adds  the deployment address as a founder (a special variable)
+  ///      and as a cofounder
+  function Cofounded (address[] tokenCofounders) public {
     cofounders.push(founder = msg.sender);
     
-    for (uint8 x = 0; x < 14; x++) {
-      address cofounder = _cofounders[x];
+    for (uint8 x = 0; x < MAX_COFOUNDERS; x++) {
+      address cofounder = tokenCofounders[x];
 
       bool isValidUniqueCofounder =
         cofounder != address(0) &&
@@ -46,12 +47,12 @@ contract Cofounded {
   }
 
   /// @dev get count of cofounders
-  function getCofounderCount () public view returns (uint256) {
+  function getCofounderCount () public constant returns (uint256) {
     return cofounders.length;
   }
 
   /// @dev get list of cofounders
-  function getCofounders () public view returns (address[]) {
+  function getCofounders () public constant returns (address[]) {
     return cofounders;
   }
 }
