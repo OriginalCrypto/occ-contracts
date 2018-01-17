@@ -22,10 +22,21 @@ In the root directory for occ-contracts repository run
 $ npm install
 ```
 
-To run the test suite run
+To run the test suite start a local blockchain by running:
+```
+ $ truffle dev
+```
+then run:
+```
+ $ npm run unit
+```
+or alternatively you can run:
 ```
  $ npm run test
 ```
+which will run both a local development blockchain and the tests concurrently
+
+---
 
 After a while, one tends to agree (almost wholeheartedly) with this [perspective](https://news.ycombinator.com/item?id=14691212) with regards to Solidity.
 
