@@ -1,0 +1,176 @@
+{
+  "contractName": "ERC165",
+  "abi": [
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "interfaceID",
+          "type": "bytes4"
+        }
+      ],
+      "name": "supportsInterface",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "pragma solidity ^0.4.17;\n\n/// @title Interface for contracts conforming to ERC-165: Pseudo-Introspection, or standard interface detection\n/// @author Mish Ochu\ninterface ERC165 {\n  /// @dev true iff the interface is supported\n  function supportsInterface(bytes4 interfaceID) external constant returns (bool);\n}\n\n",
+  "sourcePath": "/Users/mishochu/Source/occ-contracts/contracts/ERC165.sol",
+  "ast": {
+    "attributes": {
+      "absolutePath": "/Users/mishochu/Source/occ-contracts/contracts/ERC165.sol",
+      "exportedSymbols": {
+        "ERC165": [
+          147
+        ]
+      }
+    },
+    "children": [
+      {
+        "attributes": {
+          "literals": [
+            "solidity",
+            "^",
+            "0.4",
+            ".17"
+          ]
+        },
+        "id": 139,
+        "name": "PragmaDirective",
+        "src": "0:24:2"
+      },
+      {
+        "attributes": {
+          "baseContracts": [
+            null
+          ],
+          "contractDependencies": [
+            null
+          ],
+          "contractKind": "interface",
+          "documentation": "@title Interface for contracts conforming to ERC-165: Pseudo-Introspection, or standard interface detection\n @author Mish Ochu",
+          "fullyImplemented": false,
+          "linearizedBaseContracts": [
+            147
+          ],
+          "name": "ERC165",
+          "scope": 148
+        },
+        "children": [
+          {
+            "attributes": {
+              "body": null,
+              "constant": true,
+              "implemented": false,
+              "isConstructor": false,
+              "modifiers": [
+                null
+              ],
+              "name": "supportsInterface",
+              "payable": false,
+              "scope": 147,
+              "stateMutability": "view",
+              "superFunction": null,
+              "visibility": "external"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "interfaceID",
+                      "scope": 146,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "bytes4",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "bytes4",
+                          "type": "bytes4"
+                        },
+                        "id": 140,
+                        "name": "ElementaryTypeName",
+                        "src": "255:6:2"
+                      }
+                    ],
+                    "id": 141,
+                    "name": "VariableDeclaration",
+                    "src": "255:18:2"
+                  }
+                ],
+                "id": 142,
+                "name": "ParameterList",
+                "src": "254:20:2"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "",
+                      "scope": 146,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "bool",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "bool",
+                          "type": "bool"
+                        },
+                        "id": 143,
+                        "name": "ElementaryTypeName",
+                        "src": "302:4:2"
+                      }
+                    ],
+                    "id": 144,
+                    "name": "VariableDeclaration",
+                    "src": "302:4:2"
+                  }
+                ],
+                "id": 145,
+                "name": "ParameterList",
+                "src": "301:6:2"
+              }
+            ],
+            "id": 146,
+            "name": "FunctionDefinition",
+            "src": "228:80:2"
+          }
+        ],
+        "id": 147,
+        "name": "ContractDefinition",
+        "src": "160:150:2"
+      }
+    ],
+    "id": 148,
+    "name": "SourceUnit",
+    "src": "0:312:2"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.4.18+commit.9cf6e910.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "1.0.1",
+  "updatedAt": "2018-01-15T07:06:03.252Z"
+}

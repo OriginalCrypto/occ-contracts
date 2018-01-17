@@ -60,5 +60,3 @@ typings/
 # Vim swp files
 *.swp
 
-# Truffle build directory
-build/
