@@ -11,9 +11,9 @@ let   originalToken,
       cofounders;
 
 contract('OriginalToken', function (accounts) {
-    founder = accounts[0];
-    airdropCampaign = accounts[1];
-    cofounders = accounts.slice(2);
+founder = accounts[0];
+airdropCampaign = accounts[1];
+cofounders = accounts.slice(2);
 
 
   // TODO: revisit after implementing initial cofounder distribution
@@ -53,5 +53,21 @@ contract('OriginalToken', function (accounts) {
                 .every(function (distribution) { return distribution.toNumber() == 2; }));
           });
       });
+  });
+
+  it('sets name, symbol, decimals and airdrop address correctly', async function () {
+    originalToken = await OriginalToken.new(cofounders, airdropCampaign, 2000, tokenName, tokenSymbol, 2, 2, { from: founder });
+
+    const name = await originalToken.name.call();
+    assert.strictEqual(name, 'Original Crypto Coin');
+
+    const symbol = await originalToken.symbol.call();
+    assert.strictEqual(symbol, 'OCC');
+
+    const decimals = await originalToken.decimals.call();
+    assert.equal(decimals.toNumber(), 2);
+
+    const airdropCampaignAddress = await originalToken.airdropCampaign.call();
+    assert.equal(airdropCampaignAddress, airdropCampaign);
   });
 });
