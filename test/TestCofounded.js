@@ -1,10 +1,11 @@
-var Cofounded = artifacts.require('Cofounded');
-
+const Cofounded = artifacts.require('Cofounded');
 contract('Cofounded', function (accounts) {
+  let cofounders = accounts.slice(1),
+      founder    = accounts[0];
+
   it('can be created with multiple cofounders', function () {
-    var cofounders = accounts.slice(1),
-        founder    = accounts[0],
-        cofounded;
+    let  cofounded;
+
     return Cofounded
       .new(cofounders, { from: founder})
       .then(function (instance) {
@@ -15,7 +16,8 @@ contract('Cofounded', function (accounts) {
         assert.ok(recordedCofounders.indexOf(founder) > -1, 'founder was not included in recorded cofounders');
         assert.equal(accounts.length, recordedCofounders.length, 'too few cofounders added to contract');
         cofounders.forEach(function(cofounder){
-          assert.ok(recordedCofounders.indexOf(cofounder) > -1, 'cofounder ' + cofounder + ' was not included in recorded cofounders');
+          assert.ok(recordedCofounders.indexOf(cofounder) > -1,
+            'cofounder ' + cofounder + ' was not included in recorded cofounders');
         });
       });
   }); 
@@ -45,5 +47,32 @@ contract('Cofounded', function (accounts) {
       });
   });
 
+  it('returns a list of cofounders with the correct number of cofounders', function () {
+    return Cofounded 
+      .new(cofounders, { from: founder })
+      .then(function (instance) {
+        let expectedCofounders = cofounders.concat([founder]);
+        instance
+          .getCofounders
+          .call()
+          .then(function (recordedCofounders) {
+            assert.strictEqual(recordedCofounders.length, expectedCofounders.length);
+          });
+      });
+  });
+
+  it('returns the correct number of cofounders', function () {
+    return Cofounded 
+      .new(cofounders, { from: founder })
+      .then(function (instance) {
+        let expectedCofounders = cofounders.concat([founder]);
+        instance
+          .getCofounderCount
+          .call()
+          .then(function (recordedNumberOfCofounders) {
+            assert.strictEqual(recordedNumberOfCofounders, expectedCofounders.length);
+          });
+      });
+  });
   
 });
