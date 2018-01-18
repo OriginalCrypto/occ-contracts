@@ -81,7 +81,7 @@ contract OriginalToken is Cofounded, ERC20, ERC165 {
       initialSupply -= cofounderDistribution;
       // there should be some left over for the airdrop campaign
       // otherwise don't create this contract
-      //require(initialSupply > cofounderDistribution);
+      require(initialSupply > cofounderDistribution);
       balances[cofounder] = cofounderDistribution;
     }
 

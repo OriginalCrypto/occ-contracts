@@ -62,16 +62,16 @@ contract('Cofounded', function (accounts) {
   });
 
   it('returns the correct number of cofounders', function () {
+    let expectedCofounders = cofounders.concat([founder]);
     return Cofounded 
       .new(cofounders, { from: founder })
       .then(function (instance) {
-        let expectedCofounders = cofounders.concat([founder]);
-        instance
+        return instance
           .getCofounderCount
-          .call()
-          .then(function (recordedNumberOfCofounders) {
-            assert.strictEqual(recordedNumberOfCofounders.toNumber(), expectedCofounders.length);
-          });
+          .call();
+      })
+      .then(function (recordedNumberOfCofounders) {
+        assert.equal(recordedNumberOfCofounders.toNumber(), expectedCofounders.length);
       });
   });
 });

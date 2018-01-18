@@ -26,31 +26,32 @@ contract('OriginalToken', function (accounts) {
       })
       .then(function (balance) {
         assert.equal(balance.toNumber(), cofounderDistribution);
-
       });
   });
 
-/*  it('should give each cofounder an equal distribution', function () {
+  it('should give each cofounder an equal distribution', function () {
     return OriginalToken
-      .new(cofounders, airdropCampaign, 20, tokenName, tokenSymbol, 0, 1, { from: founder })
+      .new(cofounders, airdropCampaign, 2000, tokenName, tokenSymbol, 2, 2, { from: founder })
       .then(function (instance) {
-        instance
+        originalToken = instance;
+        return instance
           .getCofounders
-          .call()
-          .then(function (recordedCofounders) {
-            let cofounderDistributions = [];
-            recordedCofounders
-              .forEach(function (recordedCofounder) {
-                instance
-                  .balanceOf(recordedCofounder)
-                  .then(function (balanceOfRecordedCofounder) {
-                    cofounderDistributions.push(balanceOfRecordedCofounder.toNumber());
-                  });
-              });
-            assert.ok(cofounderDistributions.every(function (distribution) { return distribution == 1; }));
+          .call();
+      })
+      .then(function (recordedCofounders) {
+        let distributionPromises = [];
+        recordedCofounders
+          .forEach(function (recordedCofounder) {
+            distributionPromises.push(originalToken.balanceOf(recordedCofounder));
           });
-      
-        });
+
+        Promise
+          .all(distributionPromises)
+          .then(function (balancesOfRecordedCofounders) {
+            assert.ok(
+              balancesOfRecordedCofounders
+                .every(function (distribution) { return distribution.toNumber() == 2; }));
+          });
+      });
   });
-  */
 });
