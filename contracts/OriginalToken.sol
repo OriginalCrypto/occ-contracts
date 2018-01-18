@@ -5,13 +5,13 @@ import './ERC20.sol';
 import './ERC165.sol';
 import './ApprovedAllowanceAgent.sol';
 
-// TODO: tackle funding special projects contracts
-
 /// @title an original cofounder based ERC-20 compliant token
 /// @author Mish Ochu
 /// @dev Ref: https://github.com/ethereum/EIPs/issues/721
 //http://solidity.readthedocs.io/en/develop/contracts.html#arguments-for-base-constructors
 contract OriginalToken is Cofounded, ERC20, ERC165 {
+    bool private hasExecutedCofounderDistribution;
+    address public airdropCampaign;
     struct Allowance {
       uint256 amount;
       bool    hasBeenPartiallyWithdrawn;
@@ -43,23 +43,49 @@ contract OriginalToken is Cofounded, ERC20, ERC165 {
   /// NOTE  passes tokenCofounders to base contract
   /// see   Cofounded
   function OriginalToken (address[15] tokenCofounders,
+                          address tokenAirdropCampaign,
                           uint256 tokenTotalSupply,
                           string tokenName,
                           string tokenSymbol,
-                          uint8 tokenDecimals) Cofounded(tokenCofounders) public {
+                          uint8 tokenDecimals,
+                          uint256 cofounderDistribution) Cofounded(tokenCofounders) public {
+    require(tokenAirdropCampaign != address(0));
+    require(tokenTotalSupply > 0);
+    require(tokenDecimals > 0);
+    require(cofounderDistribution > 0 && tokenTotalSupply > cofounderDistribution);
+
+    require(bytes(tokenName).length > 0);
+    require(bytes(tokenSymbol).length > 0);
+
+    airdropCampaign = tokenAirdropCampaign;
     totalSupply = tokenTotalSupply;
     name = tokenName;
     symbol = tokenSymbol;
     decimals = tokenDecimals;
-    
-    // TODO: figure out why these fail in migration
-    //require(tokenTotalSupply > 0);
-    //require(bytes(tokenName).length > 0);
-    //require(bytes(tokenSymbol).length > 0);
-    // TODO: divvy up initial token supply accross cofounders
+
+    // divvy up initial token supply accross cofounders
     // TODO: ensure each cofounder gets an equal base distribution
-    // TODO: ensure additional supply to cofounders with commensurate fiduciary activity to guarantee launch
-    balances[founder] = totalSupply;
+    distributeToCofounders(tokenTotalSupply, cofounderDistribution);
+  }
+
+  function distributeToCofounders (uint256 initialSupply, uint256 cofounderDistribution) private restricted {
+    require(!hasExecutedCofounderDistribution);
+
+    hasExecutedCofounderDistribution = true;
+
+    for (uint8 x = 0; x < cofounders.length; x++) {
+      address cofounder = cofounders[x];
+
+      if (cofounder == address(0)) continue;
+
+      initialSupply -= cofounderDistribution;
+      // there should be some left over for the airdrop campaign
+      // otherwise don't create this contract
+      //require(initialSupply > cofounderDistribution);
+      balances[cofounder] = cofounderDistribution;
+    }
+
+    balances[airdropCampaign] = initialSupply;
   }
 
   function transfer (address to, uint256 value) public returns (bool) {

@@ -56,7 +56,7 @@ contract('Cofounded', function (accounts) {
           .getCofounders
           .call()
           .then(function (recordedCofounders) {
-            assert.strictEqual(recordedCofounders.length, expectedCofounders.length);
+            assert.equal(recordedCofounders.length, expectedCofounders.length);
           });
       });
   });
@@ -70,9 +70,9 @@ contract('Cofounded', function (accounts) {
           .getCofounderCount
           .call()
           .then(function (recordedNumberOfCofounders) {
-            assert.strictEqual(recordedNumberOfCofounders, expectedCofounders.length);
+            assert.strictEqual(recordedNumberOfCofounders.toNumber(), expectedCofounders.length);
           });
       });
   });
-  
 });
+
