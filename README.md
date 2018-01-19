@@ -36,6 +36,10 @@ or alternatively you can run:
 ```
 which will run both a local development blockchain and the tests concurrently
 
+To run test coverage run the 'cover' npm script
+```
+ $ npm run cover
+```
 ---
 
 After a while, one tends to agree (almost wholeheartedly) with this [perspective](https://news.ycombinator.com/item?id=14691212) with regards to Solidity.

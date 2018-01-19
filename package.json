@@ -10,8 +10,8 @@
     "test": "concurrently --kill-others \"npm run truffle\" \"npm run unit\"",
     "mine": "echo 'This is my token. There are many like it, but this one is mine'",
     "truffle": "truffle dev",
-    "unit": "truffle test"
-
+    "unit": "truffle test",
+    "cover": "node_modules/.bin/solidity-coverage"
   },
   "repository": {
     "type": "git",
@@ -29,6 +29,7 @@
   "homepage": "https://github.com/OriginalCrypto/occ-contracts#readme",
   "devDependencies": {
     "concurrently": "^3.5.1",
+    "solidity-coverage": "^0.4.8",
     "truffle": "^4.0.4"
   }
 }
