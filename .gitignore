@@ -60,3 +60,6 @@ typings/
 # Vim swp files
 *.swp
 
+# Solidity Coverage files
+coverage/
+coverage.json
