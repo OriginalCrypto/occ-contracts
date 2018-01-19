@@ -26,13 +26,13 @@
   "sourceMap": "",
   "deployedSourceMap": "",
   "source": "pragma solidity ^0.4.17;\n\n/// @title Interface for contracts conforming to ERC-165: Pseudo-Introspection, or standard interface detection\n/// @author Mish Ochu\ninterface ERC165 {\n  /// @dev true iff the interface is supported\n  function supportsInterface(bytes4 interfaceID) external constant returns (bool);\n}\n\n",
-  "sourcePath": "/Users/mishochu/Source/occ-contracts/contracts/ERC165.sol",
+  "sourcePath": "/Users/mishochu/Source/occ/occ-contracts/contracts/ERC165.sol",
   "ast": {
     "attributes": {
-      "absolutePath": "/Users/mishochu/Source/occ-contracts/contracts/ERC165.sol",
+      "absolutePath": "/Users/mishochu/Source/occ/occ-contracts/contracts/ERC165.sol",
       "exportedSymbols": {
         "ERC165": [
-          147
+          269
         ]
       }
     },
@@ -46,9 +46,9 @@
             ".17"
           ]
         },
-        "id": 139,
+        "id": 261,
         "name": "PragmaDirective",
-        "src": "0:24:2"
+        "src": "0:24:3"
       },
       {
         "attributes": {
@@ -62,10 +62,10 @@
           "documentation": "@title Interface for contracts conforming to ERC-165: Pseudo-Introspection, or standard interface detection\n @author Mish Ochu",
           "fullyImplemented": false,
           "linearizedBaseContracts": [
-            147
+            269
           ],
           "name": "ERC165",
-          "scope": 148
+          "scope": 270
         },
         "children": [
           {
@@ -79,7 +79,7 @@
               ],
               "name": "supportsInterface",
               "payable": false,
-              "scope": 147,
+              "scope": 269,
               "stateMutability": "view",
               "superFunction": null,
               "visibility": "external"
@@ -91,7 +91,7 @@
                     "attributes": {
                       "constant": false,
                       "name": "interfaceID",
-                      "scope": 146,
+                      "scope": 268,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "bytes4",
@@ -104,19 +104,19 @@
                           "name": "bytes4",
                           "type": "bytes4"
                         },
-                        "id": 140,
+                        "id": 262,
                         "name": "ElementaryTypeName",
-                        "src": "255:6:2"
+                        "src": "255:6:3"
                       }
                     ],
-                    "id": 141,
+                    "id": 263,
                     "name": "VariableDeclaration",
-                    "src": "255:18:2"
+                    "src": "255:18:3"
                   }
                 ],
-                "id": 142,
+                "id": 264,
                 "name": "ParameterList",
-                "src": "254:20:2"
+                "src": "254:20:3"
               },
               {
                 "children": [
@@ -124,7 +124,7 @@
                     "attributes": {
                       "constant": false,
                       "name": "",
-                      "scope": 146,
+                      "scope": 268,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "bool",
@@ -137,34 +137,34 @@
                           "name": "bool",
                           "type": "bool"
                         },
-                        "id": 143,
+                        "id": 265,
                         "name": "ElementaryTypeName",
-                        "src": "302:4:2"
+                        "src": "302:4:3"
                       }
                     ],
-                    "id": 144,
+                    "id": 266,
                     "name": "VariableDeclaration",
-                    "src": "302:4:2"
+                    "src": "302:4:3"
                   }
                 ],
-                "id": 145,
+                "id": 267,
                 "name": "ParameterList",
-                "src": "301:6:2"
+                "src": "301:6:3"
               }
             ],
-            "id": 146,
+            "id": 268,
             "name": "FunctionDefinition",
-            "src": "228:80:2"
+            "src": "228:80:3"
           }
         ],
-        "id": 147,
+        "id": 269,
         "name": "ContractDefinition",
-        "src": "160:150:2"
+        "src": "160:150:3"
       }
     ],
-    "id": 148,
+    "id": 270,
     "name": "SourceUnit",
-    "src": "0:312:2"
+    "src": "0:312:3"
   },
   "compiler": {
     "name": "solc",
@@ -172,5 +172,5 @@
   },
   "networks": {},
   "schemaVersion": "1.0.1",
-  "updatedAt": "2018-01-17T19:46:47.957Z"
+  "updatedAt": "2018-01-19T17:32:50.818Z"
 }

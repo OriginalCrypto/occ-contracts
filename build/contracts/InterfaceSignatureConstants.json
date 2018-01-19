@@ -1,0 +1,1923 @@
+{
+  "contractName": "InterfaceSignatureConstants",
+  "abi": [],
+  "bytecode": "0x60606040523415600e57600080fd5b603580601b6000396000f3006060604052600080fd00a165627a7a7230582072d0dc70528cb704fc4ed0917c2df52d332e0f534e120bae8cec55ca7b4673860029",
+  "deployedBytecode": "0x6060604052600080fd00a165627a7a7230582072d0dc70528cb704fc4ed0917c2df52d332e0f534e120bae8cec55ca7b4673860029",
+  "sourceMap": "26:971:5:-;;;;;;;;;;;;;;;;;",
+  "deployedSourceMap": "26:971:5:-;;;;;",
+  "source": "pragma solidity ^0.4.17;\n\ncontract InterfaceSignatureConstants {\n  bytes4 constant InterfaceSignature_ERC165 =\n    bytes4(keccak256('supportsInterface(bytes4)'));\n\n  bytes4 constant InterfaceSignature_ERC20 =\n    bytes4(keccak256('totalSupply()')) ^\n    bytes4(keccak256('balanceOf(address)')) ^\n    bytes4(keccak256('transfer(address,uint256)')) ^\n    bytes4(keccak256('transferFrom(address,address,uint256)')) ^\n    bytes4(keccak256('approve(address,uint256)')) ^\n    bytes4(keccak256('allowance(address,address)'));\n\n  bytes4 constant InterfaceSignature_ERC20_PlusOptions = \n    bytes4(keccak256('name()')) ^\n    bytes4(keccak256('symbol()')) ^\n    bytes4(keccak256('decimals()')) ^\n    bytes4(keccak256('totalSupply()')) ^\n    bytes4(keccak256('balanceOf(address)')) ^\n    bytes4(keccak256('transfer(address,uint256)')) ^\n    bytes4(keccak256('transferFrom(address,address,uint256)')) ^\n    bytes4(keccak256('approve(address,uint256)')) ^\n    bytes4(keccak256('allowance(address,address)'));\n}\n",
+  "sourcePath": "/Users/mishochu/Source/occ/occ-contracts/contracts/InterfaceSignatureConstants.sol",
+  "ast": {
+    "attributes": {
+      "absolutePath": "/Users/mishochu/Source/occ/occ-contracts/contracts/InterfaceSignatureConstants.sol",
+      "exportedSymbols": {
+        "InterfaceSignatureConstants": [
+          435
+        ]
+      }
+    },
+    "children": [
+      {
+        "attributes": {
+          "literals": [
+            "solidity",
+            "^",
+            "0.4",
+            ".17"
+          ]
+        },
+        "id": 335,
+        "name": "PragmaDirective",
+        "src": "0:24:5"
+      },
+      {
+        "attributes": {
+          "baseContracts": [
+            null
+          ],
+          "contractDependencies": [
+            null
+          ],
+          "contractKind": "contract",
+          "documentation": null,
+          "fullyImplemented": true,
+          "linearizedBaseContracts": [
+            435
+          ],
+          "name": "InterfaceSignatureConstants",
+          "scope": 436
+        },
+        "children": [
+          {
+            "attributes": {
+              "constant": true,
+              "name": "InterfaceSignature_ERC165",
+              "scope": 435,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "bytes4",
+              "visibility": "internal"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "name": "bytes4",
+                  "type": "bytes4"
+                },
+                "id": 336,
+                "name": "ElementaryTypeName",
+                "src": "67:6:5"
+              },
+              {
+                "attributes": {
+                  "argumentTypes": null,
+                  "isConstant": false,
+                  "isLValue": false,
+                  "isPure": true,
+                  "isStructConstructorCall": false,
+                  "lValueRequested": false,
+                  "names": [
+                    null
+                  ],
+                  "type": "bytes4",
+                  "type_conversion": true
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bytes32",
+                          "typeString": "bytes32"
+                        }
+                      ],
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "lValueRequested": false,
+                      "type": "type(bytes4)",
+                      "value": "bytes4"
+                    },
+                    "id": 337,
+                    "name": "ElementaryTypeNameExpression",
+                    "src": "115:6:5"
+                  },
+                  {
+                    "attributes": {
+                      "argumentTypes": null,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "isStructConstructorCall": false,
+                      "lValueRequested": false,
+                      "names": [
+                        null
+                      ],
+                      "type": "bytes32",
+                      "type_conversion": false
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": [
+                            {
+                              "typeIdentifier": "t_stringliteral_01ffc9a7a5cef8baa21ed3c5c0d7e23accb804b619e9333b597f47a0d84076e2",
+                              "typeString": "literal_string \"supportsInterface(bytes4)\""
+                            }
+                          ],
+                          "overloadedDeclarations": [
+                            null
+                          ],
+                          "referencedDeclaration": 1120,
+                          "type": "function () pure returns (bytes32)",
+                          "value": "keccak256"
+                        },
+                        "id": 338,
+                        "name": "Identifier",
+                        "src": "122:9:5"
+                      },
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "hexvalue": "737570706f727473496e746572666163652862797465733429",
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "lValueRequested": false,
+                          "subdenomination": null,
+                          "token": "string",
+                          "type": "literal_string \"supportsInterface(bytes4)\"",
+                          "value": "supportsInterface(bytes4)"
+                        },
+                        "id": 339,
+                        "name": "Literal",
+                        "src": "132:27:5"
+                      }
+                    ],
+                    "id": 340,
+                    "name": "FunctionCall",
+                    "src": "122:38:5"
+                  }
+                ],
+                "id": 341,
+                "name": "FunctionCall",
+                "src": "115:46:5"
+              }
+            ],
+            "id": 342,
+            "name": "VariableDeclaration",
+            "src": "67:94:5"
+          },
+          {
+            "attributes": {
+              "constant": true,
+              "name": "InterfaceSignature_ERC20",
+              "scope": 435,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "bytes4",
+              "visibility": "internal"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "name": "bytes4",
+                  "type": "bytes4"
+                },
+                "id": 343,
+                "name": "ElementaryTypeName",
+                "src": "166:6:5"
+              },
+              {
+                "attributes": {
+                  "argumentTypes": null,
+                  "commonType": {
+                    "typeIdentifier": "t_bytes4",
+                    "typeString": "bytes4"
+                  },
+                  "isConstant": false,
+                  "isLValue": false,
+                  "isPure": true,
+                  "lValueRequested": false,
+                  "operator": "^",
+                  "type": "bytes4"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "argumentTypes": null,
+                      "commonType": {
+                        "typeIdentifier": "t_bytes4",
+                        "typeString": "bytes4"
+                      },
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "lValueRequested": false,
+                      "operator": "^",
+                      "type": "bytes4"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "commonType": {
+                            "typeIdentifier": "t_bytes4",
+                            "typeString": "bytes4"
+                          },
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "lValueRequested": false,
+                          "operator": "^",
+                          "type": "bytes4"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "commonType": {
+                                "typeIdentifier": "t_bytes4",
+                                "typeString": "bytes4"
+                              },
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": true,
+                              "lValueRequested": false,
+                              "operator": "^",
+                              "type": "bytes4"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "commonType": {
+                                    "typeIdentifier": "t_bytes4",
+                                    "typeString": "bytes4"
+                                  },
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": true,
+                                  "lValueRequested": false,
+                                  "operator": "^",
+                                  "type": "bytes4"
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "isConstant": false,
+                                      "isLValue": false,
+                                      "isPure": true,
+                                      "isStructConstructorCall": false,
+                                      "lValueRequested": false,
+                                      "names": [
+                                        null
+                                      ],
+                                      "type": "bytes4",
+                                      "type_conversion": true
+                                    },
+                                    "children": [
+                                      {
+                                        "attributes": {
+                                          "argumentTypes": [
+                                            {
+                                              "typeIdentifier": "t_bytes32",
+                                              "typeString": "bytes32"
+                                            }
+                                          ],
+                                          "isConstant": false,
+                                          "isLValue": false,
+                                          "isPure": true,
+                                          "lValueRequested": false,
+                                          "type": "type(bytes4)",
+                                          "value": "bytes4"
+                                        },
+                                        "id": 344,
+                                        "name": "ElementaryTypeNameExpression",
+                                        "src": "213:6:5"
+                                      },
+                                      {
+                                        "attributes": {
+                                          "argumentTypes": null,
+                                          "isConstant": false,
+                                          "isLValue": false,
+                                          "isPure": true,
+                                          "isStructConstructorCall": false,
+                                          "lValueRequested": false,
+                                          "names": [
+                                            null
+                                          ],
+                                          "type": "bytes32",
+                                          "type_conversion": false
+                                        },
+                                        "children": [
+                                          {
+                                            "attributes": {
+                                              "argumentTypes": [
+                                                {
+                                                  "typeIdentifier": "t_stringliteral_18160ddd7f15c72528c2f94fd8dfe3c8d5aa26e2c50c7d81f4bc7bee8d4b7932",
+                                                  "typeString": "literal_string \"totalSupply()\""
+                                                }
+                                              ],
+                                              "overloadedDeclarations": [
+                                                null
+                                              ],
+                                              "referencedDeclaration": 1120,
+                                              "type": "function () pure returns (bytes32)",
+                                              "value": "keccak256"
+                                            },
+                                            "id": 345,
+                                            "name": "Identifier",
+                                            "src": "220:9:5"
+                                          },
+                                          {
+                                            "attributes": {
+                                              "argumentTypes": null,
+                                              "hexvalue": "746f74616c537570706c792829",
+                                              "isConstant": false,
+                                              "isLValue": false,
+                                              "isPure": true,
+                                              "lValueRequested": false,
+                                              "subdenomination": null,
+                                              "token": "string",
+                                              "type": "literal_string \"totalSupply()\"",
+                                              "value": "totalSupply()"
+                                            },
+                                            "id": 346,
+                                            "name": "Literal",
+                                            "src": "230:15:5"
+                                          }
+                                        ],
+                                        "id": 347,
+                                        "name": "FunctionCall",
+                                        "src": "220:26:5"
+                                      }
+                                    ],
+                                    "id": 348,
+                                    "name": "FunctionCall",
+                                    "src": "213:34:5"
+                                  },
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "isConstant": false,
+                                      "isLValue": false,
+                                      "isPure": true,
+                                      "isStructConstructorCall": false,
+                                      "lValueRequested": false,
+                                      "names": [
+                                        null
+                                      ],
+                                      "type": "bytes4",
+                                      "type_conversion": true
+                                    },
+                                    "children": [
+                                      {
+                                        "attributes": {
+                                          "argumentTypes": [
+                                            {
+                                              "typeIdentifier": "t_bytes32",
+                                              "typeString": "bytes32"
+                                            }
+                                          ],
+                                          "isConstant": false,
+                                          "isLValue": false,
+                                          "isPure": true,
+                                          "lValueRequested": false,
+                                          "type": "type(bytes4)",
+                                          "value": "bytes4"
+                                        },
+                                        "id": 349,
+                                        "name": "ElementaryTypeNameExpression",
+                                        "src": "254:6:5"
+                                      },
+                                      {
+                                        "attributes": {
+                                          "argumentTypes": null,
+                                          "isConstant": false,
+                                          "isLValue": false,
+                                          "isPure": true,
+                                          "isStructConstructorCall": false,
+                                          "lValueRequested": false,
+                                          "names": [
+                                            null
+                                          ],
+                                          "type": "bytes32",
+                                          "type_conversion": false
+                                        },
+                                        "children": [
+                                          {
+                                            "attributes": {
+                                              "argumentTypes": [
+                                                {
+                                                  "typeIdentifier": "t_stringliteral_70a08231b98ef4ca268c9cc3f6b4590e4bfec28280db06bb5d45e689f2a360be",
+                                                  "typeString": "literal_string \"balanceOf(address)\""
+                                                }
+                                              ],
+                                              "overloadedDeclarations": [
+                                                null
+                                              ],
+                                              "referencedDeclaration": 1120,
+                                              "type": "function () pure returns (bytes32)",
+                                              "value": "keccak256"
+                                            },
+                                            "id": 350,
+                                            "name": "Identifier",
+                                            "src": "261:9:5"
+                                          },
+                                          {
+                                            "attributes": {
+                                              "argumentTypes": null,
+                                              "hexvalue": "62616c616e63654f66286164647265737329",
+                                              "isConstant": false,
+                                              "isLValue": false,
+                                              "isPure": true,
+                                              "lValueRequested": false,
+                                              "subdenomination": null,
+                                              "token": "string",
+                                              "type": "literal_string \"balanceOf(address)\"",
+                                              "value": "balanceOf(address)"
+                                            },
+                                            "id": 351,
+                                            "name": "Literal",
+                                            "src": "271:20:5"
+                                          }
+                                        ],
+                                        "id": 352,
+                                        "name": "FunctionCall",
+                                        "src": "261:31:5"
+                                      }
+                                    ],
+                                    "id": 353,
+                                    "name": "FunctionCall",
+                                    "src": "254:39:5"
+                                  }
+                                ],
+                                "id": 354,
+                                "name": "BinaryOperation",
+                                "src": "213:80:5"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": true,
+                                  "isStructConstructorCall": false,
+                                  "lValueRequested": false,
+                                  "names": [
+                                    null
+                                  ],
+                                  "type": "bytes4",
+                                  "type_conversion": true
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": [
+                                        {
+                                          "typeIdentifier": "t_bytes32",
+                                          "typeString": "bytes32"
+                                        }
+                                      ],
+                                      "isConstant": false,
+                                      "isLValue": false,
+                                      "isPure": true,
+                                      "lValueRequested": false,
+                                      "type": "type(bytes4)",
+                                      "value": "bytes4"
+                                    },
+                                    "id": 355,
+                                    "name": "ElementaryTypeNameExpression",
+                                    "src": "300:6:5"
+                                  },
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "isConstant": false,
+                                      "isLValue": false,
+                                      "isPure": true,
+                                      "isStructConstructorCall": false,
+                                      "lValueRequested": false,
+                                      "names": [
+                                        null
+                                      ],
+                                      "type": "bytes32",
+                                      "type_conversion": false
+                                    },
+                                    "children": [
+                                      {
+                                        "attributes": {
+                                          "argumentTypes": [
+                                            {
+                                              "typeIdentifier": "t_stringliteral_a9059cbb2ab09eb219583f4a59a5d0623ade346d962bcd4e46b11da047c9049b",
+                                              "typeString": "literal_string \"transfer(address,uint256)\""
+                                            }
+                                          ],
+                                          "overloadedDeclarations": [
+                                            null
+                                          ],
+                                          "referencedDeclaration": 1120,
+                                          "type": "function () pure returns (bytes32)",
+                                          "value": "keccak256"
+                                        },
+                                        "id": 356,
+                                        "name": "Identifier",
+                                        "src": "307:9:5"
+                                      },
+                                      {
+                                        "attributes": {
+                                          "argumentTypes": null,
+                                          "hexvalue": "7472616e7366657228616464726573732c75696e7432353629",
+                                          "isConstant": false,
+                                          "isLValue": false,
+                                          "isPure": true,
+                                          "lValueRequested": false,
+                                          "subdenomination": null,
+                                          "token": "string",
+                                          "type": "literal_string \"transfer(address,uint256)\"",
+                                          "value": "transfer(address,uint256)"
+                                        },
+                                        "id": 357,
+                                        "name": "Literal",
+                                        "src": "317:27:5"
+                                      }
+                                    ],
+                                    "id": 358,
+                                    "name": "FunctionCall",
+                                    "src": "307:38:5"
+                                  }
+                                ],
+                                "id": 359,
+                                "name": "FunctionCall",
+                                "src": "300:46:5"
+                              }
+                            ],
+                            "id": 360,
+                            "name": "BinaryOperation",
+                            "src": "213:133:5"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": true,
+                              "isStructConstructorCall": false,
+                              "lValueRequested": false,
+                              "names": [
+                                null
+                              ],
+                              "type": "bytes4",
+                              "type_conversion": true
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": [
+                                    {
+                                      "typeIdentifier": "t_bytes32",
+                                      "typeString": "bytes32"
+                                    }
+                                  ],
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": true,
+                                  "lValueRequested": false,
+                                  "type": "type(bytes4)",
+                                  "value": "bytes4"
+                                },
+                                "id": 361,
+                                "name": "ElementaryTypeNameExpression",
+                                "src": "353:6:5"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": true,
+                                  "isStructConstructorCall": false,
+                                  "lValueRequested": false,
+                                  "names": [
+                                    null
+                                  ],
+                                  "type": "bytes32",
+                                  "type_conversion": false
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": [
+                                        {
+                                          "typeIdentifier": "t_stringliteral_23b872dd7302113369cda2901243429419bec145408fa8b352b3dd92b66c680b",
+                                          "typeString": "literal_string \"transferFrom(address,address,uint256)\""
+                                        }
+                                      ],
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 1120,
+                                      "type": "function () pure returns (bytes32)",
+                                      "value": "keccak256"
+                                    },
+                                    "id": 362,
+                                    "name": "Identifier",
+                                    "src": "360:9:5"
+                                  },
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "hexvalue": "7472616e7366657246726f6d28616464726573732c616464726573732c75696e7432353629",
+                                      "isConstant": false,
+                                      "isLValue": false,
+                                      "isPure": true,
+                                      "lValueRequested": false,
+                                      "subdenomination": null,
+                                      "token": "string",
+                                      "type": "literal_string \"transferFrom(address,address,uint256)\"",
+                                      "value": "transferFrom(address,address,uint256)"
+                                    },
+                                    "id": 363,
+                                    "name": "Literal",
+                                    "src": "370:39:5"
+                                  }
+                                ],
+                                "id": 364,
+                                "name": "FunctionCall",
+                                "src": "360:50:5"
+                              }
+                            ],
+                            "id": 365,
+                            "name": "FunctionCall",
+                            "src": "353:58:5"
+                          }
+                        ],
+                        "id": 366,
+                        "name": "BinaryOperation",
+                        "src": "213:198:5"
+                      },
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "type": "bytes4",
+                          "type_conversion": true
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_bytes32",
+                                  "typeString": "bytes32"
+                                }
+                              ],
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": true,
+                              "lValueRequested": false,
+                              "type": "type(bytes4)",
+                              "value": "bytes4"
+                            },
+                            "id": 367,
+                            "name": "ElementaryTypeNameExpression",
+                            "src": "418:6:5"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": true,
+                              "isStructConstructorCall": false,
+                              "lValueRequested": false,
+                              "names": [
+                                null
+                              ],
+                              "type": "bytes32",
+                              "type_conversion": false
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": [
+                                    {
+                                      "typeIdentifier": "t_stringliteral_095ea7b334ae44009aa867bfb386f5c3b4b443ac6f0ee573fa91c4608fbadfba",
+                                      "typeString": "literal_string \"approve(address,uint256)\""
+                                    }
+                                  ],
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 1120,
+                                  "type": "function () pure returns (bytes32)",
+                                  "value": "keccak256"
+                                },
+                                "id": 368,
+                                "name": "Identifier",
+                                "src": "425:9:5"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "hexvalue": "617070726f766528616464726573732c75696e7432353629",
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": true,
+                                  "lValueRequested": false,
+                                  "subdenomination": null,
+                                  "token": "string",
+                                  "type": "literal_string \"approve(address,uint256)\"",
+                                  "value": "approve(address,uint256)"
+                                },
+                                "id": 369,
+                                "name": "Literal",
+                                "src": "435:26:5"
+                              }
+                            ],
+                            "id": 370,
+                            "name": "FunctionCall",
+                            "src": "425:37:5"
+                          }
+                        ],
+                        "id": 371,
+                        "name": "FunctionCall",
+                        "src": "418:45:5"
+                      }
+                    ],
+                    "id": 372,
+                    "name": "BinaryOperation",
+                    "src": "213:250:5"
+                  },
+                  {
+                    "attributes": {
+                      "argumentTypes": null,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "isStructConstructorCall": false,
+                      "lValueRequested": false,
+                      "names": [
+                        null
+                      ],
+                      "type": "bytes4",
+                      "type_conversion": true
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": [
+                            {
+                              "typeIdentifier": "t_bytes32",
+                              "typeString": "bytes32"
+                            }
+                          ],
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "lValueRequested": false,
+                          "type": "type(bytes4)",
+                          "value": "bytes4"
+                        },
+                        "id": 373,
+                        "name": "ElementaryTypeNameExpression",
+                        "src": "470:6:5"
+                      },
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "type": "bytes32",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_stringliteral_dd62ed3e90e97b3d417db9c0c7522647811bafca5afc6694f143588d255fdfb4",
+                                  "typeString": "literal_string \"allowance(address,address)\""
+                                }
+                              ],
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 1120,
+                              "type": "function () pure returns (bytes32)",
+                              "value": "keccak256"
+                            },
+                            "id": 374,
+                            "name": "Identifier",
+                            "src": "477:9:5"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "hexvalue": "616c6c6f77616e636528616464726573732c6164647265737329",
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": true,
+                              "lValueRequested": false,
+                              "subdenomination": null,
+                              "token": "string",
+                              "type": "literal_string \"allowance(address,address)\"",
+                              "value": "allowance(address,address)"
+                            },
+                            "id": 375,
+                            "name": "Literal",
+                            "src": "487:28:5"
+                          }
+                        ],
+                        "id": 376,
+                        "name": "FunctionCall",
+                        "src": "477:39:5"
+                      }
+                    ],
+                    "id": 377,
+                    "name": "FunctionCall",
+                    "src": "470:47:5"
+                  }
+                ],
+                "id": 378,
+                "name": "BinaryOperation",
+                "src": "213:304:5"
+              }
+            ],
+            "id": 379,
+            "name": "VariableDeclaration",
+            "src": "166:351:5"
+          },
+          {
+            "attributes": {
+              "constant": true,
+              "name": "InterfaceSignature_ERC20_PlusOptions",
+              "scope": 435,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "bytes4",
+              "visibility": "internal"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "name": "bytes4",
+                  "type": "bytes4"
+                },
+                "id": 380,
+                "name": "ElementaryTypeName",
+                "src": "522:6:5"
+              },
+              {
+                "attributes": {
+                  "argumentTypes": null,
+                  "commonType": {
+                    "typeIdentifier": "t_bytes4",
+                    "typeString": "bytes4"
+                  },
+                  "isConstant": false,
+                  "isLValue": false,
+                  "isPure": true,
+                  "lValueRequested": false,
+                  "operator": "^",
+                  "type": "bytes4"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "argumentTypes": null,
+                      "commonType": {
+                        "typeIdentifier": "t_bytes4",
+                        "typeString": "bytes4"
+                      },
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "lValueRequested": false,
+                      "operator": "^",
+                      "type": "bytes4"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "commonType": {
+                            "typeIdentifier": "t_bytes4",
+                            "typeString": "bytes4"
+                          },
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "lValueRequested": false,
+                          "operator": "^",
+                          "type": "bytes4"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "commonType": {
+                                "typeIdentifier": "t_bytes4",
+                                "typeString": "bytes4"
+                              },
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": true,
+                              "lValueRequested": false,
+                              "operator": "^",
+                              "type": "bytes4"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "commonType": {
+                                    "typeIdentifier": "t_bytes4",
+                                    "typeString": "bytes4"
+                                  },
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": true,
+                                  "lValueRequested": false,
+                                  "operator": "^",
+                                  "type": "bytes4"
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "commonType": {
+                                        "typeIdentifier": "t_bytes4",
+                                        "typeString": "bytes4"
+                                      },
+                                      "isConstant": false,
+                                      "isLValue": false,
+                                      "isPure": true,
+                                      "lValueRequested": false,
+                                      "operator": "^",
+                                      "type": "bytes4"
+                                    },
+                                    "children": [
+                                      {
+                                        "attributes": {
+                                          "argumentTypes": null,
+                                          "commonType": {
+                                            "typeIdentifier": "t_bytes4",
+                                            "typeString": "bytes4"
+                                          },
+                                          "isConstant": false,
+                                          "isLValue": false,
+                                          "isPure": true,
+                                          "lValueRequested": false,
+                                          "operator": "^",
+                                          "type": "bytes4"
+                                        },
+                                        "children": [
+                                          {
+                                            "attributes": {
+                                              "argumentTypes": null,
+                                              "commonType": {
+                                                "typeIdentifier": "t_bytes4",
+                                                "typeString": "bytes4"
+                                              },
+                                              "isConstant": false,
+                                              "isLValue": false,
+                                              "isPure": true,
+                                              "lValueRequested": false,
+                                              "operator": "^",
+                                              "type": "bytes4"
+                                            },
+                                            "children": [
+                                              {
+                                                "attributes": {
+                                                  "argumentTypes": null,
+                                                  "isConstant": false,
+                                                  "isLValue": false,
+                                                  "isPure": true,
+                                                  "isStructConstructorCall": false,
+                                                  "lValueRequested": false,
+                                                  "names": [
+                                                    null
+                                                  ],
+                                                  "type": "bytes4",
+                                                  "type_conversion": true
+                                                },
+                                                "children": [
+                                                  {
+                                                    "attributes": {
+                                                      "argumentTypes": [
+                                                        {
+                                                          "typeIdentifier": "t_bytes32",
+                                                          "typeString": "bytes32"
+                                                        }
+                                                      ],
+                                                      "isConstant": false,
+                                                      "isLValue": false,
+                                                      "isPure": true,
+                                                      "lValueRequested": false,
+                                                      "type": "type(bytes4)",
+                                                      "value": "bytes4"
+                                                    },
+                                                    "id": 381,
+                                                    "name": "ElementaryTypeNameExpression",
+                                                    "src": "582:6:5"
+                                                  },
+                                                  {
+                                                    "attributes": {
+                                                      "argumentTypes": null,
+                                                      "isConstant": false,
+                                                      "isLValue": false,
+                                                      "isPure": true,
+                                                      "isStructConstructorCall": false,
+                                                      "lValueRequested": false,
+                                                      "names": [
+                                                        null
+                                                      ],
+                                                      "type": "bytes32",
+                                                      "type_conversion": false
+                                                    },
+                                                    "children": [
+                                                      {
+                                                        "attributes": {
+                                                          "argumentTypes": [
+                                                            {
+                                                              "typeIdentifier": "t_stringliteral_06fdde0383f15d582d1a74511486c9ddf862a882fb7904b3d9fe9b8b8e58a796",
+                                                              "typeString": "literal_string \"name()\""
+                                                            }
+                                                          ],
+                                                          "overloadedDeclarations": [
+                                                            null
+                                                          ],
+                                                          "referencedDeclaration": 1120,
+                                                          "type": "function () pure returns (bytes32)",
+                                                          "value": "keccak256"
+                                                        },
+                                                        "id": 382,
+                                                        "name": "Identifier",
+                                                        "src": "589:9:5"
+                                                      },
+                                                      {
+                                                        "attributes": {
+                                                          "argumentTypes": null,
+                                                          "hexvalue": "6e616d652829",
+                                                          "isConstant": false,
+                                                          "isLValue": false,
+                                                          "isPure": true,
+                                                          "lValueRequested": false,
+                                                          "subdenomination": null,
+                                                          "token": "string",
+                                                          "type": "literal_string \"name()\"",
+                                                          "value": "name()"
+                                                        },
+                                                        "id": 383,
+                                                        "name": "Literal",
+                                                        "src": "599:8:5"
+                                                      }
+                                                    ],
+                                                    "id": 384,
+                                                    "name": "FunctionCall",
+                                                    "src": "589:19:5"
+                                                  }
+                                                ],
+                                                "id": 385,
+                                                "name": "FunctionCall",
+                                                "src": "582:27:5"
+                                              },
+                                              {
+                                                "attributes": {
+                                                  "argumentTypes": null,
+                                                  "isConstant": false,
+                                                  "isLValue": false,
+                                                  "isPure": true,
+                                                  "isStructConstructorCall": false,
+                                                  "lValueRequested": false,
+                                                  "names": [
+                                                    null
+                                                  ],
+                                                  "type": "bytes4",
+                                                  "type_conversion": true
+                                                },
+                                                "children": [
+                                                  {
+                                                    "attributes": {
+                                                      "argumentTypes": [
+                                                        {
+                                                          "typeIdentifier": "t_bytes32",
+                                                          "typeString": "bytes32"
+                                                        }
+                                                      ],
+                                                      "isConstant": false,
+                                                      "isLValue": false,
+                                                      "isPure": true,
+                                                      "lValueRequested": false,
+                                                      "type": "type(bytes4)",
+                                                      "value": "bytes4"
+                                                    },
+                                                    "id": 386,
+                                                    "name": "ElementaryTypeNameExpression",
+                                                    "src": "616:6:5"
+                                                  },
+                                                  {
+                                                    "attributes": {
+                                                      "argumentTypes": null,
+                                                      "isConstant": false,
+                                                      "isLValue": false,
+                                                      "isPure": true,
+                                                      "isStructConstructorCall": false,
+                                                      "lValueRequested": false,
+                                                      "names": [
+                                                        null
+                                                      ],
+                                                      "type": "bytes32",
+                                                      "type_conversion": false
+                                                    },
+                                                    "children": [
+                                                      {
+                                                        "attributes": {
+                                                          "argumentTypes": [
+                                                            {
+                                                              "typeIdentifier": "t_stringliteral_95d89b41e2f5f391a79ec54e9d87c79d6e777c63e32c28da95b4e9e4a79250ec",
+                                                              "typeString": "literal_string \"symbol()\""
+                                                            }
+                                                          ],
+                                                          "overloadedDeclarations": [
+                                                            null
+                                                          ],
+                                                          "referencedDeclaration": 1120,
+                                                          "type": "function () pure returns (bytes32)",
+                                                          "value": "keccak256"
+                                                        },
+                                                        "id": 387,
+                                                        "name": "Identifier",
+                                                        "src": "623:9:5"
+                                                      },
+                                                      {
+                                                        "attributes": {
+                                                          "argumentTypes": null,
+                                                          "hexvalue": "73796d626f6c2829",
+                                                          "isConstant": false,
+                                                          "isLValue": false,
+                                                          "isPure": true,
+                                                          "lValueRequested": false,
+                                                          "subdenomination": null,
+                                                          "token": "string",
+                                                          "type": "literal_string \"symbol()\"",
+                                                          "value": "symbol()"
+                                                        },
+                                                        "id": 388,
+                                                        "name": "Literal",
+                                                        "src": "633:10:5"
+                                                      }
+                                                    ],
+                                                    "id": 389,
+                                                    "name": "FunctionCall",
+                                                    "src": "623:21:5"
+                                                  }
+                                                ],
+                                                "id": 390,
+                                                "name": "FunctionCall",
+                                                "src": "616:29:5"
+                                              }
+                                            ],
+                                            "id": 391,
+                                            "name": "BinaryOperation",
+                                            "src": "582:63:5"
+                                          },
+                                          {
+                                            "attributes": {
+                                              "argumentTypes": null,
+                                              "isConstant": false,
+                                              "isLValue": false,
+                                              "isPure": true,
+                                              "isStructConstructorCall": false,
+                                              "lValueRequested": false,
+                                              "names": [
+                                                null
+                                              ],
+                                              "type": "bytes4",
+                                              "type_conversion": true
+                                            },
+                                            "children": [
+                                              {
+                                                "attributes": {
+                                                  "argumentTypes": [
+                                                    {
+                                                      "typeIdentifier": "t_bytes32",
+                                                      "typeString": "bytes32"
+                                                    }
+                                                  ],
+                                                  "isConstant": false,
+                                                  "isLValue": false,
+                                                  "isPure": true,
+                                                  "lValueRequested": false,
+                                                  "type": "type(bytes4)",
+                                                  "value": "bytes4"
+                                                },
+                                                "id": 392,
+                                                "name": "ElementaryTypeNameExpression",
+                                                "src": "652:6:5"
+                                              },
+                                              {
+                                                "attributes": {
+                                                  "argumentTypes": null,
+                                                  "isConstant": false,
+                                                  "isLValue": false,
+                                                  "isPure": true,
+                                                  "isStructConstructorCall": false,
+                                                  "lValueRequested": false,
+                                                  "names": [
+                                                    null
+                                                  ],
+                                                  "type": "bytes32",
+                                                  "type_conversion": false
+                                                },
+                                                "children": [
+                                                  {
+                                                    "attributes": {
+                                                      "argumentTypes": [
+                                                        {
+                                                          "typeIdentifier": "t_stringliteral_313ce567add4d438edf58b94ff345d7d38c45b17dfc0f947988d7819dca364f9",
+                                                          "typeString": "literal_string \"decimals()\""
+                                                        }
+                                                      ],
+                                                      "overloadedDeclarations": [
+                                                        null
+                                                      ],
+                                                      "referencedDeclaration": 1120,
+                                                      "type": "function () pure returns (bytes32)",
+                                                      "value": "keccak256"
+                                                    },
+                                                    "id": 393,
+                                                    "name": "Identifier",
+                                                    "src": "659:9:5"
+                                                  },
+                                                  {
+                                                    "attributes": {
+                                                      "argumentTypes": null,
+                                                      "hexvalue": "646563696d616c732829",
+                                                      "isConstant": false,
+                                                      "isLValue": false,
+                                                      "isPure": true,
+                                                      "lValueRequested": false,
+                                                      "subdenomination": null,
+                                                      "token": "string",
+                                                      "type": "literal_string \"decimals()\"",
+                                                      "value": "decimals()"
+                                                    },
+                                                    "id": 394,
+                                                    "name": "Literal",
+                                                    "src": "669:12:5"
+                                                  }
+                                                ],
+                                                "id": 395,
+                                                "name": "FunctionCall",
+                                                "src": "659:23:5"
+                                              }
+                                            ],
+                                            "id": 396,
+                                            "name": "FunctionCall",
+                                            "src": "652:31:5"
+                                          }
+                                        ],
+                                        "id": 397,
+                                        "name": "BinaryOperation",
+                                        "src": "582:101:5"
+                                      },
+                                      {
+                                        "attributes": {
+                                          "argumentTypes": null,
+                                          "isConstant": false,
+                                          "isLValue": false,
+                                          "isPure": true,
+                                          "isStructConstructorCall": false,
+                                          "lValueRequested": false,
+                                          "names": [
+                                            null
+                                          ],
+                                          "type": "bytes4",
+                                          "type_conversion": true
+                                        },
+                                        "children": [
+                                          {
+                                            "attributes": {
+                                              "argumentTypes": [
+                                                {
+                                                  "typeIdentifier": "t_bytes32",
+                                                  "typeString": "bytes32"
+                                                }
+                                              ],
+                                              "isConstant": false,
+                                              "isLValue": false,
+                                              "isPure": true,
+                                              "lValueRequested": false,
+                                              "type": "type(bytes4)",
+                                              "value": "bytes4"
+                                            },
+                                            "id": 398,
+                                            "name": "ElementaryTypeNameExpression",
+                                            "src": "690:6:5"
+                                          },
+                                          {
+                                            "attributes": {
+                                              "argumentTypes": null,
+                                              "isConstant": false,
+                                              "isLValue": false,
+                                              "isPure": true,
+                                              "isStructConstructorCall": false,
+                                              "lValueRequested": false,
+                                              "names": [
+                                                null
+                                              ],
+                                              "type": "bytes32",
+                                              "type_conversion": false
+                                            },
+                                            "children": [
+                                              {
+                                                "attributes": {
+                                                  "argumentTypes": [
+                                                    {
+                                                      "typeIdentifier": "t_stringliteral_18160ddd7f15c72528c2f94fd8dfe3c8d5aa26e2c50c7d81f4bc7bee8d4b7932",
+                                                      "typeString": "literal_string \"totalSupply()\""
+                                                    }
+                                                  ],
+                                                  "overloadedDeclarations": [
+                                                    null
+                                                  ],
+                                                  "referencedDeclaration": 1120,
+                                                  "type": "function () pure returns (bytes32)",
+                                                  "value": "keccak256"
+                                                },
+                                                "id": 399,
+                                                "name": "Identifier",
+                                                "src": "697:9:5"
+                                              },
+                                              {
+                                                "attributes": {
+                                                  "argumentTypes": null,
+                                                  "hexvalue": "746f74616c537570706c792829",
+                                                  "isConstant": false,
+                                                  "isLValue": false,
+                                                  "isPure": true,
+                                                  "lValueRequested": false,
+                                                  "subdenomination": null,
+                                                  "token": "string",
+                                                  "type": "literal_string \"totalSupply()\"",
+                                                  "value": "totalSupply()"
+                                                },
+                                                "id": 400,
+                                                "name": "Literal",
+                                                "src": "707:15:5"
+                                              }
+                                            ],
+                                            "id": 401,
+                                            "name": "FunctionCall",
+                                            "src": "697:26:5"
+                                          }
+                                        ],
+                                        "id": 402,
+                                        "name": "FunctionCall",
+                                        "src": "690:34:5"
+                                      }
+                                    ],
+                                    "id": 403,
+                                    "name": "BinaryOperation",
+                                    "src": "582:142:5"
+                                  },
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "isConstant": false,
+                                      "isLValue": false,
+                                      "isPure": true,
+                                      "isStructConstructorCall": false,
+                                      "lValueRequested": false,
+                                      "names": [
+                                        null
+                                      ],
+                                      "type": "bytes4",
+                                      "type_conversion": true
+                                    },
+                                    "children": [
+                                      {
+                                        "attributes": {
+                                          "argumentTypes": [
+                                            {
+                                              "typeIdentifier": "t_bytes32",
+                                              "typeString": "bytes32"
+                                            }
+                                          ],
+                                          "isConstant": false,
+                                          "isLValue": false,
+                                          "isPure": true,
+                                          "lValueRequested": false,
+                                          "type": "type(bytes4)",
+                                          "value": "bytes4"
+                                        },
+                                        "id": 404,
+                                        "name": "ElementaryTypeNameExpression",
+                                        "src": "731:6:5"
+                                      },
+                                      {
+                                        "attributes": {
+                                          "argumentTypes": null,
+                                          "isConstant": false,
+                                          "isLValue": false,
+                                          "isPure": true,
+                                          "isStructConstructorCall": false,
+                                          "lValueRequested": false,
+                                          "names": [
+                                            null
+                                          ],
+                                          "type": "bytes32",
+                                          "type_conversion": false
+                                        },
+                                        "children": [
+                                          {
+                                            "attributes": {
+                                              "argumentTypes": [
+                                                {
+                                                  "typeIdentifier": "t_stringliteral_70a08231b98ef4ca268c9cc3f6b4590e4bfec28280db06bb5d45e689f2a360be",
+                                                  "typeString": "literal_string \"balanceOf(address)\""
+                                                }
+                                              ],
+                                              "overloadedDeclarations": [
+                                                null
+                                              ],
+                                              "referencedDeclaration": 1120,
+                                              "type": "function () pure returns (bytes32)",
+                                              "value": "keccak256"
+                                            },
+                                            "id": 405,
+                                            "name": "Identifier",
+                                            "src": "738:9:5"
+                                          },
+                                          {
+                                            "attributes": {
+                                              "argumentTypes": null,
+                                              "hexvalue": "62616c616e63654f66286164647265737329",
+                                              "isConstant": false,
+                                              "isLValue": false,
+                                              "isPure": true,
+                                              "lValueRequested": false,
+                                              "subdenomination": null,
+                                              "token": "string",
+                                              "type": "literal_string \"balanceOf(address)\"",
+                                              "value": "balanceOf(address)"
+                                            },
+                                            "id": 406,
+                                            "name": "Literal",
+                                            "src": "748:20:5"
+                                          }
+                                        ],
+                                        "id": 407,
+                                        "name": "FunctionCall",
+                                        "src": "738:31:5"
+                                      }
+                                    ],
+                                    "id": 408,
+                                    "name": "FunctionCall",
+                                    "src": "731:39:5"
+                                  }
+                                ],
+                                "id": 409,
+                                "name": "BinaryOperation",
+                                "src": "582:188:5"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": true,
+                                  "isStructConstructorCall": false,
+                                  "lValueRequested": false,
+                                  "names": [
+                                    null
+                                  ],
+                                  "type": "bytes4",
+                                  "type_conversion": true
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": [
+                                        {
+                                          "typeIdentifier": "t_bytes32",
+                                          "typeString": "bytes32"
+                                        }
+                                      ],
+                                      "isConstant": false,
+                                      "isLValue": false,
+                                      "isPure": true,
+                                      "lValueRequested": false,
+                                      "type": "type(bytes4)",
+                                      "value": "bytes4"
+                                    },
+                                    "id": 410,
+                                    "name": "ElementaryTypeNameExpression",
+                                    "src": "777:6:5"
+                                  },
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "isConstant": false,
+                                      "isLValue": false,
+                                      "isPure": true,
+                                      "isStructConstructorCall": false,
+                                      "lValueRequested": false,
+                                      "names": [
+                                        null
+                                      ],
+                                      "type": "bytes32",
+                                      "type_conversion": false
+                                    },
+                                    "children": [
+                                      {
+                                        "attributes": {
+                                          "argumentTypes": [
+                                            {
+                                              "typeIdentifier": "t_stringliteral_a9059cbb2ab09eb219583f4a59a5d0623ade346d962bcd4e46b11da047c9049b",
+                                              "typeString": "literal_string \"transfer(address,uint256)\""
+                                            }
+                                          ],
+                                          "overloadedDeclarations": [
+                                            null
+                                          ],
+                                          "referencedDeclaration": 1120,
+                                          "type": "function () pure returns (bytes32)",
+                                          "value": "keccak256"
+                                        },
+                                        "id": 411,
+                                        "name": "Identifier",
+                                        "src": "784:9:5"
+                                      },
+                                      {
+                                        "attributes": {
+                                          "argumentTypes": null,
+                                          "hexvalue": "7472616e7366657228616464726573732c75696e7432353629",
+                                          "isConstant": false,
+                                          "isLValue": false,
+                                          "isPure": true,
+                                          "lValueRequested": false,
+                                          "subdenomination": null,
+                                          "token": "string",
+                                          "type": "literal_string \"transfer(address,uint256)\"",
+                                          "value": "transfer(address,uint256)"
+                                        },
+                                        "id": 412,
+                                        "name": "Literal",
+                                        "src": "794:27:5"
+                                      }
+                                    ],
+                                    "id": 413,
+                                    "name": "FunctionCall",
+                                    "src": "784:38:5"
+                                  }
+                                ],
+                                "id": 414,
+                                "name": "FunctionCall",
+                                "src": "777:46:5"
+                              }
+                            ],
+                            "id": 415,
+                            "name": "BinaryOperation",
+                            "src": "582:241:5"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": true,
+                              "isStructConstructorCall": false,
+                              "lValueRequested": false,
+                              "names": [
+                                null
+                              ],
+                              "type": "bytes4",
+                              "type_conversion": true
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": [
+                                    {
+                                      "typeIdentifier": "t_bytes32",
+                                      "typeString": "bytes32"
+                                    }
+                                  ],
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": true,
+                                  "lValueRequested": false,
+                                  "type": "type(bytes4)",
+                                  "value": "bytes4"
+                                },
+                                "id": 416,
+                                "name": "ElementaryTypeNameExpression",
+                                "src": "830:6:5"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": true,
+                                  "isStructConstructorCall": false,
+                                  "lValueRequested": false,
+                                  "names": [
+                                    null
+                                  ],
+                                  "type": "bytes32",
+                                  "type_conversion": false
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": [
+                                        {
+                                          "typeIdentifier": "t_stringliteral_23b872dd7302113369cda2901243429419bec145408fa8b352b3dd92b66c680b",
+                                          "typeString": "literal_string \"transferFrom(address,address,uint256)\""
+                                        }
+                                      ],
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 1120,
+                                      "type": "function () pure returns (bytes32)",
+                                      "value": "keccak256"
+                                    },
+                                    "id": 417,
+                                    "name": "Identifier",
+                                    "src": "837:9:5"
+                                  },
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "hexvalue": "7472616e7366657246726f6d28616464726573732c616464726573732c75696e7432353629",
+                                      "isConstant": false,
+                                      "isLValue": false,
+                                      "isPure": true,
+                                      "lValueRequested": false,
+                                      "subdenomination": null,
+                                      "token": "string",
+                                      "type": "literal_string \"transferFrom(address,address,uint256)\"",
+                                      "value": "transferFrom(address,address,uint256)"
+                                    },
+                                    "id": 418,
+                                    "name": "Literal",
+                                    "src": "847:39:5"
+                                  }
+                                ],
+                                "id": 419,
+                                "name": "FunctionCall",
+                                "src": "837:50:5"
+                              }
+                            ],
+                            "id": 420,
+                            "name": "FunctionCall",
+                            "src": "830:58:5"
+                          }
+                        ],
+                        "id": 421,
+                        "name": "BinaryOperation",
+                        "src": "582:306:5"
+                      },
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "type": "bytes4",
+                          "type_conversion": true
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_bytes32",
+                                  "typeString": "bytes32"
+                                }
+                              ],
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": true,
+                              "lValueRequested": false,
+                              "type": "type(bytes4)",
+                              "value": "bytes4"
+                            },
+                            "id": 422,
+                            "name": "ElementaryTypeNameExpression",
+                            "src": "895:6:5"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": true,
+                              "isStructConstructorCall": false,
+                              "lValueRequested": false,
+                              "names": [
+                                null
+                              ],
+                              "type": "bytes32",
+                              "type_conversion": false
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": [
+                                    {
+                                      "typeIdentifier": "t_stringliteral_095ea7b334ae44009aa867bfb386f5c3b4b443ac6f0ee573fa91c4608fbadfba",
+                                      "typeString": "literal_string \"approve(address,uint256)\""
+                                    }
+                                  ],
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 1120,
+                                  "type": "function () pure returns (bytes32)",
+                                  "value": "keccak256"
+                                },
+                                "id": 423,
+                                "name": "Identifier",
+                                "src": "902:9:5"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "hexvalue": "617070726f766528616464726573732c75696e7432353629",
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": true,
+                                  "lValueRequested": false,
+                                  "subdenomination": null,
+                                  "token": "string",
+                                  "type": "literal_string \"approve(address,uint256)\"",
+                                  "value": "approve(address,uint256)"
+                                },
+                                "id": 424,
+                                "name": "Literal",
+                                "src": "912:26:5"
+                              }
+                            ],
+                            "id": 425,
+                            "name": "FunctionCall",
+                            "src": "902:37:5"
+                          }
+                        ],
+                        "id": 426,
+                        "name": "FunctionCall",
+                        "src": "895:45:5"
+                      }
+                    ],
+                    "id": 427,
+                    "name": "BinaryOperation",
+                    "src": "582:358:5"
+                  },
+                  {
+                    "attributes": {
+                      "argumentTypes": null,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "isStructConstructorCall": false,
+                      "lValueRequested": false,
+                      "names": [
+                        null
+                      ],
+                      "type": "bytes4",
+                      "type_conversion": true
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": [
+                            {
+                              "typeIdentifier": "t_bytes32",
+                              "typeString": "bytes32"
+                            }
+                          ],
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "lValueRequested": false,
+                          "type": "type(bytes4)",
+                          "value": "bytes4"
+                        },
+                        "id": 428,
+                        "name": "ElementaryTypeNameExpression",
+                        "src": "947:6:5"
+                      },
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "type": "bytes32",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_stringliteral_dd62ed3e90e97b3d417db9c0c7522647811bafca5afc6694f143588d255fdfb4",
+                                  "typeString": "literal_string \"allowance(address,address)\""
+                                }
+                              ],
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 1120,
+                              "type": "function () pure returns (bytes32)",
+                              "value": "keccak256"
+                            },
+                            "id": 429,
+                            "name": "Identifier",
+                            "src": "954:9:5"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "hexvalue": "616c6c6f77616e636528616464726573732c6164647265737329",
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": true,
+                              "lValueRequested": false,
+                              "subdenomination": null,
+                              "token": "string",
+                              "type": "literal_string \"allowance(address,address)\"",
+                              "value": "allowance(address,address)"
+                            },
+                            "id": 430,
+                            "name": "Literal",
+                            "src": "964:28:5"
+                          }
+                        ],
+                        "id": 431,
+                        "name": "FunctionCall",
+                        "src": "954:39:5"
+                      }
+                    ],
+                    "id": 432,
+                    "name": "FunctionCall",
+                    "src": "947:47:5"
+                  }
+                ],
+                "id": 433,
+                "name": "BinaryOperation",
+                "src": "582:412:5"
+              }
+            ],
+            "id": 434,
+            "name": "VariableDeclaration",
+            "src": "522:472:5"
+          }
+        ],
+        "id": 435,
+        "name": "ContractDefinition",
+        "src": "26:971:5"
+      }
+    ],
+    "id": 436,
+    "name": "SourceUnit",
+    "src": "0:998:5"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.4.18+commit.9cf6e910.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "1.0.1",
+  "updatedAt": "2018-01-19T17:32:50.816Z"
+}

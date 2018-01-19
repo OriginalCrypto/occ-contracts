@@ -4,12 +4,13 @@ import './Cofounded.sol';
 import './ERC20.sol';
 import './ERC165.sol';
 import './ApprovedAllowanceAgent.sol';
+import './InterfaceSignatureConstants.sol';
 
 /// @title an original cofounder based ERC-20 compliant token
 /// @author Mish Ochu
 /// @dev Ref: https://github.com/ethereum/EIPs/issues/721
 //http://solidity.readthedocs.io/en/develop/contracts.html#arguments-for-base-constructors
-contract OriginalToken is Cofounded, ERC20, ERC165 {
+contract OriginalToken is Cofounded, ERC20, ERC165, InterfaceSignatureConstants {
     bool private hasExecutedCofounderDistribution;
     address public airdropCampaign;
     struct Allowance {
@@ -179,10 +180,9 @@ contract OriginalToken is Cofounded, ERC20, ERC165 {
   }
 
   function supportsInterface (bytes4 interfaceID) external constant returns (bool) {
-    return (interfaceID == InterfaceSignature_ERC165);
+    return ((interfaceID == InterfaceSignature_ERC165) ||
+            (interfaceID == InterfaceSignature_ERC20)  ||
+            (interfaceID == InterfaceSignature_ERC20_PlusOptions));
   }
-
-  bytes4 constant InterfaceSignature_ERC165 =
-    bytes4(keccak256('supportsInterface(bytes4)'));
 }
 
