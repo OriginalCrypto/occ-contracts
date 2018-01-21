@@ -80,7 +80,7 @@ contract('OriginalToken', function (accounts) {
 
           // sending ether should not have side affects on the token balance
           const balanceAfter = await originalToken.balanceOf.call(founder);
-          assert.strictEqual(balanceAfter.toNumber(), 2);
+          assert.equal(balanceAfter.toNumber(), 2);
       });
   });
 });
