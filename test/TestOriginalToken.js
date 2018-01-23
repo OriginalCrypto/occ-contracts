@@ -10,53 +10,59 @@ let   originalToken,
       cofounderDistribution = 55 * Math.pow(10, 8),
       cofounders;
 
+async function reverts (p) {
+  try {
+    const result = await p;
+    console.log(result);
+    assert.fail('expected revert but ran to completion.');
+  } catch (e) {
+    console.log(e);
+    const hasReverted = e.message.search(/revert/) > -1;
+    assert(hasReverted, `expected revert but threw ${e}`);
+  }
+}
+
 contract('OriginalToken', function (accounts) {
-founder = accounts[0];
-airdropCampaign = accounts[1];
-cofounders = accounts.slice(2);
+  founder = accounts[0];
+  airdropCampaign = accounts[1];
+  cofounders = accounts.slice(2, 16);
 
-
-  // TODO: revisit after implementing initial cofounder distribution
-  it('should create an initial balance of 5.5 billion for the creator', function ()  {
-    return OriginalToken
+  before(async function () {
+    originalToken = await OriginalToken
       .new(cofounders, airdropCampaign, OneHundredBillionPlusDecimals,
-          tokenName, tokenSymbol, decimals, cofounderDistribution, { from: founder })
-      .then(function (instance) {
-        return instance.balanceOf.call(founder);
-      })
-      .then(function (balance) {
-        assert.equal(balance.toNumber(), cofounderDistribution);
-      });
+          tokenName, tokenSymbol, decimals, cofounderDistribution, { from: founder });
   });
 
-  it('should give each cofounder an equal distribution', function () {
-    return OriginalToken
-      .new(cofounders, airdropCampaign, 2000, tokenName, tokenSymbol, 2, 2, { from: founder })
-      .then(function (instance) {
-        originalToken = instance;
-        return instance
-          .getCofounders
-          .call();
-      })
-      .then(function (recordedCofounders) {
-        let distributionPromises = [];
-        recordedCofounders
-          .forEach(function (recordedCofounder) {
-            distributionPromises.push(originalToken.balanceOf(recordedCofounder));
-          });
+  // TODO: revisit after implementing initial cofounder distribution
+  it('should create an initial balance of 5.5 billion for the creator', async function ()  {
+        let balance = await originalToken.balanceOf.call(founder);
+        assert.equal(balance.toNumber(), cofounderDistribution);
+  });
 
-        Promise
-          .all(distributionPromises)
-          .then(function (balancesOfRecordedCofounders) {
-            assert.ok(
-              balancesOfRecordedCofounders
-                .every(function (distribution) { return distribution.toNumber() == 2; }));
-          });
+  it('should give each cofounder an equal distribution', async function () {
+    let instance = await  OriginalToken
+      .new(cofounders, airdropCampaign, 2000, tokenName, tokenSymbol, 2, 2, { from: founder });
+
+    let recordedCofounders = await instance
+      .getCofounders
+      .call();
+
+    let distributionPromises = [];
+    recordedCofounders
+      .forEach(function (recordedCofounder) {
+        distributionPromises.push(instance.balanceOf(recordedCofounder));
+      });
+
+    Promise
+      .all(distributionPromises)
+      .then(function (balancesOfRecordedCofounders) {
+        assert.ok(
+          balancesOfRecordedCofounders
+            .every(function (distribution) { return distribution.toNumber() == 2; }));
       });
   });
 
   it('sets name, symbol, decimals and airdrop address correctly', async function () {
-    originalToken = await OriginalToken.new(cofounders, airdropCampaign, 2000, tokenName, tokenSymbol, 2, 2, { from: founder });
 
     const name = await originalToken.name.call();
     assert.strictEqual(name, 'Original Crypto Coin');
@@ -65,7 +71,7 @@ cofounders = accounts.slice(2);
     assert.strictEqual(symbol, 'OCC');
 
     const decimals = await originalToken.decimals.call();
-    assert.equal(decimals.toNumber(), 2);
+    assert.equal(decimals.toNumber(), 18);
 
     const airdropCampaignAddress = await originalToken.airdropCampaign.call();
     assert.equal(airdropCampaignAddress, airdropCampaign);

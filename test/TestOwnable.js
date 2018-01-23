@@ -7,10 +7,8 @@ const Ownable = artifacts.require('Ownable');
 async function reverts (p) {
   try {
     const result = await p;
-    console.log(result);
     assert.fail('expected revert but ran to completion.');
   } catch (e) {
-    console.log(e);
     const hasReverted = e.message.search(/revert/) > -1;
     assert(hasReverted, `expected revert but threw ${e}`);
   }
