@@ -1,3 +1,6 @@
+const HDWalletProvider = require("truffle-hdwallet-provider"),
+      testMnemonic = 'candy maple cake sugar pudding cream honey rich smooth crumble sweet treat';
+
 module.exports = {
   // See <http://truffleframework.com/docs/advanced/configuration>
   // for more about customizing your Truffle configuration!
@@ -16,8 +19,9 @@ module.exports = {
       network_id: "*"
     },
     ropsten: {
-      host: "ropsten.infura.io",
-      port: 443,
+      provider: function() {
+        return new HDWalletProvider(testMnemonic, "https://ropsten.infura.io");
+      },
       network_id: "3"
     },
     kovan: {

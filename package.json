@@ -30,6 +30,7 @@
   "devDependencies": {
     "concurrently": "^3.5.1",
     "solidity-coverage": "^0.4.8",
-    "truffle": "^4.0.4"
+    "truffle": "^4.0.4",
+    "truffle-hdwallet-provider": "0.0.3"
   }
 }
