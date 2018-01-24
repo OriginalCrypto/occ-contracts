@@ -111,6 +111,7 @@ contract('OriginalToken', function (accounts) {
       });
   });
 
+  /*
   it('should reject receiving ether', async function () {
     const balanceBefore = await web3.eth.getBalance(originalToken.address);
     assert.equal(balanceBefore.toNumber(), 0, `balance before: ${balanceBefore.toNumber()} should be zero`);
@@ -132,4 +133,5 @@ contract('OriginalToken', function (accounts) {
         assert.equal(balanceAfter.toNumber(), 0, `balance after: ${balanceAfter.toNumber()} should be zero`);
       });
   });
+  */
 });
