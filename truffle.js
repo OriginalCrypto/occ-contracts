@@ -1,5 +1,7 @@
 const HDWalletProvider = require("truffle-hdwallet-provider"),
-      testMnemonic = 'candy maple cake sugar pudding cream honey rich smooth crumble sweet treat';
+      secret = require('./.mnemonic');
+      
+      //'candy maple cake sugar pudding cream honey rich smooth crumble sweet treat';
 
 module.exports = {
   // See <http://truffleframework.com/docs/advanced/configuration>
@@ -20,19 +22,20 @@ module.exports = {
     },
     ropsten: {
       provider: function() {
-        return new HDWalletProvider(testMnemonic, "https://ropsten.infura.io");
+        return new HDWalletProvider(secret.mnemonic, "https://ropsten.infura.io");
       },
+      gas: 2900000,
       network_id: "3"
     },
     kovan: {
       provider: function() {
-        return new HDWalletProvider(testMnemonic, "kovan.infura.io");
+        return new HDWalletProvider(secret.mnemonic, "kovan.infura.io");
       },
       network_id: "42"
     },
     rinkeby: {
       provider: function() {
-        return new HDWalletProvider(testMnemonic, "rinkeby.infura.io");
+        return new HDWalletProvider(secret.mnemonic, "rinkeby.infura.io");
       },
       port: 8545,
       network_id: "4"
@@ -44,7 +47,7 @@ module.exports = {
     },
     infura: {
       provider: function() {
-        return new HDWalletProvider(testMnemonic, "mainnet.infura.io");
+        return new HDWalletProvider(secret.mnemonic, "mainnet.infura.io");
       },
       network_id: "1"
     }

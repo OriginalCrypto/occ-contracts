@@ -63,3 +63,5 @@ typings/
 # Solidity Coverage files
 coverage/
 coverage.json
+.cofounders.js
+.mnemonic.js
