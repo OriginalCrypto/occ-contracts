@@ -25,18 +25,27 @@ module.exports = {
       network_id: "3"
     },
     kovan: {
-      host: "kovan.infura.io",
-      port: 443,
+      provider: function() {
+        return new HDWalletProvider(testMnemonic, "kovan.infura.io");
+      },
       network_id: "42"
     },
     rinkeby: {
-      host: "rinkeby.infura.io",
-      port: 443,
+      provider: function() {
+        return new HDWalletProvider(testMnemonic, "rinkeby.infura.io");
+      },
+      port: 8545,
       network_id: "4"
     },
     main: {
-      host: "mainnet.infura.io",
-      port: 443,
+      host: "127.0.0.1",
+      port: 8545,
+      network_id: "1"
+    },
+    infura: {
+      provider: function() {
+        return new HDWalletProvider(testMnemonic, "mainnet.infura.io");
+      },
       network_id: "1"
     }
   }
