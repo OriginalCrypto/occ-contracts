@@ -1,4 +1,8 @@
 # occ-contracts
+[![license](https://img.shields.io/github/license/mashape/apistatus.svg?style=flat-square)](https://opensource.org/licenses/MIT)
+[![David](https://img.shields.io/david/expressjs/express.svg?style=flat-square)](https://david-dm.org/OriginalCrypto/occ-contracts)
+[![GitHub issues](https://img.shields.io/github/issues/OriginalCrypto/occ-contracts/shields.svg?style=flat-square)](https://github.com/ConsenSys/Tokens/issues)
+
 solidity contracts for a cofounder based ethereum token
 
 -----------------------
