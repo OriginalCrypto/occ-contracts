@@ -141,14 +141,12 @@ contract OriginalToken is Cofounded, ERC20, ERC165, InterfaceSignatureConstants 
   }
 
   function approveAndCall (address spender, uint256 value, bytes extraData) public returns (bool success) {
-      bool hasSuccess;
-
-      if (hasSuccess = approve(spender, value)) {
+      if (success = approve(spender, value)) {
         ApprovedAllowanceAgent agent = ApprovedAllowanceAgent(spender);
         agent.receiveApproval(msg.sender, value, this, extraData);
       }
 
-      return hasSuccess;
+      return success;
     }
  
 
