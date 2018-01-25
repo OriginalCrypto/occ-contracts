@@ -2,7 +2,7 @@
 [ ![Codeship Status for OriginalCrypto/occ-contracts](https://app.codeship.com/projects/8d6b5a90-e3ca-0135-a30d-6e50b47cea82/status?branch=master)](https://app.codeship.com/projects/268666)
 [![license](https://img.shields.io/github/license/mashape/apistatus.svg?style=flat-square)](https://opensource.org/licenses/MIT)
 [![David](https://img.shields.io/david/expressjs/express.svg?style=flat-square)](https://david-dm.org/OriginalCrypto/occ-contracts)
-[![GitHub issues](https://img.shields.io/github/issues/OriginalCrypto/occ-contracts/shields.svg?style=flat-square)](https://github.com/ConsenSys/Tokens/issues)
+[![GitHub issues](https://img.shields.io/github/issues/OriginalCrypto/occ-contracts.svg)](https://github.com/OriginalCrypto/occ-contracts/issues)
 
 solidity contracts for a cofounder based ethereum token
 
