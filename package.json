@@ -41,5 +41,9 @@
     "solidity-coverage": "^0.4.8",
     "truffle": "^4.0.4",
     "truffle-hdwallet-provider": "0.0.3"
+  },
+  "engines": {
+    "node": ">= 4.x <= 9.x",
+    "npm": ">= 2.x <= 5.x"
   }
 }
