@@ -2,16 +2,20 @@
   "name": "occ-contracts",
   "version": "0.0.1",
   "description": "solidity contracts for a cofounder-based ethereum token",
-  "main": "index.js",
+  "main": "truffle.js",
   "directories": {
     "test": "test"
   },
   "scripts": {
-    "test": "concurrently --kill-others \"npm run truffle\" \"npm run unit\"",
+    "compile": "truffle compile",
+    "cover": "node_modules/.bin/solidity-coverage",
+    "lint:js": "eslint test/**/*.js migrations/**/*.js",
+    "lint:sol": "solhint contracts/*.sol contracts/*/*.sol test/*.sol test/*/*.sol",
+    "lint": "npm run lint:js && npm run lint:sol",
     "mine": "echo 'This is my token. There are many like it, but this one is mine'",
-    "truffle": "truffle dev",
-    "unit": "truffle test",
-    "cover": "node_modules/.bin/solidity-coverage"
+    "pretest": "npm run lint",
+    "test": "truffle test",
+    "truffle": "truffle dev"
   },
   "repository": {
     "type": "git",
@@ -21,7 +25,7 @@
     "ethereum",
     "token"
   ],
-  "author": "",
+  "authors": ["Mish Ochu <mishochu@gmail.com>"],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/OriginalCrypto/occ-contracts/issues"
@@ -29,6 +33,11 @@
   "homepage": "https://github.com/OriginalCrypto/occ-contracts#readme",
   "devDependencies": {
     "concurrently": "^3.5.1",
+    "eslint": "^4.16.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-mocha": "^4.11.0",
+    "eslint-plugin-node": "^5.2.1",
+    "solhint": "^1.1.10",
     "solidity-coverage": "^0.4.8",
     "truffle": "^4.0.4",
     "truffle-hdwallet-provider": "0.0.3"
