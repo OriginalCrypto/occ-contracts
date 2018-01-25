@@ -7,7 +7,7 @@ let   originalToken,
       founder,
       airdropCampaign,
       OneHundredBillionPlusDecimals = Math.pow(10,(11 + decimals)),
-      cofounderDistribution = 55 * Math.pow(10, 8),
+      cofounderDistribution = 55 * Math.pow(10, (8 + decimals)),
       cofounders;
 
 async function reverts (p) {

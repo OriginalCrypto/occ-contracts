@@ -8,7 +8,7 @@ module.exports = function(deployer, network, accounts) {
           tokenName = 'Original Crypto Coin',
           tokenSymbol = 'OCC',
           OneHundredBillionPlusDecimals = Math.pow(10, (11 + decimals)),
-          cofounderDistribution = 55 * Math.pow(10, 8); // 5.5 billion
+          cofounderDistribution = 55 * Math.pow(10, (8 + decimals)); // 5.5 billion
 
   deployer.deploy(OriginalToken, cofounders,
                     airdropCampaign, OneHundredBillionPlusDecimals,
