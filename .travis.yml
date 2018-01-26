@@ -1,0 +1,10 @@
+language: node_js
+node_js: node
+cache:
+  directories:
+    - 'node_modules'
+
+script:
+  - npm run ci
+after_script:
+  - cat coverage/lcov.info | npm run coveralls
