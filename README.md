@@ -1,5 +1,7 @@
 # occ-contracts
-[ ![Codeship Status for OriginalCrypto/occ-contracts](https://app.codeship.com/projects/8d6b5a90-e3ca-0135-a30d-6e50b47cea82/status?branch=master)](https://app.codeship.com/projects/268666)
+
+[![Build Status](https://travis-ci.org/OriginalCrypto/occ-contracts.svg?branch=master)](https://travis-ci.org/OriginalCrypto/occ-contracts)
+[![Coverage Status](https://coveralls.io/repos/github/OriginalCrypto/occ-contracts/badge.svg?branch=master)](https://coveralls.io/github/OriginalCrypto/occ-contracts?branch=master)
 [![license](https://img.shields.io/github/license/mashape/apistatus.svg?style=flat-square)](https://opensource.org/licenses/MIT)
 [![David](https://img.shields.io/david/expressjs/express.svg?style=flat-square)](https://david-dm.org/OriginalCrypto/occ-contracts)
 [![GitHub issues](https://img.shields.io/github/issues/OriginalCrypto/occ-contracts.svg)](https://github.com/OriginalCrypto/occ-contracts/issues)
