@@ -89,8 +89,8 @@ contract('OriginalToken', function (accounts) {
 
   it('should not have token balance side effects during ether \'receive\' transaction', async function () {
     const balanceBefore = await originalToken.balanceOf.call(founder);
-    assert
-      .strictEqual(balanceBefore.toNumber(), cofounderDistribution);
+
+    assert.strictEqual(balanceBefore.toNumber(), cofounderDistribution);
 
     web3
       .eth
