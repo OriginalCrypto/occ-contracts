@@ -19,7 +19,7 @@ contract('Ownable', function (accounts) {
 
   beforeEach(async function () {
     ownable = await Ownable.new();
-    ownerBefore = await ownable.owner();
+    ownerBefore = await ownable.owner.call();
   });
 
   it('allows the owner to change ownership', async function () {

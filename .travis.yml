@@ -5,6 +5,6 @@ cache:
     - 'node_modules'
 
 script:
-  - npm run ci
+  - npm run cover
 after_script:
   - cat coverage/lcov.info | npm run coveralls

@@ -1,7 +1,7 @@
 const OriginalToken = artifacts.require('OriginalToken'),
       tokenName = 'Original Crypto Coin',
       tokenSymbol = 'OCC',
-      decimals = 18;
+      decimals = 18
       
 let   originalToken,
       founder,
@@ -9,16 +9,6 @@ let   originalToken,
       OneHundredBillionPlusDecimals = Math.pow(10,(11 + decimals)),
       cofounderDistribution = 55 * Math.pow(10, (8 + decimals)),
       cofounders;
-
-async function reverts (p) {
-  try {
-    const result = await p;
-    assert.fail('expected revert but ran to completion.');
-  } catch (e) {
-    const hasReverted = e.message.search(/revert/) > -1;
-    assert(hasReverted, `expected revert but threw ${e}`);
-  }
-}
 
 contract('OriginalToken', function (accounts) {
   founder = accounts[0];
@@ -41,23 +31,16 @@ contract('OriginalToken', function (accounts) {
     let instance = await  OriginalToken
       .new(cofounders, airdropCampaign, 2000, tokenName, tokenSymbol, 2, 2, { from: founder });
 
-    let recordedCofounders = await instance
-      .getCofounders
-      .call();
+    let recordedCofounders = await instance.getCofounders.call();
 
-    let distributionPromises = [];
+    let balancesOfRecordedCofounders = [];
     recordedCofounders
-      .forEach(function (recordedCofounder) {
-        distributionPromises.push(instance.balanceOf(recordedCofounder));
+      .forEach(async function (recordedCofounder) {
+        let balancesOfRecordedCofounder = await instance.balanceOf.call(recordedCofounder);
+        balancesOfRecordedCofounders.push(balancesOfRecordedCofounder);
       });
 
-    Promise
-      .all(distributionPromises)
-      .then(function (balancesOfRecordedCofounders) {
-        assert.ok(
-          balancesOfRecordedCofounders
-            .every(function (distribution) { return distribution.toNumber() == 2; }));
-      });
+    assert.ok(balancesOfRecordedCofounders.every(function (distribution) { return distribution.toNumber() == 2; }));
   });
 
   it('sets name, symbol, decimals and airdrop address correctly', async function () {
@@ -75,7 +58,7 @@ contract('OriginalToken', function (accounts) {
     assert.equal(airdropCampaignAddress, airdropCampaign);
   });
 
-  it ('transfers tokens from one account to another', async function () {
+  it('transfers tokens from one account to another', async function () {
     const recipient = '0x347eD75c305f4ab85757Bfcc5600D9BfCb413898';
     await originalToken.transfer(recipient, 10000, { from: cofounders[cofounders.length - 1] });
     
@@ -84,7 +67,36 @@ contract('OriginalToken', function (accounts) {
   });
 
   it('prevents token transfers to address(0)', async function () {
-      reverts(originalToken.transfer('0x0000000000000000000000000000000000000000', 1, { from : cofounders[1] }));
+    try {
+      await originalToken.transfer('0x0000000000000000000000000000000000000000', 1, { from : cofounders[1] });
+      assert.fail('expected revert but ran to completion.');
+    } catch(e) {
+      const hasReverted = e.message.search(/revert/) > -1;
+      assert(hasReverted, `expected revert but threw ${e}`);
+    }
+  });
+
+  it('should reject receiving ether', async function () {
+    const balanceBefore = await web3.eth.getBalance(originalToken.address);
+    assert.equal(balanceBefore.toNumber(), 0, `balance before: ${balanceBefore.toNumber()} should be zero`);
+
+    try {
+      let result = await web3.eth.sendTransaction({
+        from: founder,
+        to: originalToken.address,
+        value: web3.toWei('10', 'ether'),
+        data: '0x01'
+      });
+
+      assert.fail('expected revert but ran to completion.');
+    } catch (e) {
+      const hasReverted = e.message.search(/revert/) > -1;
+      assert(hasReverted, `expected revert but threw ${e}`);
+    }
+  
+    const balanceAfter = await web3.eth.getBalance(originalToken.address);
+    assert.equal(balanceAfter.toNumber(), 0, `balance after: ${balanceAfter.toNumber()} should be zero`);
+
   });
 
   it('should not have token balance side effects during ether \'receive\' transaction', async function () {
@@ -92,46 +104,23 @@ contract('OriginalToken', function (accounts) {
 
     assert.strictEqual(balanceBefore.toNumber(), cofounderDistribution);
 
-    web3
-      .eth
-      .sendTransaction({
-        from: founder,
-        to: originalToken.address,
-        value: web3.toWei('10', 'Ether')
-      },
-      async function (err, res) {
-        reverts(new Promise(function (resolve, reject)  {
-          if (err) reject(err);
-          resolve(res);
-        }));
-
-        // sending ether should not have side affects on the token balance
-        const balanceAfter = await originalToken.balanceOf.call(founder);
-        assert.equal(balanceAfter.toNumber(), cofounderDistribution);
+    try {
+      let result = await web3.eth.sendTransaction({
+          from: founder,
+          to: originalToken.address,
+          value: web3.toWei('10', 'ether'),
+          data: '0x'
       });
+
+      assert.fail('expected revert but ran to completion.');
+    } catch (e) {
+      const hasReverted = e.message.search(/revert/) > -1;
+      assert(hasReverted, `expected revert but threw ${e}`);
+    }
+    // sending ether should not have side affects on the token balance
+    const balanceAfter = await originalToken.balanceOf.call(founder);
+    assert.equal(balanceAfter.toNumber(), cofounderDistribution);
   });
-
-  /*
-  it('should reject receiving ether', async function () {
-    const balanceBefore = await web3.eth.getBalance(originalToken.address);
-    assert.equal(balanceBefore.toNumber(), 0, `balance before: ${balanceBefore.toNumber()} should be zero`);
-
-    web3
-      .eth
-      .sendTransaction({
-        from: founder,
-        to: originalToken.address,
-        value: web3.toWei('10', 'Ether')
-      },
-      async function (err, res) {
-        reverts(new Promise(function (resolve, reject)  {
-          if (err) reject(err);
-          resolve(res);
-        }));
-
-        const balanceAfter = await web3.eth.getBalance(originalToken.address);
-        assert.equal(balanceAfter.toNumber(), 0, `balance after: ${balanceAfter.toNumber()} should be zero`);
-      });
-  });
-  */
+ 
 });
+
