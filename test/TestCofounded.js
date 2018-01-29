@@ -1,4 +1,6 @@
-const Cofounded = artifacts.require('Cofounded');
+const Cofounded = artifacts.require('Cofounded'),
+      TestCofoundedRestricted = artifacts.require('TestCofoundedRestricted');
+
 contract('Cofounded', function (accounts) {
   let cofounders = accounts.slice(1, 14),
       founder    = accounts[0];
@@ -53,5 +55,25 @@ contract('Cofounded', function (accounts) {
 
     assert.equal(recordedNumberOfCofounders.toNumber(), expectedCofounders.length);
   });
+
+  it('prevents non-cofounders from calling restricted functions', async function () {
+    const testContract = await TestCofoundedRestricted.new(cofounders.slice(0,2), { from:  founder });
+    const valueBefore = await testContract.restrictedProperty.call();
+
+    reverts(testContract.setRestrictedProperty(1, { from: accounts[3] }));
+    const valueAfter  = await testContract.restrictedProperty.call();
+
+    assert.equal(valueBefore.toNumber(), valueAfter.toNumber());
+  });
 });
+
+async function reverts (p) {
+  try {
+    const result = await p;
+    assert.fail('expected revert but ran to completion.');
+  } catch (e) {
+    const hasReverted = e.message.search(/revert/) > -1;
+    assert(hasReverted, `expected revert but threw ${e}`);
+  }
+}
 

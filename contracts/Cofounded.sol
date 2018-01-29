@@ -3,32 +3,29 @@ pragma solidity ^0.4.17;
 /// @title a non-multisignature contract with many founders/owners
 /// @author Mish Ochu
 contract Cofounded {
-  mapping (address => uint) public cofounderIds;
-  address public founder;
+  mapping (address => uint) public cofounderIndices;
   address[] public cofounders;
 
 
   /// @dev restrict execution to one of original cofounder addresses
   modifier restricted () {
-    uint cofounderId = cofounderIds[msg.sender];
-    require(msg.sender == cofounders[cofounderId]);
+    uint cofounderIndex = cofounderIndices[msg.sender];
+    require(msg.sender == cofounders[cofounderIndex]);
     _;
   }
 
   /// @notice creates the Cofounded contract instance
-  /// @dev adds up to (15) cofounders.
-  ///      also adds  the deployment address as a founder (a special variable)
-  ///      and as a cofounder
-  function Cofounded (address[15] tokenCofounders) public {
-    cofounders.push(founder = msg.sender);
+  /// @dev adds up to cofounders.
+  ///      also adds  the deployment address as a cofounder
+  function Cofounded (address[] contractCofounders) public {
+    cofounders.push(msg.sender);
     
-    for (uint8 x = 0; x < tokenCofounders.length; x++) {
-      address cofounder = tokenCofounders[x];
+    for (uint8 x = 0; x < contractCofounders.length; x++) {
+      address cofounder = contractCofounders[x];
 
       bool isValidUniqueCofounder =
         cofounder != address(0) &&
-        cofounder != founder &&
-        cofounderIds[cofounder] == 0;
+        cofounderIndices[cofounder] == 0;
 
             
       // NOTE: solidity as of 0.4.20 does not have an
@@ -37,10 +34,10 @@ contract Cofounded {
       // for an unregistered key value
       // an address which doesn't exist will return 0
       // which is actually the index of the address of the first
-      // cofounder (the founder)
+      // cofounder
       if (isValidUniqueCofounder) {
-        uint256 cofounderId = cofounders.push(cofounder) - 1;
-        cofounderIds[cofounder] = cofounderId;
+        uint256 cofounderIndex = cofounders.push(cofounder) - 1;
+        cofounderIndices[cofounder] = cofounderIndex;
       }
     }
   }
