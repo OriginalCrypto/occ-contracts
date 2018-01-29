@@ -12,7 +12,6 @@ import './InterfaceSignatureConstants.sol';
 //http://solidity.readthedocs.io/en/develop/contracts.html#arguments-for-base-constructors
 contract OriginalToken is Cofounded, ERC20, ERC165, InterfaceSignatureConstants {
     bool private hasExecutedCofounderDistribution;
-    address public airdropCampaign;
     struct Allowance {
       uint256 amount;
       bool    hasBeenPartiallyWithdrawn;
@@ -43,14 +42,14 @@ contract OriginalToken is Cofounded, ERC20, ERC165, InterfaceSignatureConstants 
   /// @dev creates the token
   /// NOTE  passes tokenCofounders to base contract
   /// see   Cofounded
-  function OriginalToken (address[15] tokenCofounders,
-                          address tokenAirdropCampaign,
+  function OriginalToken (address[] tokenCofounders,
+                          address tokenRemainderHolder,
                           uint256 tokenTotalSupply,
                           string tokenName,
                           string tokenSymbol,
                           uint8 tokenDecimals,
                           uint256 cofounderDistribution) Cofounded(tokenCofounders) public {
-    require(tokenAirdropCampaign != address(0));
+    require(tokenRemainderHolder != address(0));
     require(tokenTotalSupply > 0);
     require(tokenDecimals > 0);
     require(cofounderDistribution > 0 && tokenTotalSupply > cofounderDistribution);
@@ -58,7 +57,6 @@ contract OriginalToken is Cofounded, ERC20, ERC165, InterfaceSignatureConstants 
     require(bytes(tokenName).length > 0);
     require(bytes(tokenSymbol).length > 0);
 
-    airdropCampaign = tokenAirdropCampaign;
     totalSupply = tokenTotalSupply;
     name = tokenName;
     symbol = tokenSymbol;
@@ -66,10 +64,10 @@ contract OriginalToken is Cofounded, ERC20, ERC165, InterfaceSignatureConstants 
 
     // divvy up initial token supply accross cofounders
     // TODO: ensure each cofounder gets an equal base distribution
-    distributeToCofounders(tokenTotalSupply, cofounderDistribution);
+    distributeToCofounders(tokenTotalSupply, cofounderDistribution, tokenRemainderHolder);
   }
 
-  function distributeToCofounders (uint256 initialSupply, uint256 cofounderDistribution) private restricted {
+  function distributeToCofounders (uint256 initialSupply, uint256 cofounderDistribution, address tokenRemainderHolder) private restricted {
     require(!hasExecutedCofounderDistribution);
 
     hasExecutedCofounderDistribution = true;
@@ -86,7 +84,7 @@ contract OriginalToken is Cofounded, ERC20, ERC165, InterfaceSignatureConstants 
       balances[cofounder] = cofounderDistribution;
     }
 
-    balances[airdropCampaign] = initialSupply;
+    balances[tokenRemainderHolder] = initialSupply;
   }
 
   function transfer (address to, uint256 value) public returns (bool) {
@@ -102,20 +100,17 @@ contract OriginalToken is Cofounded, ERC20, ERC165, InterfaceSignatureConstants 
   }
 
   function transferFrom (address from, address to, uint256 value) public returns (bool success) {
-        Allowance storage allowance = allowances[from][msg.sender];
-        require(balances[from] >= value && allowance.amount >= value);
+    Allowance storage allowance = allowances[from][msg.sender];
+    require(allowance.amount >= value);
 
-        if (allowance.amount == 0) {
-          delete allowances[from][msg.sender];
-        } else {
-          allowance.hasBeenPartiallyWithdrawn = true;
-          allowance.amount -= value;
-        }
+    allowance.hasBeenPartiallyWithdrawn = true;
+    allowance.amount -= value;
 
-        balances[to] += value;
-        balances[from] -= value;
-        Transfer(from, to, value);
-        return true;   
+    if (allowance.amount == 0) {
+      delete allowances[from][msg.sender];
+    }
+
+    return transferBalance(from, to, value);
   }
 
   event ApprovalDenied (address indexed owner, address indexed spender, uint256 currentValue, uint256 value);

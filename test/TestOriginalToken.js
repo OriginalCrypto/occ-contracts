@@ -53,9 +53,6 @@ contract('OriginalToken', function (accounts) {
 
     const decimals = await originalToken.decimals.call();
     assert.equal(decimals.toNumber(), 18);
-
-    const airdropCampaignAddress = await originalToken.airdropCampaign.call();
-    assert.equal(airdropCampaignAddress, airdropCampaign);
   });
 
   it('transfers tokens from one account to another', async function () {
@@ -64,6 +61,20 @@ contract('OriginalToken', function (accounts) {
     
     const balance = await originalToken.balanceOf.call(recipient);
     assert.equal(balance.toNumber(), 10000);
+  });
+
+  it('fails to transfer more tokens than sender has', async function () {
+    const recipient = '0x347eD75c305f4ab85757Bfcc5600D9BfCb413898',
+          instance = await  OriginalToken
+            .new(cofounders, airdropCampaign, 2000, tokenName, tokenSymbol, 2, 2, { from: founder });
+
+    await reverts(instance.transfer(recipient, 3, { from: founder }));
+  });
+
+  it('succeeds when transfering 0 tokens', async function () {
+    const recipient = '0x347eD75c305f4ab85757Bfcc5600D9BfCb413898',
+          result = await originalToken.transfer.call(recipient, 0, { from: founder });
+    assert(result);
   });
 
   it('prevents token transfers to address(0)', async function () {
@@ -75,6 +86,7 @@ contract('OriginalToken', function (accounts) {
       assert(hasReverted, `expected revert but threw ${e}`);
     }
   });
+
 
   it('should reject receiving ether', async function () {
     const balanceBefore = await web3.eth.getBalance(originalToken.address);
@@ -121,6 +133,27 @@ contract('OriginalToken', function (accounts) {
     const balanceAfter = await originalToken.balanceOf.call(founder);
     assert.equal(balanceAfter.toNumber(), cofounderDistribution);
   });
+
+  it('supports ERC165', async function () {
+    assert(await originalToken.supportsInterface.call('0x01ffc9a7'));
+  });
+
+  it('supports ERC20', async function () {
+    assert(await originalToken.supportsInterface.call('0x36372b07'));
+  });
+
+  it('supports ERC20 with options', async function () {
+    assert(await originalToken.supportsInterface.call('0x942e8b22'));
+  });
  
 });
 
+async function reverts (p) {
+  try {
+    const result = await p;
+    assert.fail('expected revert but ran to completion.');
+  } catch (e) {
+    const hasReverted = e.message.search(/revert/) > -1;
+    assert(hasReverted, `expected revert but threw ${e}`);
+  }
+}
