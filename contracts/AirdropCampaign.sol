@@ -7,11 +7,12 @@ import './InterfaceSignatureConstants.sol';
 
 contract AirdropCampaign is Ownable, InterfaceSignatureConstants {
   address public tokenAddress;
+  address public tokenHolderAddress;
   uint256 public disbursementAmount;
 
   mapping (address => uint256) disbursements;
 
-  function AirdropCampaign (address tokenContract, uint256 amount) Ownable() public {
+  function AirdropCampaign (address tokenContract, address tokenHolder, uint256 amount) Ownable() public {
     // allow for not supplying the constructor with a working token
     // and updating it later, however, if an address is supplied make
     // sure it conforms to our token requirements
@@ -19,15 +20,19 @@ contract AirdropCampaign is Ownable, InterfaceSignatureConstants {
       setTokenAddress(tokenContract);
     }
 
-    disbursementAmount = amount;
+    if (tokenHolder != address(0)) {
+      setTokenHolderAddress(tokenHolder);
+    }
+
+    setDisbursementAmount(amount);
   }
 
   function register () public returns (bool) {
     ERC20 tokenContract = ERC20(tokenAddress);
 
-    require(tokenContract.balanceOf(this) > disbursementAmount);
+    require(tokenContract.allowance(holder, this) > disbursementAmount);
 
-    tokenContract.transfer(msg.sender, disbursementAmount);
+    return tokenContract.transferFrom(holder, msg.sender, disbursementAmount);
   }
 
   function setTokenAddress (address candidate) public restricted returns (bool) {
@@ -45,5 +50,12 @@ contract AirdropCampaign is Ownable, InterfaceSignatureConstants {
     require(amount > 0);
     disbursementAmount = amount;
     return true;
+  }
+
+  function setTokenHolderAddress(address holder) public restricted returns (bool) {
+    ERC20 tokenContract = ERC20(tokenAddress);
+    require(tokenContract.balanceOf(holder) > 0);
+    require(tokenContract.allowance(holder, this) > 0);
+    tokenHolderAddress = holder;
   }
 }
