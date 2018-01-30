@@ -30,9 +30,9 @@ contract AirdropCampaign is Ownable, InterfaceSignatureConstants {
   function register () public returns (bool) {
     ERC20 tokenContract = ERC20(tokenAddress);
 
-    require(tokenContract.allowance(holder, this) > disbursementAmount);
+    require(tokenContract.allowance(tokenHolderAddress, this) > disbursementAmount);
 
-    return tokenContract.transferFrom(holder, msg.sender, disbursementAmount);
+    return tokenContract.transferFrom(tokenHolderAddress, msg.sender, disbursementAmount);
   }
 
   function setTokenAddress (address candidate) public restricted returns (bool) {
