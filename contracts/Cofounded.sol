@@ -25,6 +25,7 @@ contract Cofounded {
 
       bool isValidUniqueCofounder =
         cofounder != address(0) &&
+        cofounder != msg.sender &&
         cofounderIndices[cofounder] == 0;
 
             
