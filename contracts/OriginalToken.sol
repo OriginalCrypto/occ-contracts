@@ -100,6 +100,8 @@ contract OriginalToken is Cofounded, ERC20, ERC165, InterfaceSignatureConstants 
   }
 
   function transferFrom (address from, address to, uint256 value) public returns (bool success) {
+    // don't burn these tokens
+    require(to != address(0));
     Allowance storage allowance = allowances[from][msg.sender];
     require(allowance.amount >= value);
 
@@ -146,7 +148,7 @@ contract OriginalToken is Cofounded, ERC20, ERC165, InterfaceSignatureConstants 
  
 
   // TODO: compare gas cost estimations between this and https://github.com/ConsenSys/Tokens/blob/master/contracts/eip20/EIP20.sol#L39-L45
-  function transferBalance (address from, address to, uint256 value) public returns (bool) {
+  function transferBalance (address from, address to, uint256 value) private returns (bool) {
     uint256 senderBalance = balances[from];
     uint256 receiverBalance = balances[to];
     require(senderBalance >= value);
