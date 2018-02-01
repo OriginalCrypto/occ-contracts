@@ -33,14 +33,14 @@ contract AirdropCampaign is Ownable, InterfaceSignatureConstants {
     setDisbursementAmount(amount);
   }
 
-  function register () public notHolder returns (bool) {
+  function register () public notHolder {
     if (!canDisburseMultipleTimes &&
         disbursements[msg.sender] > uint256(0)) revert();
 
     ERC20 tokenContract = ERC20(tokenAddress);
 
     disbursements[msg.sender] += disbursementAmount;
-    return tokenContract.transferFrom(tokenHolderAddress, msg.sender, disbursementAmount);
+    if (!tokenContract.transferFrom(tokenHolderAddress, msg.sender, disbursementAmount)) revert();
   }
 
   function setTokenAddress (address candidate) public restricted {
@@ -63,9 +63,6 @@ contract AirdropCampaign is Ownable, InterfaceSignatureConstants {
   }
 
   function setTokenHolderAddress(address holder) public restricted {
-    ERC20 tokenContract = ERC20(tokenAddress);
-    if (tokenContract.balanceOf(holder) == 0) revert();
-    if (tokenContract.allowance(holder, address(this)) == 0) revert();
     tokenHolderAddress = holder;
   }
 }

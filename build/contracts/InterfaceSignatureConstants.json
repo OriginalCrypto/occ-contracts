@@ -3,8 +3,8 @@
   "abi": [],
   "bytecode": "0x60606040523415600e57600080fd5b603580601b6000396000f3006060604052600080fd00a165627a7a7230582072d0dc70528cb704fc4ed0917c2df52d332e0f534e120bae8cec55ca7b4673860029",
   "deployedBytecode": "0x6060604052600080fd00a165627a7a7230582072d0dc70528cb704fc4ed0917c2df52d332e0f534e120bae8cec55ca7b4673860029",
-  "sourceMap": "26:971:5:-;;;;;;;;;;;;;;;;;",
-  "deployedSourceMap": "26:971:5:-;;;;;",
+  "sourceMap": "26:971:3:-;;;;;;;;;;;;;;;;;",
+  "deployedSourceMap": "26:971:3:-;;;;;",
   "source": "pragma solidity ^0.4.17;\n\ncontract InterfaceSignatureConstants {\n  bytes4 constant InterfaceSignature_ERC165 =\n    bytes4(keccak256('supportsInterface(bytes4)'));\n\n  bytes4 constant InterfaceSignature_ERC20 =\n    bytes4(keccak256('totalSupply()')) ^\n    bytes4(keccak256('balanceOf(address)')) ^\n    bytes4(keccak256('transfer(address,uint256)')) ^\n    bytes4(keccak256('transferFrom(address,address,uint256)')) ^\n    bytes4(keccak256('approve(address,uint256)')) ^\n    bytes4(keccak256('allowance(address,address)'));\n\n  bytes4 constant InterfaceSignature_ERC20_PlusOptions = \n    bytes4(keccak256('name()')) ^\n    bytes4(keccak256('symbol()')) ^\n    bytes4(keccak256('decimals()')) ^\n    bytes4(keccak256('totalSupply()')) ^\n    bytes4(keccak256('balanceOf(address)')) ^\n    bytes4(keccak256('transfer(address,uint256)')) ^\n    bytes4(keccak256('transferFrom(address,address,uint256)')) ^\n    bytes4(keccak256('approve(address,uint256)')) ^\n    bytes4(keccak256('allowance(address,address)'));\n}\n",
   "sourcePath": "/Users/mishochu/Source/occ/occ-contracts/contracts/InterfaceSignatureConstants.sol",
   "ast": {
@@ -12,7 +12,7 @@
       "absolutePath": "/Users/mishochu/Source/occ/occ-contracts/contracts/InterfaceSignatureConstants.sol",
       "exportedSymbols": {
         "InterfaceSignatureConstants": [
-          509
+          364
         ]
       }
     },
@@ -26,9 +26,9 @@
             ".17"
           ]
         },
-        "id": 409,
+        "id": 264,
         "name": "PragmaDirective",
-        "src": "0:24:5"
+        "src": "0:24:3"
       },
       {
         "attributes": {
@@ -42,17 +42,17 @@
           "documentation": null,
           "fullyImplemented": true,
           "linearizedBaseContracts": [
-            509
+            364
           ],
           "name": "InterfaceSignatureConstants",
-          "scope": 510
+          "scope": 365
         },
         "children": [
           {
             "attributes": {
               "constant": true,
               "name": "InterfaceSignature_ERC165",
-              "scope": 509,
+              "scope": 364,
               "stateVariable": true,
               "storageLocation": "default",
               "type": "bytes4",
@@ -64,9 +64,9 @@
                   "name": "bytes4",
                   "type": "bytes4"
                 },
-                "id": 410,
+                "id": 265,
                 "name": "ElementaryTypeName",
-                "src": "67:6:5"
+                "src": "67:6:3"
               },
               {
                 "attributes": {
@@ -98,9 +98,9 @@
                       "type": "type(bytes4)",
                       "value": "bytes4"
                     },
-                    "id": 411,
+                    "id": 266,
                     "name": "ElementaryTypeNameExpression",
-                    "src": "115:6:5"
+                    "src": "115:6:3"
                   },
                   {
                     "attributes": {
@@ -128,13 +128,13 @@
                           "overloadedDeclarations": [
                             null
                           ],
-                          "referencedDeclaration": 1050,
+                          "referencedDeclaration": 427,
                           "type": "function () pure returns (bytes32)",
                           "value": "keccak256"
                         },
-                        "id": 412,
+                        "id": 267,
                         "name": "Identifier",
-                        "src": "122:9:5"
+                        "src": "122:9:3"
                       },
                       {
                         "attributes": {
@@ -149,30 +149,30 @@
                           "type": "literal_string \"supportsInterface(bytes4)\"",
                           "value": "supportsInterface(bytes4)"
                         },
-                        "id": 413,
+                        "id": 268,
                         "name": "Literal",
-                        "src": "132:27:5"
+                        "src": "132:27:3"
                       }
                     ],
-                    "id": 414,
+                    "id": 269,
                     "name": "FunctionCall",
-                    "src": "122:38:5"
+                    "src": "122:38:3"
                   }
                 ],
-                "id": 415,
+                "id": 270,
                 "name": "FunctionCall",
-                "src": "115:46:5"
+                "src": "115:46:3"
               }
             ],
-            "id": 416,
+            "id": 271,
             "name": "VariableDeclaration",
-            "src": "67:94:5"
+            "src": "67:94:3"
           },
           {
             "attributes": {
               "constant": true,
               "name": "InterfaceSignature_ERC20",
-              "scope": 509,
+              "scope": 364,
               "stateVariable": true,
               "storageLocation": "default",
               "type": "bytes4",
@@ -184,9 +184,9 @@
                   "name": "bytes4",
                   "type": "bytes4"
                 },
-                "id": 417,
+                "id": 272,
                 "name": "ElementaryTypeName",
-                "src": "166:6:5"
+                "src": "166:6:3"
               },
               {
                 "attributes": {
@@ -293,9 +293,9 @@
                                           "type": "type(bytes4)",
                                           "value": "bytes4"
                                         },
-                                        "id": 418,
+                                        "id": 273,
                                         "name": "ElementaryTypeNameExpression",
-                                        "src": "213:6:5"
+                                        "src": "213:6:3"
                                       },
                                       {
                                         "attributes": {
@@ -323,13 +323,13 @@
                                               "overloadedDeclarations": [
                                                 null
                                               ],
-                                              "referencedDeclaration": 1050,
+                                              "referencedDeclaration": 427,
                                               "type": "function () pure returns (bytes32)",
                                               "value": "keccak256"
                                             },
-                                            "id": 419,
+                                            "id": 274,
                                             "name": "Identifier",
-                                            "src": "220:9:5"
+                                            "src": "220:9:3"
                                           },
                                           {
                                             "attributes": {
@@ -344,19 +344,19 @@
                                               "type": "literal_string \"totalSupply()\"",
                                               "value": "totalSupply()"
                                             },
-                                            "id": 420,
+                                            "id": 275,
                                             "name": "Literal",
-                                            "src": "230:15:5"
+                                            "src": "230:15:3"
                                           }
                                         ],
-                                        "id": 421,
+                                        "id": 276,
                                         "name": "FunctionCall",
-                                        "src": "220:26:5"
+                                        "src": "220:26:3"
                                       }
                                     ],
-                                    "id": 422,
+                                    "id": 277,
                                     "name": "FunctionCall",
-                                    "src": "213:34:5"
+                                    "src": "213:34:3"
                                   },
                                   {
                                     "attributes": {
@@ -388,9 +388,9 @@
                                           "type": "type(bytes4)",
                                           "value": "bytes4"
                                         },
-                                        "id": 423,
+                                        "id": 278,
                                         "name": "ElementaryTypeNameExpression",
-                                        "src": "254:6:5"
+                                        "src": "254:6:3"
                                       },
                                       {
                                         "attributes": {
@@ -418,13 +418,13 @@
                                               "overloadedDeclarations": [
                                                 null
                                               ],
-                                              "referencedDeclaration": 1050,
+                                              "referencedDeclaration": 427,
                                               "type": "function () pure returns (bytes32)",
                                               "value": "keccak256"
                                             },
-                                            "id": 424,
+                                            "id": 279,
                                             "name": "Identifier",
-                                            "src": "261:9:5"
+                                            "src": "261:9:3"
                                           },
                                           {
                                             "attributes": {
@@ -439,24 +439,24 @@
                                               "type": "literal_string \"balanceOf(address)\"",
                                               "value": "balanceOf(address)"
                                             },
-                                            "id": 425,
+                                            "id": 280,
                                             "name": "Literal",
-                                            "src": "271:20:5"
+                                            "src": "271:20:3"
                                           }
                                         ],
-                                        "id": 426,
+                                        "id": 281,
                                         "name": "FunctionCall",
-                                        "src": "261:31:5"
+                                        "src": "261:31:3"
                                       }
                                     ],
-                                    "id": 427,
+                                    "id": 282,
                                     "name": "FunctionCall",
-                                    "src": "254:39:5"
+                                    "src": "254:39:3"
                                   }
                                 ],
-                                "id": 428,
+                                "id": 283,
                                 "name": "BinaryOperation",
-                                "src": "213:80:5"
+                                "src": "213:80:3"
                               },
                               {
                                 "attributes": {
@@ -488,9 +488,9 @@
                                       "type": "type(bytes4)",
                                       "value": "bytes4"
                                     },
-                                    "id": 429,
+                                    "id": 284,
                                     "name": "ElementaryTypeNameExpression",
-                                    "src": "300:6:5"
+                                    "src": "300:6:3"
                                   },
                                   {
                                     "attributes": {
@@ -518,13 +518,13 @@
                                           "overloadedDeclarations": [
                                             null
                                           ],
-                                          "referencedDeclaration": 1050,
+                                          "referencedDeclaration": 427,
                                           "type": "function () pure returns (bytes32)",
                                           "value": "keccak256"
                                         },
-                                        "id": 430,
+                                        "id": 285,
                                         "name": "Identifier",
-                                        "src": "307:9:5"
+                                        "src": "307:9:3"
                                       },
                                       {
                                         "attributes": {
@@ -539,24 +539,24 @@
                                           "type": "literal_string \"transfer(address,uint256)\"",
                                           "value": "transfer(address,uint256)"
                                         },
-                                        "id": 431,
+                                        "id": 286,
                                         "name": "Literal",
-                                        "src": "317:27:5"
+                                        "src": "317:27:3"
                                       }
                                     ],
-                                    "id": 432,
+                                    "id": 287,
                                     "name": "FunctionCall",
-                                    "src": "307:38:5"
+                                    "src": "307:38:3"
                                   }
                                 ],
-                                "id": 433,
+                                "id": 288,
                                 "name": "FunctionCall",
-                                "src": "300:46:5"
+                                "src": "300:46:3"
                               }
                             ],
-                            "id": 434,
+                            "id": 289,
                             "name": "BinaryOperation",
-                            "src": "213:133:5"
+                            "src": "213:133:3"
                           },
                           {
                             "attributes": {
@@ -588,9 +588,9 @@
                                   "type": "type(bytes4)",
                                   "value": "bytes4"
                                 },
-                                "id": 435,
+                                "id": 290,
                                 "name": "ElementaryTypeNameExpression",
-                                "src": "353:6:5"
+                                "src": "353:6:3"
                               },
                               {
                                 "attributes": {
@@ -618,13 +618,13 @@
                                       "overloadedDeclarations": [
                                         null
                                       ],
-                                      "referencedDeclaration": 1050,
+                                      "referencedDeclaration": 427,
                                       "type": "function () pure returns (bytes32)",
                                       "value": "keccak256"
                                     },
-                                    "id": 436,
+                                    "id": 291,
                                     "name": "Identifier",
-                                    "src": "360:9:5"
+                                    "src": "360:9:3"
                                   },
                                   {
                                     "attributes": {
@@ -639,24 +639,24 @@
                                       "type": "literal_string \"transferFrom(address,address,uint256)\"",
                                       "value": "transferFrom(address,address,uint256)"
                                     },
-                                    "id": 437,
+                                    "id": 292,
                                     "name": "Literal",
-                                    "src": "370:39:5"
+                                    "src": "370:39:3"
                                   }
                                 ],
-                                "id": 438,
+                                "id": 293,
                                 "name": "FunctionCall",
-                                "src": "360:50:5"
+                                "src": "360:50:3"
                               }
                             ],
-                            "id": 439,
+                            "id": 294,
                             "name": "FunctionCall",
-                            "src": "353:58:5"
+                            "src": "353:58:3"
                           }
                         ],
-                        "id": 440,
+                        "id": 295,
                         "name": "BinaryOperation",
-                        "src": "213:198:5"
+                        "src": "213:198:3"
                       },
                       {
                         "attributes": {
@@ -688,9 +688,9 @@
                               "type": "type(bytes4)",
                               "value": "bytes4"
                             },
-                            "id": 441,
+                            "id": 296,
                             "name": "ElementaryTypeNameExpression",
-                            "src": "418:6:5"
+                            "src": "418:6:3"
                           },
                           {
                             "attributes": {
@@ -718,13 +718,13 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 1050,
+                                  "referencedDeclaration": 427,
                                   "type": "function () pure returns (bytes32)",
                                   "value": "keccak256"
                                 },
-                                "id": 442,
+                                "id": 297,
                                 "name": "Identifier",
-                                "src": "425:9:5"
+                                "src": "425:9:3"
                               },
                               {
                                 "attributes": {
@@ -739,24 +739,24 @@
                                   "type": "literal_string \"approve(address,uint256)\"",
                                   "value": "approve(address,uint256)"
                                 },
-                                "id": 443,
+                                "id": 298,
                                 "name": "Literal",
-                                "src": "435:26:5"
+                                "src": "435:26:3"
                               }
                             ],
-                            "id": 444,
+                            "id": 299,
                             "name": "FunctionCall",
-                            "src": "425:37:5"
+                            "src": "425:37:3"
                           }
                         ],
-                        "id": 445,
+                        "id": 300,
                         "name": "FunctionCall",
-                        "src": "418:45:5"
+                        "src": "418:45:3"
                       }
                     ],
-                    "id": 446,
+                    "id": 301,
                     "name": "BinaryOperation",
-                    "src": "213:250:5"
+                    "src": "213:250:3"
                   },
                   {
                     "attributes": {
@@ -788,9 +788,9 @@
                           "type": "type(bytes4)",
                           "value": "bytes4"
                         },
-                        "id": 447,
+                        "id": 302,
                         "name": "ElementaryTypeNameExpression",
-                        "src": "470:6:5"
+                        "src": "470:6:3"
                       },
                       {
                         "attributes": {
@@ -818,13 +818,13 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 1050,
+                              "referencedDeclaration": 427,
                               "type": "function () pure returns (bytes32)",
                               "value": "keccak256"
                             },
-                            "id": 448,
+                            "id": 303,
                             "name": "Identifier",
-                            "src": "477:9:5"
+                            "src": "477:9:3"
                           },
                           {
                             "attributes": {
@@ -839,35 +839,35 @@
                               "type": "literal_string \"allowance(address,address)\"",
                               "value": "allowance(address,address)"
                             },
-                            "id": 449,
+                            "id": 304,
                             "name": "Literal",
-                            "src": "487:28:5"
+                            "src": "487:28:3"
                           }
                         ],
-                        "id": 450,
+                        "id": 305,
                         "name": "FunctionCall",
-                        "src": "477:39:5"
+                        "src": "477:39:3"
                       }
                     ],
-                    "id": 451,
+                    "id": 306,
                     "name": "FunctionCall",
-                    "src": "470:47:5"
+                    "src": "470:47:3"
                   }
                 ],
-                "id": 452,
+                "id": 307,
                 "name": "BinaryOperation",
-                "src": "213:304:5"
+                "src": "213:304:3"
               }
             ],
-            "id": 453,
+            "id": 308,
             "name": "VariableDeclaration",
-            "src": "166:351:5"
+            "src": "166:351:3"
           },
           {
             "attributes": {
               "constant": true,
               "name": "InterfaceSignature_ERC20_PlusOptions",
-              "scope": 509,
+              "scope": 364,
               "stateVariable": true,
               "storageLocation": "default",
               "type": "bytes4",
@@ -879,9 +879,9 @@
                   "name": "bytes4",
                   "type": "bytes4"
                 },
-                "id": 454,
+                "id": 309,
                 "name": "ElementaryTypeName",
-                "src": "522:6:5"
+                "src": "522:6:3"
               },
               {
                 "attributes": {
@@ -1033,9 +1033,9 @@
                                                       "type": "type(bytes4)",
                                                       "value": "bytes4"
                                                     },
-                                                    "id": 455,
+                                                    "id": 310,
                                                     "name": "ElementaryTypeNameExpression",
-                                                    "src": "582:6:5"
+                                                    "src": "582:6:3"
                                                   },
                                                   {
                                                     "attributes": {
@@ -1063,13 +1063,13 @@
                                                           "overloadedDeclarations": [
                                                             null
                                                           ],
-                                                          "referencedDeclaration": 1050,
+                                                          "referencedDeclaration": 427,
                                                           "type": "function () pure returns (bytes32)",
                                                           "value": "keccak256"
                                                         },
-                                                        "id": 456,
+                                                        "id": 311,
                                                         "name": "Identifier",
-                                                        "src": "589:9:5"
+                                                        "src": "589:9:3"
                                                       },
                                                       {
                                                         "attributes": {
@@ -1084,19 +1084,19 @@
                                                           "type": "literal_string \"name()\"",
                                                           "value": "name()"
                                                         },
-                                                        "id": 457,
+                                                        "id": 312,
                                                         "name": "Literal",
-                                                        "src": "599:8:5"
+                                                        "src": "599:8:3"
                                                       }
                                                     ],
-                                                    "id": 458,
+                                                    "id": 313,
                                                     "name": "FunctionCall",
-                                                    "src": "589:19:5"
+                                                    "src": "589:19:3"
                                                   }
                                                 ],
-                                                "id": 459,
+                                                "id": 314,
                                                 "name": "FunctionCall",
-                                                "src": "582:27:5"
+                                                "src": "582:27:3"
                                               },
                                               {
                                                 "attributes": {
@@ -1128,9 +1128,9 @@
                                                       "type": "type(bytes4)",
                                                       "value": "bytes4"
                                                     },
-                                                    "id": 460,
+                                                    "id": 315,
                                                     "name": "ElementaryTypeNameExpression",
-                                                    "src": "616:6:5"
+                                                    "src": "616:6:3"
                                                   },
                                                   {
                                                     "attributes": {
@@ -1158,13 +1158,13 @@
                                                           "overloadedDeclarations": [
                                                             null
                                                           ],
-                                                          "referencedDeclaration": 1050,
+                                                          "referencedDeclaration": 427,
                                                           "type": "function () pure returns (bytes32)",
                                                           "value": "keccak256"
                                                         },
-                                                        "id": 461,
+                                                        "id": 316,
                                                         "name": "Identifier",
-                                                        "src": "623:9:5"
+                                                        "src": "623:9:3"
                                                       },
                                                       {
                                                         "attributes": {
@@ -1179,24 +1179,24 @@
                                                           "type": "literal_string \"symbol()\"",
                                                           "value": "symbol()"
                                                         },
-                                                        "id": 462,
+                                                        "id": 317,
                                                         "name": "Literal",
-                                                        "src": "633:10:5"
+                                                        "src": "633:10:3"
                                                       }
                                                     ],
-                                                    "id": 463,
+                                                    "id": 318,
                                                     "name": "FunctionCall",
-                                                    "src": "623:21:5"
+                                                    "src": "623:21:3"
                                                   }
                                                 ],
-                                                "id": 464,
+                                                "id": 319,
                                                 "name": "FunctionCall",
-                                                "src": "616:29:5"
+                                                "src": "616:29:3"
                                               }
                                             ],
-                                            "id": 465,
+                                            "id": 320,
                                             "name": "BinaryOperation",
-                                            "src": "582:63:5"
+                                            "src": "582:63:3"
                                           },
                                           {
                                             "attributes": {
@@ -1228,9 +1228,9 @@
                                                   "type": "type(bytes4)",
                                                   "value": "bytes4"
                                                 },
-                                                "id": 466,
+                                                "id": 321,
                                                 "name": "ElementaryTypeNameExpression",
-                                                "src": "652:6:5"
+                                                "src": "652:6:3"
                                               },
                                               {
                                                 "attributes": {
@@ -1258,13 +1258,13 @@
                                                       "overloadedDeclarations": [
                                                         null
                                                       ],
-                                                      "referencedDeclaration": 1050,
+                                                      "referencedDeclaration": 427,
                                                       "type": "function () pure returns (bytes32)",
                                                       "value": "keccak256"
                                                     },
-                                                    "id": 467,
+                                                    "id": 322,
                                                     "name": "Identifier",
-                                                    "src": "659:9:5"
+                                                    "src": "659:9:3"
                                                   },
                                                   {
                                                     "attributes": {
@@ -1279,24 +1279,24 @@
                                                       "type": "literal_string \"decimals()\"",
                                                       "value": "decimals()"
                                                     },
-                                                    "id": 468,
+                                                    "id": 323,
                                                     "name": "Literal",
-                                                    "src": "669:12:5"
+                                                    "src": "669:12:3"
                                                   }
                                                 ],
-                                                "id": 469,
+                                                "id": 324,
                                                 "name": "FunctionCall",
-                                                "src": "659:23:5"
+                                                "src": "659:23:3"
                                               }
                                             ],
-                                            "id": 470,
+                                            "id": 325,
                                             "name": "FunctionCall",
-                                            "src": "652:31:5"
+                                            "src": "652:31:3"
                                           }
                                         ],
-                                        "id": 471,
+                                        "id": 326,
                                         "name": "BinaryOperation",
-                                        "src": "582:101:5"
+                                        "src": "582:101:3"
                                       },
                                       {
                                         "attributes": {
@@ -1328,9 +1328,9 @@
                                               "type": "type(bytes4)",
                                               "value": "bytes4"
                                             },
-                                            "id": 472,
+                                            "id": 327,
                                             "name": "ElementaryTypeNameExpression",
-                                            "src": "690:6:5"
+                                            "src": "690:6:3"
                                           },
                                           {
                                             "attributes": {
@@ -1358,13 +1358,13 @@
                                                   "overloadedDeclarations": [
                                                     null
                                                   ],
-                                                  "referencedDeclaration": 1050,
+                                                  "referencedDeclaration": 427,
                                                   "type": "function () pure returns (bytes32)",
                                                   "value": "keccak256"
                                                 },
-                                                "id": 473,
+                                                "id": 328,
                                                 "name": "Identifier",
-                                                "src": "697:9:5"
+                                                "src": "697:9:3"
                                               },
                                               {
                                                 "attributes": {
@@ -1379,24 +1379,24 @@
                                                   "type": "literal_string \"totalSupply()\"",
                                                   "value": "totalSupply()"
                                                 },
-                                                "id": 474,
+                                                "id": 329,
                                                 "name": "Literal",
-                                                "src": "707:15:5"
+                                                "src": "707:15:3"
                                               }
                                             ],
-                                            "id": 475,
+                                            "id": 330,
                                             "name": "FunctionCall",
-                                            "src": "697:26:5"
+                                            "src": "697:26:3"
                                           }
                                         ],
-                                        "id": 476,
+                                        "id": 331,
                                         "name": "FunctionCall",
-                                        "src": "690:34:5"
+                                        "src": "690:34:3"
                                       }
                                     ],
-                                    "id": 477,
+                                    "id": 332,
                                     "name": "BinaryOperation",
-                                    "src": "582:142:5"
+                                    "src": "582:142:3"
                                   },
                                   {
                                     "attributes": {
@@ -1428,9 +1428,9 @@
                                           "type": "type(bytes4)",
                                           "value": "bytes4"
                                         },
-                                        "id": 478,
+                                        "id": 333,
                                         "name": "ElementaryTypeNameExpression",
-                                        "src": "731:6:5"
+                                        "src": "731:6:3"
                                       },
                                       {
                                         "attributes": {
@@ -1458,13 +1458,13 @@
                                               "overloadedDeclarations": [
                                                 null
                                               ],
-                                              "referencedDeclaration": 1050,
+                                              "referencedDeclaration": 427,
                                               "type": "function () pure returns (bytes32)",
                                               "value": "keccak256"
                                             },
-                                            "id": 479,
+                                            "id": 334,
                                             "name": "Identifier",
-                                            "src": "738:9:5"
+                                            "src": "738:9:3"
                                           },
                                           {
                                             "attributes": {
@@ -1479,24 +1479,24 @@
                                               "type": "literal_string \"balanceOf(address)\"",
                                               "value": "balanceOf(address)"
                                             },
-                                            "id": 480,
+                                            "id": 335,
                                             "name": "Literal",
-                                            "src": "748:20:5"
+                                            "src": "748:20:3"
                                           }
                                         ],
-                                        "id": 481,
+                                        "id": 336,
                                         "name": "FunctionCall",
-                                        "src": "738:31:5"
+                                        "src": "738:31:3"
                                       }
                                     ],
-                                    "id": 482,
+                                    "id": 337,
                                     "name": "FunctionCall",
-                                    "src": "731:39:5"
+                                    "src": "731:39:3"
                                   }
                                 ],
-                                "id": 483,
+                                "id": 338,
                                 "name": "BinaryOperation",
-                                "src": "582:188:5"
+                                "src": "582:188:3"
                               },
                               {
                                 "attributes": {
@@ -1528,9 +1528,9 @@
                                       "type": "type(bytes4)",
                                       "value": "bytes4"
                                     },
-                                    "id": 484,
+                                    "id": 339,
                                     "name": "ElementaryTypeNameExpression",
-                                    "src": "777:6:5"
+                                    "src": "777:6:3"
                                   },
                                   {
                                     "attributes": {
@@ -1558,13 +1558,13 @@
                                           "overloadedDeclarations": [
                                             null
                                           ],
-                                          "referencedDeclaration": 1050,
+                                          "referencedDeclaration": 427,
                                           "type": "function () pure returns (bytes32)",
                                           "value": "keccak256"
                                         },
-                                        "id": 485,
+                                        "id": 340,
                                         "name": "Identifier",
-                                        "src": "784:9:5"
+                                        "src": "784:9:3"
                                       },
                                       {
                                         "attributes": {
@@ -1579,24 +1579,24 @@
                                           "type": "literal_string \"transfer(address,uint256)\"",
                                           "value": "transfer(address,uint256)"
                                         },
-                                        "id": 486,
+                                        "id": 341,
                                         "name": "Literal",
-                                        "src": "794:27:5"
+                                        "src": "794:27:3"
                                       }
                                     ],
-                                    "id": 487,
+                                    "id": 342,
                                     "name": "FunctionCall",
-                                    "src": "784:38:5"
+                                    "src": "784:38:3"
                                   }
                                 ],
-                                "id": 488,
+                                "id": 343,
                                 "name": "FunctionCall",
-                                "src": "777:46:5"
+                                "src": "777:46:3"
                               }
                             ],
-                            "id": 489,
+                            "id": 344,
                             "name": "BinaryOperation",
-                            "src": "582:241:5"
+                            "src": "582:241:3"
                           },
                           {
                             "attributes": {
@@ -1628,9 +1628,9 @@
                                   "type": "type(bytes4)",
                                   "value": "bytes4"
                                 },
-                                "id": 490,
+                                "id": 345,
                                 "name": "ElementaryTypeNameExpression",
-                                "src": "830:6:5"
+                                "src": "830:6:3"
                               },
                               {
                                 "attributes": {
@@ -1658,13 +1658,13 @@
                                       "overloadedDeclarations": [
                                         null
                                       ],
-                                      "referencedDeclaration": 1050,
+                                      "referencedDeclaration": 427,
                                       "type": "function () pure returns (bytes32)",
                                       "value": "keccak256"
                                     },
-                                    "id": 491,
+                                    "id": 346,
                                     "name": "Identifier",
-                                    "src": "837:9:5"
+                                    "src": "837:9:3"
                                   },
                                   {
                                     "attributes": {
@@ -1679,24 +1679,24 @@
                                       "type": "literal_string \"transferFrom(address,address,uint256)\"",
                                       "value": "transferFrom(address,address,uint256)"
                                     },
-                                    "id": 492,
+                                    "id": 347,
                                     "name": "Literal",
-                                    "src": "847:39:5"
+                                    "src": "847:39:3"
                                   }
                                 ],
-                                "id": 493,
+                                "id": 348,
                                 "name": "FunctionCall",
-                                "src": "837:50:5"
+                                "src": "837:50:3"
                               }
                             ],
-                            "id": 494,
+                            "id": 349,
                             "name": "FunctionCall",
-                            "src": "830:58:5"
+                            "src": "830:58:3"
                           }
                         ],
-                        "id": 495,
+                        "id": 350,
                         "name": "BinaryOperation",
-                        "src": "582:306:5"
+                        "src": "582:306:3"
                       },
                       {
                         "attributes": {
@@ -1728,9 +1728,9 @@
                               "type": "type(bytes4)",
                               "value": "bytes4"
                             },
-                            "id": 496,
+                            "id": 351,
                             "name": "ElementaryTypeNameExpression",
-                            "src": "895:6:5"
+                            "src": "895:6:3"
                           },
                           {
                             "attributes": {
@@ -1758,13 +1758,13 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 1050,
+                                  "referencedDeclaration": 427,
                                   "type": "function () pure returns (bytes32)",
                                   "value": "keccak256"
                                 },
-                                "id": 497,
+                                "id": 352,
                                 "name": "Identifier",
-                                "src": "902:9:5"
+                                "src": "902:9:3"
                               },
                               {
                                 "attributes": {
@@ -1779,24 +1779,24 @@
                                   "type": "literal_string \"approve(address,uint256)\"",
                                   "value": "approve(address,uint256)"
                                 },
-                                "id": 498,
+                                "id": 353,
                                 "name": "Literal",
-                                "src": "912:26:5"
+                                "src": "912:26:3"
                               }
                             ],
-                            "id": 499,
+                            "id": 354,
                             "name": "FunctionCall",
-                            "src": "902:37:5"
+                            "src": "902:37:3"
                           }
                         ],
-                        "id": 500,
+                        "id": 355,
                         "name": "FunctionCall",
-                        "src": "895:45:5"
+                        "src": "895:45:3"
                       }
                     ],
-                    "id": 501,
+                    "id": 356,
                     "name": "BinaryOperation",
-                    "src": "582:358:5"
+                    "src": "582:358:3"
                   },
                   {
                     "attributes": {
@@ -1828,9 +1828,9 @@
                           "type": "type(bytes4)",
                           "value": "bytes4"
                         },
-                        "id": 502,
+                        "id": 357,
                         "name": "ElementaryTypeNameExpression",
-                        "src": "947:6:5"
+                        "src": "947:6:3"
                       },
                       {
                         "attributes": {
@@ -1858,13 +1858,13 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 1050,
+                              "referencedDeclaration": 427,
                               "type": "function () pure returns (bytes32)",
                               "value": "keccak256"
                             },
-                            "id": 503,
+                            "id": 358,
                             "name": "Identifier",
-                            "src": "954:9:5"
+                            "src": "954:9:3"
                           },
                           {
                             "attributes": {
@@ -1879,39 +1879,39 @@
                               "type": "literal_string \"allowance(address,address)\"",
                               "value": "allowance(address,address)"
                             },
-                            "id": 504,
+                            "id": 359,
                             "name": "Literal",
-                            "src": "964:28:5"
+                            "src": "964:28:3"
                           }
                         ],
-                        "id": 505,
+                        "id": 360,
                         "name": "FunctionCall",
-                        "src": "954:39:5"
+                        "src": "954:39:3"
                       }
                     ],
-                    "id": 506,
+                    "id": 361,
                     "name": "FunctionCall",
-                    "src": "947:47:5"
+                    "src": "947:47:3"
                   }
                 ],
-                "id": 507,
+                "id": 362,
                 "name": "BinaryOperation",
-                "src": "582:412:5"
+                "src": "582:412:3"
               }
             ],
-            "id": 508,
+            "id": 363,
             "name": "VariableDeclaration",
-            "src": "522:472:5"
+            "src": "522:472:3"
           }
         ],
-        "id": 509,
+        "id": 364,
         "name": "ContractDefinition",
-        "src": "26:971:5"
+        "src": "26:971:3"
       }
     ],
-    "id": 510,
+    "id": 365,
     "name": "SourceUnit",
-    "src": "0:998:5"
+    "src": "0:998:3"
   },
   "compiler": {
     "name": "solc",
@@ -1919,5 +1919,5 @@
   },
   "networks": {},
   "schemaVersion": "1.0.1",
-  "updatedAt": "2018-02-01T18:39:36.276Z"
+  "updatedAt": "2018-02-01T22:08:47.887Z"
 }
