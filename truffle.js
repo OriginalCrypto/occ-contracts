@@ -13,18 +13,19 @@ module.exports = {
     development: {
       host: "127.0.0.1",
       port: 9545, // 'truffle develop' runs on 9545 by default
-      network_id: "*" // Match any network id
+      network_id: "4447" // Match any network id
     },
     ganache: {
       host: "127.0.0.1",
       port: 7545, // ganache runs on 7545 by default
-      network_id: "*"
+      network_id: "5777"
     },
     ropsten: {
       provider: function() {
         return new HDWalletProvider(secret.mnemonic, "https://ropsten.infura.io");
       },
-      gas: 2900000,
+      gas: 3900000,
+      gasPrice: 4000000000,
       network_id: "3"
     },
     kovan: {
