@@ -1,7 +1,7 @@
 const HDWalletProvider = require("truffle-hdwallet-provider"),
-      secret = require('./.mnemonic');
+      secret = require('./.mnemonic'),
       
-      //'candy maple cake sugar pudding cream honey rich smooth crumble sweet treat';
+      notSoSecret = 'candy maple cake sugar pudding cream honey rich smooth crumble sweet treat';
 
 module.exports = {
   // See <http://truffleframework.com/docs/advanced/configuration>
@@ -27,6 +27,14 @@ module.exports = {
       gas: 3900000,
       gasPrice: 4000000000,
       network_id: "3"
+    },
+    notSoSecretRopsten: {
+      provider: function() {
+        return new HDWalletProvider(notSoSecret, "https://ropsten.infura.io");
+      },
+      network_id: "3",
+      gas: 3900000,
+      gasPrice: 4000000000,
     },
     kovan: {
       provider: function() {

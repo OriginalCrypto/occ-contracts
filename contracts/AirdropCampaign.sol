@@ -29,43 +29,38 @@ contract AirdropCampaign is Ownable, InterfaceSignatureConstants {
   }
 
   function register () public returns (bool) {
-    if (!canDisburseMultipleTimes) {
-      require(disbursements[msg.sender] == uint256(0));
-    }
+    if (!(canDisburseMultipleTimes ||
+        disbursements[msg.sender] == uint256(0))) revert();
 
     ERC20 tokenContract = ERC20(tokenAddress);
-
-    require(tokenContract.allowance(tokenHolderAddress, address(this)) > disbursementAmount);
 
     disbursements[msg.sender] += disbursementAmount;
     return tokenContract.transferFrom(tokenHolderAddress, msg.sender, disbursementAmount);
   }
 
-  function setTokenAddress (address candidate) public restricted returns (bool) {
+  function setTokenAddress (address candidate) public restricted {
     ERC165 candidateContract = ERC165(candidate);
 
     // roundabout way of verifying this
     // 1. this address must have the code for 'supportsInterface' (ERC165), and,
     // 2. this address must return true given the hash of the interface for ERC20
-    require(candidateContract.supportsInterface(InterfaceSignature_ERC20));
+    if (!candidateContract.supportsInterface(InterfaceSignature_ERC20)) revert();
     tokenAddress = candidateContract;
-    return true;
   }
 
-  function setDisbursementAmount (uint256 amount) public restricted returns (bool) {
-    require(amount > 0);
+  function setDisbursementAmount (uint256 amount) public restricted {
+    if (amount == 0) revert();
     disbursementAmount = amount;
-    return true;
   }
 
   function setCanDisburseMultipleTimes (bool value) public restricted {
     canDisburseMultipleTimes = value;
   }
 
-  function setTokenHolderAddress(address holder) public restricted returns (bool) {
+  function setTokenHolderAddress(address holder) public restricted {
     ERC20 tokenContract = ERC20(tokenAddress);
-    require(tokenContract.balanceOf(holder) > 0);
-    require(tokenContract.allowance(holder, address(this)) > 0);
+    if (tokenContract.balanceOf(holder) == 0) revert();
+    if (tokenContract.allowance(holder, address(this)) == 0) revert();
     tokenHolderAddress = holder;
   }
 }

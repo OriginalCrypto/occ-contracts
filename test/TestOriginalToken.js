@@ -134,6 +134,37 @@ contract('OriginalToken', function (accounts) {
     assert.equal(balanceAfter.toNumber(), cofounderDistribution);
   });
 
+  it('should allow approval of expenditures on behalf of sender', async function () {
+  
+    const allowanceBefore = await originalToken.allowance.call(founder, cofounders[2]);
+
+    await originalToken.approve(cofounders[2], 0);
+    await originalToken.approve(cofounders[2], 3 * Math.pow(10, 9 + decimals));
+
+    const allowanceAfter = await originalToken.allowance.call(founder, cofounders[2]);
+
+    assert(allowanceBefore.toNumber() < allowanceAfter.toNumber(), 'allowance was not increased');
+  });
+
+  it('should allow transfer from an approved spender', async function () {
+  
+    await originalToken.approve(cofounders[2], 0);
+    const allowanceBefore = await originalToken.allowance.call(founder, cofounders[2]);
+
+    await originalToken.approve(cofounders[2], 3 * Math.pow(10, 9 + decimals));
+
+    const allowanceAfter = await originalToken.allowance.call(founder, cofounders[2]);
+
+    assert.equal(allowanceAfter.comparedTo(allowanceBefore), 1, 'allowance was not increased');
+
+    await originalToken.transferFrom(founder, cofounders[4], 20000, { from: cofounders[2] });
+
+    const allowanceAfterTransfer = await originalToken.allowance.call(founder, cofounders[2]);
+
+
+    assert.equal(allowanceAfter.comparedTo(allowanceAfterTransfer), 1, 'allowance did not decrease');
+  });
+
   it('supports ERC165', async function () {
     assert(await originalToken.supportsInterface.call('0x01ffc9a7'));
   });
@@ -144,6 +175,28 @@ contract('OriginalToken', function (accounts) {
 
   it('supports ERC20 with options', async function () {
     assert(await originalToken.supportsInterface.call('0x942e8b22'));
+  });
+
+  
+  it('should have reasonable gas estimates', async function () {
+    if (process.env.npm_lifecycle_event === 'cover' || process.env.SOLIDITY_COVERAGE){
+      this.skip();
+    } else {
+
+      let estimateFor = {};
+
+      estimateFor.transfer = await originalToken.transfer.estimateGas(cofounders[3], 2 * Math.pow(10, 5 + decimals));
+      estimateFor.approve = await originalToken.approve.estimateGas(cofounders[2], 3 * Math.pow(10, 9 + decimals));
+
+      await originalToken.approve.estimateGas(cofounders[2], 3 * Math.pow(10, 9 + decimals));
+
+      estimateFor.transferFrom = await originalToken.transferFrom.estimateGas(founder, cofounders[5], 1 * Math.pow(10, 4 + decimals), { from: cofounders[2] });
+
+      originalToken.transferFrom.estimateGas(founder, cofounders[5], 1 * Math.pow(10, 4 + decimals), { from: cofounders[2] });
+
+
+      console.log(estimateFor);
+    }
   });
  
 });
