@@ -39,7 +39,7 @@
       "absolutePath": "/Users/mishochu/Source/occ/occ-contracts/contracts/ApprovedAllowanceAgent.sol",
       "exportedSymbols": {
         "ApprovedAllowanceAgent": [
-          13
+          215
         ]
       }
     },
@@ -53,9 +53,9 @@
             ".17"
           ]
         },
-        "id": 1,
+        "id": 203,
         "name": "PragmaDirective",
-        "src": "0:24:0"
+        "src": "0:24:1"
       },
       {
         "attributes": {
@@ -69,10 +69,10 @@
           "documentation": null,
           "fullyImplemented": false,
           "linearizedBaseContracts": [
-            13
+            215
           ],
           "name": "ApprovedAllowanceAgent",
-          "scope": 14
+          "scope": 216
         },
         "children": [
           {
@@ -86,7 +86,7 @@
               ],
               "name": "receiveApproval",
               "payable": false,
-              "scope": 13,
+              "scope": 215,
               "stateMutability": "nonpayable",
               "superFunction": null,
               "visibility": "public"
@@ -98,7 +98,7 @@
                     "attributes": {
                       "constant": false,
                       "name": "from",
-                      "scope": 12,
+                      "scope": 214,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "address",
@@ -111,20 +111,20 @@
                           "name": "address",
                           "type": "address"
                         },
-                        "id": 2,
+                        "id": 204,
                         "name": "ElementaryTypeName",
-                        "src": "89:7:0"
+                        "src": "89:7:1"
                       }
                     ],
-                    "id": 3,
+                    "id": 205,
                     "name": "VariableDeclaration",
-                    "src": "89:12:0"
+                    "src": "89:12:1"
                   },
                   {
                     "attributes": {
                       "constant": false,
                       "name": "value",
-                      "scope": 12,
+                      "scope": 214,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint256",
@@ -137,20 +137,20 @@
                           "name": "uint256",
                           "type": "uint256"
                         },
-                        "id": 4,
+                        "id": 206,
                         "name": "ElementaryTypeName",
-                        "src": "103:7:0"
+                        "src": "103:7:1"
                       }
                     ],
-                    "id": 5,
+                    "id": 207,
                     "name": "VariableDeclaration",
-                    "src": "103:13:0"
+                    "src": "103:13:1"
                   },
                   {
                     "attributes": {
                       "constant": false,
                       "name": "token",
-                      "scope": 12,
+                      "scope": 214,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "address",
@@ -163,20 +163,20 @@
                           "name": "address",
                           "type": "address"
                         },
-                        "id": 6,
+                        "id": 208,
                         "name": "ElementaryTypeName",
-                        "src": "118:7:0"
+                        "src": "118:7:1"
                       }
                     ],
-                    "id": 7,
+                    "id": 209,
                     "name": "VariableDeclaration",
-                    "src": "118:13:0"
+                    "src": "118:13:1"
                   },
                   {
                     "attributes": {
                       "constant": false,
                       "name": "extraData",
-                      "scope": 12,
+                      "scope": 214,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "bytes memory",
@@ -189,19 +189,19 @@
                           "name": "bytes",
                           "type": "bytes storage pointer"
                         },
-                        "id": 8,
+                        "id": 210,
                         "name": "ElementaryTypeName",
-                        "src": "133:5:0"
+                        "src": "133:5:1"
                       }
                     ],
-                    "id": 9,
+                    "id": 211,
                     "name": "VariableDeclaration",
-                    "src": "133:15:0"
+                    "src": "133:15:1"
                   }
                 ],
-                "id": 10,
+                "id": 212,
                 "name": "ParameterList",
-                "src": "88:61:0"
+                "src": "88:61:1"
               },
               {
                 "attributes": {
@@ -210,24 +210,24 @@
                   ]
                 },
                 "children": [],
-                "id": 11,
+                "id": 213,
                 "name": "ParameterList",
-                "src": "156:0:0"
+                "src": "156:0:1"
               }
             ],
-            "id": 12,
+            "id": 214,
             "name": "FunctionDefinition",
-            "src": "63:94:0"
+            "src": "63:94:1"
           }
         ],
-        "id": 13,
+        "id": 215,
         "name": "ContractDefinition",
-        "src": "26:133:0"
+        "src": "26:133:1"
       }
     ],
-    "id": 14,
+    "id": 216,
     "name": "SourceUnit",
-    "src": "0:161:0"
+    "src": "0:161:1"
   },
   "compiler": {
     "name": "solc",
@@ -235,5 +235,5 @@
   },
   "networks": {},
   "schemaVersion": "1.0.1",
-  "updatedAt": "2018-02-01T13:52:02.613Z"
+  "updatedAt": "2018-02-01T18:39:36.270Z"
 }

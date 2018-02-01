@@ -69,22 +69,12 @@ contract OriginalToken is Cofounded, ERC20, ERC165, InterfaceSignatureConstants 
   }
 
   function transfer (address to, uint256 value) public returns (bool) {
-    // don't burn these tokens
-    require(to != address(0));
-    // match spec and emit events on 0 value
-    if (value == 0) {
-      Transfer(msg.sender, to, value);
-      return true;
-    }
-
     return transferBalance (msg.sender, to, value);
   }
 
   function transferFrom (address from, address to, uint256 value) public returns (bool success) {
-    // don't burn these tokens
-    require(to != address(0));
     Allowance storage allowance = allowances[from][msg.sender];
-    require(allowance.amount >= value);
+    if (allowance.amount < value) revert();
 
     allowance.hasBeenPartiallyWithdrawn = true;
     allowance.amount -= value;
@@ -130,13 +120,21 @@ contract OriginalToken is Cofounded, ERC20, ERC165, InterfaceSignatureConstants 
 
   // TODO: compare gas cost estimations between this and https://github.com/ConsenSys/Tokens/blob/master/contracts/eip20/EIP20.sol#L39-L45
   function transferBalance (address from, address to, uint256 value) private returns (bool) {
+    // don't burn these tokens
+    if (to == address(0) || from == to) revert();
+    // match spec and emit events on 0 value
+    if (value == 0) {
+      Transfer(msg.sender, to, value);
+      return true;
+    }
+
     uint256 senderBalance = balances[from];
     uint256 receiverBalance = balances[to];
-    require(senderBalance >= value);
+    if (senderBalance < value) revert();
     senderBalance -= value;
     receiverBalance += value;
     // overflow check (altough one could use https://github.com/OpenZeppelin/zeppelin-solidity/blob/master/contracts/math/SafeMath.sol)
-    require(receiverBalance >= value);
+    if (receiverBalance < value) revert();
 
     balances[from] = senderBalance;
     balances[to] = receiverBalance;

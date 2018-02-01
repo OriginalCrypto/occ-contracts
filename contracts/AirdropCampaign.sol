@@ -13,6 +13,11 @@ contract AirdropCampaign is Ownable, InterfaceSignatureConstants {
 
   mapping (address => uint256) public disbursements;
 
+  modifier notHolder () {
+    if (tokenHolderAddress == msg.sender) revert();
+    _;
+  }
+
   function AirdropCampaign (address tokenContract, address tokenHolder, uint256 amount) Ownable() public {
     // allow for not supplying the constructor with a working token
     // and updating it later, however, if an address is supplied make
@@ -28,9 +33,9 @@ contract AirdropCampaign is Ownable, InterfaceSignatureConstants {
     setDisbursementAmount(amount);
   }
 
-  function register () public returns (bool) {
-    if (!(canDisburseMultipleTimes ||
-        disbursements[msg.sender] == uint256(0))) revert();
+  function register () public notHolder returns (bool) {
+    if (!canDisburseMultipleTimes &&
+        disbursements[msg.sender] > uint256(0)) revert();
 
     ERC20 tokenContract = ERC20(tokenAddress);
 

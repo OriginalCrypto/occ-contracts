@@ -44,7 +44,7 @@
     "solhint": "^1.1.10",
     "solidity-coverage": "^0.4.8",
     "truffle": "^4.0.4",
-    "truffle-hdwallet-provider": "0.0.3"
+    "truffle-hdwallet-provider": "git+https://github.com/trufflesuite/truffle-hdwallet-provider.git#71520a2"
   },
   "engines": {
     "node": ">= 4.x <= 9.x",

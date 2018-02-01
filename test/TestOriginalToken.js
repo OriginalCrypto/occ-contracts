@@ -176,29 +176,6 @@ contract('OriginalToken', function (accounts) {
   it('supports ERC20 with options', async function () {
     assert(await originalToken.supportsInterface.call('0x942e8b22'));
   });
-
-  
-  it('should have reasonable gas estimates', async function () {
-    if (process.env.npm_lifecycle_event === 'cover' || process.env.SOLIDITY_COVERAGE){
-      this.skip();
-    } else {
-
-      let estimateFor = {};
-
-      estimateFor.transfer = await originalToken.transfer.estimateGas(cofounders[3], 2 * Math.pow(10, 5 + decimals));
-      estimateFor.approve = await originalToken.approve.estimateGas(cofounders[2], 3 * Math.pow(10, 9 + decimals));
-
-      await originalToken.approve.estimateGas(cofounders[2], 3 * Math.pow(10, 9 + decimals));
-
-      estimateFor.transferFrom = await originalToken.transferFrom.estimateGas(founder, cofounders[5], 1 * Math.pow(10, 4 + decimals), { from: cofounders[2] });
-
-      originalToken.transferFrom.estimateGas(founder, cofounders[5], 1 * Math.pow(10, 4 + decimals), { from: cofounders[2] });
-
-
-      console.log(estimateFor);
-    }
-  });
- 
 });
 
 async function reverts (p) {

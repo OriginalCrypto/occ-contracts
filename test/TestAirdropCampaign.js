@@ -19,38 +19,13 @@ contract('AirdropCampaign', function (accounts) {
     airdrop = await AirdropCampaign.new(originalToken.address, addressZero, disbursementAmount);
   });
 
-  // TODO: revisit after implementing initial cofounder distribution
-  it('should have reasonable gas estimates', async function () {
-    if (process.env.npm_lifecycle_event === 'cover' || process.env.SOLIDITY_COVERAGE){
-      this.skip();
-    } else {
-      let estimateFor = {};
-      
+  it('should prevent multiple disbursements to a single account when canDisburseMultipleTimes is false', async function (){
+   const instance = await AirdropCampaign.new(originalToken.address, addressZero, disbursementAmount);   
+    await originalToken.approve(instance.address, 400000 * Math.pow(10, decimals), { from: founder });
+    await instance.setTokenHolderAddress(founder);
+    await instance.register({ from: accounts[2] });
 
-      estimateFor.setTokenAddress = await airdrop.setTokenAddress.estimateGas(OriginalToken.address);
-      estimateFor.setDisbursementAmount = await airdrop.setDisbursementAmount.estimateGas(disbursementAmount * 2);
-      estimateFor.setCanDisburseMultipleTimes = await airdrop.setCanDisburseMultipleTimes.estimateGas(true);
-
-      await airdrop.setCanDisburseMultipleTimes(true);
-
-      const balance = await originalToken.balanceOf.call(airdropCampaign);
-
-      const approved = await originalToken.approve(airdrop.address, balance, { from: airdropCampaign });
-      estimateFor.setTokenHolderAddress = await airdrop.setTokenHolderAddress.estimateGas(airdropCampaign);
-
-
-      await airdrop.setTokenHolderAddress(airdropCampaign);
-
-      estimateFor.register = await airdrop.register.estimateGas({ from: founder });
-
-      console.log(estimateFor);
-
-      assert(estimateFor.setTokenAddress < 31700, 'setTokenAddress too costly');
-      assert(estimateFor.setDisbursementAmount < 27380, 'setDisbursementAmount too costly');
-      assert(estimateFor.setCanDisburseMultipleTimes < 42355, 'setCanDisburseMultipleTimes too costly');
-      assert(estimateFor.setTokenHolderAddress < 49000, 'setTokenHolderAddress too costly');
-      assert(estimateFor.register < 84100, 'register too costly');
-    }
+    await reverts(instance.register({ from: accounts[2] }));
   });
 });
 

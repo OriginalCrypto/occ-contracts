@@ -32,7 +32,7 @@
       "absolutePath": "/Users/mishochu/Source/occ/occ-contracts/contracts/ERC165.sol",
       "exportedSymbols": {
         "ERC165": [
-          141
+          343
         ]
       }
     },
@@ -46,9 +46,9 @@
             ".17"
           ]
         },
-        "id": 133,
+        "id": 335,
         "name": "PragmaDirective",
-        "src": "0:24:2"
+        "src": "0:24:3"
       },
       {
         "attributes": {
@@ -62,10 +62,10 @@
           "documentation": "@title Interface for contracts conforming to ERC-165: Pseudo-Introspection, or standard interface detection\n @author Mish Ochu",
           "fullyImplemented": false,
           "linearizedBaseContracts": [
-            141
+            343
           ],
           "name": "ERC165",
-          "scope": 142
+          "scope": 344
         },
         "children": [
           {
@@ -79,7 +79,7 @@
               ],
               "name": "supportsInterface",
               "payable": false,
-              "scope": 141,
+              "scope": 343,
               "stateMutability": "view",
               "superFunction": null,
               "visibility": "external"
@@ -91,7 +91,7 @@
                     "attributes": {
                       "constant": false,
                       "name": "interfaceID",
-                      "scope": 140,
+                      "scope": 342,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "bytes4",
@@ -104,19 +104,19 @@
                           "name": "bytes4",
                           "type": "bytes4"
                         },
-                        "id": 134,
+                        "id": 336,
                         "name": "ElementaryTypeName",
-                        "src": "255:6:2"
+                        "src": "255:6:3"
                       }
                     ],
-                    "id": 135,
+                    "id": 337,
                     "name": "VariableDeclaration",
-                    "src": "255:18:2"
+                    "src": "255:18:3"
                   }
                 ],
-                "id": 136,
+                "id": 338,
                 "name": "ParameterList",
-                "src": "254:20:2"
+                "src": "254:20:3"
               },
               {
                 "children": [
@@ -124,7 +124,7 @@
                     "attributes": {
                       "constant": false,
                       "name": "",
-                      "scope": 140,
+                      "scope": 342,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "bool",
@@ -137,34 +137,34 @@
                           "name": "bool",
                           "type": "bool"
                         },
-                        "id": 137,
+                        "id": 339,
                         "name": "ElementaryTypeName",
-                        "src": "302:4:2"
+                        "src": "302:4:3"
                       }
                     ],
-                    "id": 138,
+                    "id": 340,
                     "name": "VariableDeclaration",
-                    "src": "302:4:2"
+                    "src": "302:4:3"
                   }
                 ],
-                "id": 139,
+                "id": 341,
                 "name": "ParameterList",
-                "src": "301:6:2"
+                "src": "301:6:3"
               }
             ],
-            "id": 140,
+            "id": 342,
             "name": "FunctionDefinition",
-            "src": "228:80:2"
+            "src": "228:80:3"
           }
         ],
-        "id": 141,
+        "id": 343,
         "name": "ContractDefinition",
-        "src": "160:150:2"
+        "src": "160:150:3"
       }
     ],
-    "id": 142,
+    "id": 344,
     "name": "SourceUnit",
-    "src": "0:312:2"
+    "src": "0:312:3"
   },
   "compiler": {
     "name": "solc",
@@ -172,5 +172,5 @@
   },
   "networks": {},
   "schemaVersion": "1.0.1",
-  "updatedAt": "2018-02-01T13:52:02.615Z"
+  "updatedAt": "2018-02-01T18:39:36.273Z"
 }

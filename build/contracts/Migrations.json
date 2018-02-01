@@ -824,14 +824,14 @@
     "4447": {
       "events": {},
       "links": {},
-      "address": "0xb5d2018b16c64af1a157b27807d3c7f29b762a7e"
+      "address": "0x13274fe19c0178208bcbee397af8167a7be27f6f"
     },
     "5777": {
       "events": {},
       "links": {},
-      "address": "0x2c2b9c9a4a25e24b174f26114e8926a9f2128fe4"
+      "address": "0x8acee021a27779d8e98b9650722676b850b25e11"
     }
   },
   "schemaVersion": "1.0.1",
-  "updatedAt": "2018-02-01T14:16:59.962Z"
+  "updatedAt": "2018-02-01T18:41:04.560Z"
 }
