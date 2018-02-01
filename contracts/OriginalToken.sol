@@ -19,19 +19,17 @@ contract OriginalToken is Cofounded, ERC20, ERC165, InterfaceSignatureConstants 
 
     //***** Apparently Optional *****/
     /// @dev returns the name of the token
-    string public name;
+    string public constant name = 'Original Crypto Coin';
     /// @dev returns the symbol of the token (e.g. 'OCC')
-    string public symbol;
+    string public constant symbol = 'OCC';
     /// @dev returns the number of decimals the tokens use
-    uint8 public decimals;
+    uint8 public constant decimals = 18;
     //**********/
 
     /// @dev  returns the total token supply
     /// @note implemented as a state variable with an automatic (compiler provided) getter
     ///       instead of a constant (view/readonly) function.
-    uint256 public totalSupply;
-
-    uint256 constant private MAX_UINT256 = 2**256 - 1;
+    uint256 public totalSupply = 100000000000000000000000000000;
 
     mapping (address => uint256) public balances;
     // TODO: determine if the gas cost for handling the race condition
@@ -43,34 +41,17 @@ contract OriginalToken is Cofounded, ERC20, ERC165, InterfaceSignatureConstants 
   /// NOTE  passes tokenCofounders to base contract
   /// see   Cofounded
   function OriginalToken (address[] tokenCofounders,
-                          address tokenRemainderHolder,
-                          uint256 tokenTotalSupply,
-                          string tokenName,
-                          string tokenSymbol,
-                          uint8 tokenDecimals,
-                          uint256 cofounderDistribution) Cofounded(tokenCofounders) public {
-    require(tokenRemainderHolder != address(0));
-    require(tokenTotalSupply > 0);
-    require(tokenDecimals > 0);
-    require(cofounderDistribution > 0 && tokenTotalSupply > cofounderDistribution);
+                          uint256 cofounderDistribution) Cofounded(tokenCofounders) public { 
 
-    require(bytes(tokenName).length > 0);
-    require(bytes(tokenSymbol).length > 0);
+    if (hasExecutedCofounderDistribution ||
+        cofounderDistribution == 0 || 
+        totalSupply < cofounderDistribution) revert();
 
-    totalSupply = tokenTotalSupply;
-    name = tokenName;
-    symbol = tokenSymbol;
-    decimals = tokenDecimals;
+    hasExecutedCofounderDistribution = true;
+    uint256 initialSupply = totalSupply;
 
     // divvy up initial token supply accross cofounders
     // TODO: ensure each cofounder gets an equal base distribution
-    distributeToCofounders(tokenTotalSupply, cofounderDistribution, tokenRemainderHolder);
-  }
-
-  function distributeToCofounders (uint256 initialSupply, uint256 cofounderDistribution, address tokenRemainderHolder) private restricted {
-    require(!hasExecutedCofounderDistribution);
-
-    hasExecutedCofounderDistribution = true;
 
     for (uint8 x = 0; x < cofounders.length; x++) {
       address cofounder = cofounders[x];
@@ -80,11 +61,11 @@ contract OriginalToken is Cofounded, ERC20, ERC165, InterfaceSignatureConstants 
       initialSupply -= cofounderDistribution;
       // there should be some left over for the airdrop campaign
       // otherwise don't create this contract
-      require(initialSupply > cofounderDistribution);
+      if (initialSupply < cofounderDistribution) revert();
       balances[cofounder] = cofounderDistribution;
     }
 
-    balances[tokenRemainderHolder] = initialSupply;
+    balances[msg.sender] += initialSupply;
   }
 
   function transfer (address to, uint256 value) public returns (bool) {

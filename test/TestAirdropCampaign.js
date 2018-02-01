@@ -26,6 +26,7 @@ contract('AirdropCampaign', function (accounts) {
     } else {
       let estimateFor = {};
       
+
       estimateFor.setTokenAddress = await airdrop.setTokenAddress.estimateGas(OriginalToken.address);
       estimateFor.setDisbursementAmount = await airdrop.setDisbursementAmount.estimateGas(disbursementAmount * 2);
       estimateFor.setCanDisburseMultipleTimes = await airdrop.setCanDisburseMultipleTimes.estimateGas(true);

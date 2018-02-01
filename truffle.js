@@ -24,17 +24,8 @@ module.exports = {
       provider: function() {
         return new HDWalletProvider(secret.mnemonic, "https://ropsten.infura.io");
       },
-      gas: 3900000,
-      gasPrice: 4000000000,
+      gas: 2905540,
       network_id: "3"
-    },
-    notSoSecretRopsten: {
-      provider: function() {
-        return new HDWalletProvider(notSoSecret, "https://ropsten.infura.io");
-      },
-      network_id: "3",
-      gas: 3900000,
-      gasPrice: 4000000000,
     },
     kovan: {
       provider: function() {

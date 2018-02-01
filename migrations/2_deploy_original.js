@@ -4,7 +4,9 @@ let secret;
     
 
 module.exports = function(deployer, network, accounts) {
-  const shouldLoadSecrets = ['ropsten', 'rinkeby', 'kovan', 'main', 'infura'].indexOf(network) > 0;
+  const shouldLoadSecrets = ['ropsten', 'rinkeby', 'kovan', 'main', 'infura'].indexOf(network) > -1;
+
+  console.log(`network: ${network}\nshouldLoadSecrets: ${shouldLoadSecrets}`);
   if (shouldLoadSecrets) {
     try {
       secret = require('../.cofounders');
@@ -14,26 +16,17 @@ module.exports = function(deployer, network, accounts) {
         throw e;
       }
       
-      secret = { cofounders: accounts.slice(2, 16),
-        airdropCampaignAddress: accounts[1]
+      secret = { cofounders: accounts.slice(1, 15)
       };
     }
   } else {
-      secret = { cofounders: accounts.slice(2, 16),
-        airdropCampaignAddress: accounts[1]
-      };
+      secret = { cofounders: accounts.slice(1, 15) };
   }
 
-  const airdropCampaign = secret.airdropCampaignAddress,
+  const decimals = 18,
     cofounders = secret.cofounders,
-    decimals = 18,
-    tokenName = 'Original Crypto Coin',
-    tokenSymbol = 'OCC',
-    OneHundredBillionPlusDecimals = Math.pow(10, (11 + decimals)),
     cofounderDistribution = 55 * Math.pow(10, (8 + decimals)); // 5.5 billion
 
-  deployer.deploy(OriginalToken, cofounders,
-    airdropCampaign, OneHundredBillionPlusDecimals,
-    tokenName, tokenSymbol, decimals, cofounderDistribution);
+  deployer.deploy(OriginalToken, cofounders, cofounderDistribution);
 };
 

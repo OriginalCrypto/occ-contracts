@@ -17,24 +17,24 @@ contract('OriginalToken', function (accounts) {
 
   before(async function () {
     originalToken = await OriginalToken
-      .new(cofounders, airdropCampaign, OneHundredBillionPlusDecimals,
-          tokenName, tokenSymbol, decimals, cofounderDistribution, { from: founder });
+      .new(cofounders, cofounderDistribution, { from: founder });
   });
 
   // TODO: revisit after implementing initial cofounder distribution
-  it('should create an initial balance of 5.5 billion for the creator', async function ()  {
-        let balance = await originalToken.balanceOf.call(founder);
+  it('should create an initial balance of 5.5 billion for a cofounder', async function ()  {
+        let balance = await originalToken.balanceOf.call(cofounders[0]);
         assert.equal(balance.toNumber(), cofounderDistribution);
   });
 
   it('should give each cofounder an equal distribution', async function () {
     let instance = await  OriginalToken
-      .new(cofounders, airdropCampaign, 2000, tokenName, tokenSymbol, 2, 2, { from: founder });
+      .new(cofounders, 2, { from: founder });
 
     let recordedCofounders = await instance.getCofounders.call();
 
     let balancesOfRecordedCofounders = [];
     recordedCofounders
+      .filter(function (cofounder) { return cofounder !== founder; })
       .forEach(async function (recordedCofounder) {
         let balancesOfRecordedCofounder = await instance.balanceOf.call(recordedCofounder);
         balancesOfRecordedCofounders.push(balancesOfRecordedCofounder);
@@ -66,9 +66,9 @@ contract('OriginalToken', function (accounts) {
   it('fails to transfer more tokens than sender has', async function () {
     const recipient = '0x347eD75c305f4ab85757Bfcc5600D9BfCb413898',
           instance = await  OriginalToken
-            .new(cofounders, airdropCampaign, 2000, tokenName, tokenSymbol, 2, 2, { from: founder });
+            .new(cofounders, 2, { from: founder });
 
-    await reverts(instance.transfer(recipient, 3, { from: founder }));
+    await reverts(instance.transfer(recipient, 3, { from: cofounders[0]}));
   });
 
   it('succeeds when transfering 0 tokens', async function () {
@@ -112,13 +112,13 @@ contract('OriginalToken', function (accounts) {
   });
 
   it('should not have token balance side effects during ether \'receive\' transaction', async function () {
-    const balanceBefore = await originalToken.balanceOf.call(founder);
+    const balanceBefore = await originalToken.balanceOf.call(cofounders[0]);
 
     assert.strictEqual(balanceBefore.toNumber(), cofounderDistribution);
 
     try {
       let result = await web3.eth.sendTransaction({
-          from: founder,
+          from: cofounders[0],
           to: originalToken.address,
           value: web3.toWei('10', 'ether'),
           data: '0x'
@@ -130,7 +130,7 @@ contract('OriginalToken', function (accounts) {
       assert(hasReverted, `expected revert but threw ${e}`);
     }
     // sending ether should not have side affects on the token balance
-    const balanceAfter = await originalToken.balanceOf.call(founder);
+    const balanceAfter = await originalToken.balanceOf.call(cofounders[0]);
     assert.equal(balanceAfter.toNumber(), cofounderDistribution);
   });
 
