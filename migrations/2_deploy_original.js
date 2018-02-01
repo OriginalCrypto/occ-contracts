@@ -4,18 +4,24 @@ let secret;
     
 
 module.exports = function(deployer, network, accounts) {
-  try {
-    secret = require('../.cofounders');
-  } catch (e) {
-    // do not fallback to nonsensical values in production
-    if (e.code !== 'MODULE_NOT_FOUND' ||
-        (network === 'main' || network === 'infura')) {
-      throw e;
+  const shouldLoadSecrets = ['ropsten', 'rinkeby', 'kovan', 'main', 'infura'].indexOf(network) > 0;
+  if (shouldLoadSecrets) {
+    try {
+      secret = require('../.cofounders');
+    } catch (e) {
+      // do not fallback to nonsensical values in production
+      if (e.code !== 'MODULE_NOT_FOUND') {
+        throw e;
+      }
+      
+      secret = { cofounders: accounts.slice(2, 16),
+        airdropCampaignAddress: accounts[1]
+      };
     }
-    
-    secret = { cofounders: accounts.slice(2, 16),
-      airdropCampaignAddress: accounts[1]
-    };
+  } else {
+      secret = { cofounders: accounts.slice(2, 16),
+        airdropCampaignAddress: accounts[1]
+      };
   }
 
   const airdropCampaign = secret.airdropCampaignAddress,
