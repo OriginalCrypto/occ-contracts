@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.org/OriginalCrypto/occ-contracts.svg?branch=master)](https://travis-ci.org/OriginalCrypto/occ-contracts)
 [![Coverage Status](https://coveralls.io/repos/github/OriginalCrypto/occ-contracts/badge.svg?branch=master)](https://coveralls.io/github/OriginalCrypto/occ-contracts?branch=master)
 [![license](https://img.shields.io/github/license/mashape/apistatus.svg?style=flat-square)](https://opensource.org/licenses/MIT)
-[![David](https://img.shields.io/david/expressjs/express.svg?style=flat-square)](https://david-dm.org/OriginalCrypto/occ-contracts)
+[![devDependencies Status](https://david-dm.org/OriginalCrypto/occ-contracts/dev-status.svg)](https://david-dm.org/OriginalCrypto/occ-contracts?type=dev)
 [![GitHub issues](https://img.shields.io/github/issues/OriginalCrypto/occ-contracts.svg)](https://github.com/OriginalCrypto/occ-contracts/issues)
 
 solidity contracts for a cofounder based ethereum token
