@@ -1,7 +1,7 @@
 const OriginalToken = artifacts.require('OriginalToken'),
       tokenName = 'Original Crypto Coin',
       tokenSymbol = 'OCC',
-      decimals = 18
+      decimals = 18;
       
 let   originalToken,
       founder,
@@ -155,14 +155,14 @@ contract('OriginalToken', function (accounts) {
 
     const allowanceAfter = await originalToken.allowance.call(founder, cofounders[2]);
 
-    assert.equal(allowanceAfter.comparedTo(allowanceBefore), 1, 'allowance was not increased');
+    assert(allowanceAfter.gt(allowanceBefore), 'allowance was not increased');
 
     await originalToken.transferFrom(founder, cofounders[4], 20000, { from: cofounders[2] });
 
     const allowanceAfterTransfer = await originalToken.allowance.call(founder, cofounders[2]);
 
 
-    assert.equal(allowanceAfter.comparedTo(allowanceAfterTransfer), 1, 'allowance did not decrease');
+    assert(allowanceAfter.gt(allowanceAfterTransfer), 'allowance did not decrease');
   });
 
   it('supports ERC165', async function () {
@@ -175,6 +175,34 @@ contract('OriginalToken', function (accounts) {
 
   it('supports ERC20 with options', async function () {
     assert(await originalToken.supportsInterface.call('0x942e8b22'));
+  });
+
+  it('prevents a cofounder distribution greater than total supply', async function () {
+    reverts(OriginalToken.new(cofounders, OneHundredBillionPlusDecimals + 1));
+  });
+
+  it('prevents a cofounder distribution too big for the number of cofounders supplied', async function () {
+    reverts(OriginalToken.new(cofounders, OneHundredBillionPlusDecimals /2 ));
+  });
+
+  it('prevents transferFrom execution for amounts greater than approved', async function () {
+    await originalToken.approve(cofounders[2], 0);
+    await originalToken.approve(cofounders[2], 100);
+    reverts(originalToken.transferFrom(founder, cofounders[0], 101, { from: cofounders[2] }));
+  });
+
+  it('denies approval after partial withdrawal', async function () {
+    await originalToken.approve(cofounders[2], 0);
+    await originalToken.approve(cofounders[2], 100);
+
+    await originalToken.transferFrom(founder, cofounders[0], 1, { from: cofounders[2] });
+
+    await originalToken.approve(cofounders[2], 100);
+
+    const allowanceAfterDenial = await originalToken.allowance.call(founder, cofounders[2]);
+
+    console.log(allowanceAfterDenial.toNumber());
+    assert(allowanceAfterDenial.eq(0), 'allowance should be zero after approval denial');
   });
 });
 
