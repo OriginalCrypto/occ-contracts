@@ -27,6 +27,43 @@ contract('AirdropCampaign', function (accounts) {
 
     await reverts(instance.register({ from: accounts[2] }));
   });
+
+  it('prevents token holder from registering', async function () {
+    await originalToken.approve(airdrop.address, 400000 * Math.pow(10, decimals), { from: founder });
+    await airdrop.setTokenHolderAddress(founder);
+    await reverts(airdrop.register({ from: founder }));
+  });
+
+  it('sets token holder if passed on construction', async function () {
+    const instance = await AirdropCampaign.new(originalToken.address, founder, disbursementAmount);
+
+    const tokenHolder = await instance.tokenHolderAddress.call();
+
+    assert.equal(tokenHolder, founder, 'token holder address not set correctly upon construction');
+  });
+
+  it('allows owner to change \'canDisburseMultipleTimes\' property', async function () {
+    const canDisburseMultipleTimes = await airdrop.canDisburseMultipleTimes.call();
+    await airdrop.setCanDisburseMultipleTimes(!canDisburseMultipleTimes);
+    const canDisburseMultipleTimesAfterSet = await airdrop.canDisburseMultipleTimes.call();
+
+    assert.notEqual(canDisburseMultipleTimes, canDisburseMultipleTimesAfterSet, 'failed to change property \'canDisburseMultipleTimes\'.');
+  });
+
+  it('prevents registration if allowance set to zero', async function () {
+    await originalToken.approve(airdrop.address, 0, { from: founder });
+    await airdrop.setTokenHolderAddress(founder);
+
+    await reverts(airdrop.register({ from: accounts[2] }));
+  });
+
+  it('token must support ERC165 and ERC20', async function () {
+    await reverts(airdrop.setTokenAddress(founder));
+  });
+
+  it('prevents disbursementAmount of zero', async function () {
+    await reverts(airdrop.setDisbursementAmount(0));
+  });
 });
 
 async function reverts (p) {

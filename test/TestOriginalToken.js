@@ -1,6 +1,7 @@
 const OriginalToken = artifacts.require('OriginalToken'),
       tokenName = 'Original Crypto Coin',
       tokenSymbol = 'OCC',
+      AddressZero = '0x0000000000000000000000000000000000000000',
       decimals = 18;
       
 let   originalToken,
@@ -79,7 +80,7 @@ contract('OriginalToken', function (accounts) {
 
   it('prevents token transfers to address(0)', async function () {
     try {
-      await originalToken.transfer('0x0000000000000000000000000000000000000000', 1, { from : cofounders[1] });
+      await originalToken.transfer(AddressZero, 1, { from : cofounders[1] });
       assert.fail('expected revert but ran to completion.');
     } catch(e) {
       const hasReverted = e.message.search(/revert/) > -1;
@@ -178,17 +179,17 @@ contract('OriginalToken', function (accounts) {
   });
 
   it('prevents a cofounder distribution greater than total supply', async function () {
-    reverts(OriginalToken.new(cofounders, OneHundredBillionPlusDecimals + 1));
+    await reverts(OriginalToken.new(cofounders, OneHundredBillionPlusDecimals + 1));
   });
 
   it('prevents a cofounder distribution too big for the number of cofounders supplied', async function () {
-    reverts(OriginalToken.new(cofounders, OneHundredBillionPlusDecimals /2 ));
+    await reverts(OriginalToken.new(cofounders, OneHundredBillionPlusDecimals /2 ));
   });
 
   it('prevents transferFrom execution for amounts greater than approved', async function () {
     await originalToken.approve(cofounders[2], 0);
     await originalToken.approve(cofounders[2], 100);
-    reverts(originalToken.transferFrom(founder, cofounders[0], 101, { from: cofounders[2] }));
+    await reverts(originalToken.transferFrom(founder, cofounders[0], 101, { from: cofounders[2] }));
   });
 
   it('denies approval after partial withdrawal', async function () {
@@ -203,6 +204,13 @@ contract('OriginalToken', function (accounts) {
 
     console.log(allowanceAfterDenial.toNumber());
     assert(allowanceAfterDenial.eq(0), 'allowance should be zero after approval denial');
+  });
+
+  it('does not have address(0) cofounders even if passed into constructor', async function () {
+    const instance = await OriginalToken.new([AddressZero, AddressZero, AddressZero, AddressZero], cofounderDistribution);
+
+    const recordedCofounders = await instance.getCofounders.call();
+    assert.ok(recordedCofounders.indexOf(AddressZero) == -1, 'address zero should not be added as a valid cofounder');
   });
 });
 

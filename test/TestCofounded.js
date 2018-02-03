@@ -1,5 +1,6 @@
 const Cofounded = artifacts.require('Cofounded'),
-      TestCofoundedRestricted = artifacts.require('TestCofoundedRestricted');
+      TestCofoundedRestricted = artifacts.require('TestCofoundedRestricted'),
+      AddressZero = '0x0000000000000000000000000000000000000000';
 
 contract('Cofounded', function (accounts) {
   let cofounders = accounts.slice(1, 14),
@@ -60,10 +61,19 @@ contract('Cofounded', function (accounts) {
     const testContract = await TestCofoundedRestricted.new(cofounders.slice(0,2), { from:  founder });
     const valueBefore = await testContract.restrictedProperty.call();
 
-    reverts(testContract.setRestrictedProperty(1, { from: accounts[3] }));
+    await reverts(testContract.setRestrictedProperty(1, { from: cofounders[5] }));
     const valueAfter  = await testContract.restrictedProperty.call();
 
     assert.equal(valueBefore.toNumber(), valueAfter.toNumber());
+  });
+
+  it('ignores address zero when passed in as a cofounder', async function () {
+
+    const cofounded = await Cofounded.new([AddressZero, AddressZero, AddressZero], { from: founder});
+
+    const recordedCofounders = await cofounded.getCofounders.call();
+
+    assert.ok(recordedCofounders.indexOf(AddressZero) == -1, 'address zero should not be added as a valid cofounder');
   });
 });
 
