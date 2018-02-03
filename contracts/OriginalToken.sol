@@ -3,7 +3,6 @@ pragma solidity ^0.4.17;
 import './Cofounded.sol';
 import './ERC20.sol';
 import './ERC165.sol';
-import './ApprovedAllowanceAgent.sol';
 import './InterfaceSignatureConstants.sol';
 
 /// @title an original cofounder based ERC-20 compliant token
@@ -86,7 +85,7 @@ contract OriginalToken is Cofounded, ERC20, ERC165, InterfaceSignatureConstants 
     return transferBalance(from, to, value);
   }
 
-  event ApprovalDenied (address indexed owner, address indexed spender, uint256 currentValue, uint256 value);
+  event ApprovalDenied (address indexed owner, address indexed spender);
 
   // TODO: test with an unintialized Allowance struct
   function approve (address spender, uint256 value) public returns (bool success) {
@@ -100,23 +99,15 @@ contract OriginalToken is Cofounded, ERC20, ERC165, InterfaceSignatureConstants 
 
     if (allowance.hasBeenPartiallyWithdrawn) {
       delete allowances[msg.sender][spender];
-      ApprovalDenied(msg.sender, spender, allowance.amount, value);
+      ApprovalDenied(msg.sender, spender);
       return false;
     } else {
       allowance.amount = value;
       Approval(msg.sender, spender, value);
     }
+
+    return true;
   }
-
-  function approveAndCall (address spender, uint256 value, bytes extraData) public returns (bool success) {
-      if (success = approve(spender, value)) {
-        ApprovedAllowanceAgent agent = ApprovedAllowanceAgent(spender);
-        agent.receiveApproval(msg.sender, value, this, extraData);
-      }
-
-      return success;
-    }
- 
 
   // TODO: compare gas cost estimations between this and https://github.com/ConsenSys/Tokens/blob/master/contracts/eip20/EIP20.sol#L39-L45
   function transferBalance (address from, address to, uint256 value) private returns (bool) {
