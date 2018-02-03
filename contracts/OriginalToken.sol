@@ -55,8 +55,6 @@ contract OriginalToken is Cofounded, ERC20, ERC165, InterfaceSignatureConstants 
     for (uint8 x = 0; x < cofounders.length; x++) {
       address cofounder = cofounders[x];
 
-      if (cofounder == address(0)) continue;
-
       initialSupply -= cofounderDistribution;
       // there should be some left over for the airdrop campaign
       // otherwise don't create this contract
