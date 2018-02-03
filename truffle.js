@@ -1,6 +1,7 @@
 const HDWalletProvider = require("truffle-hdwallet-provider"),
       secret = require('./.mnemonic'),
-      
+      infura = require('./.infura'),
+      endpoint = infura ? `/${infura.token}` : '',
       notSoSecret = 'candy maple cake sugar pudding cream honey rich smooth crumble sweet treat';
 
 module.exports = {
@@ -22,20 +23,20 @@ module.exports = {
     },
     ropsten: {
       provider: function() {
-        return new HDWalletProvider(secret.mnemonic, "https://ropsten.infura.io", 0, 10);
+        return new HDWalletProvider(secret.mnemonic, "https://ropsten.infura.io" + endpoint, 0, 10);
       },
       gas: 2905540,
       network_id: "3"
     },
     kovan: {
       provider: function() {
-        return new HDWalletProvider(secret.mnemonic, "kovan.infura.io");
+        return new HDWalletProvider(secret.mnemonic, "https://kovan.infura.io" + endpoint, 0, 10);
       },
       network_id: "42"
     },
     rinkeby: {
       provider: function() {
-        return new HDWalletProvider(secret.mnemonic, "rinkeby.infura.io");
+        return new HDWalletProvider(secret.mnemonic, "https://rinkeby.infura.io" + endpoint, 0, 10);
       },
       port: 8545,
       network_id: "4"
@@ -47,9 +48,20 @@ module.exports = {
     },
     infura: {
       provider: function() {
-        return new HDWalletProvider(secret.mnemonic, "mainnet.infura.io");
+        return new HDWalletProvider(secret.mnemonic, "https://mainnet.infura.io" + endpoint, 0, 10);
       },
-      network_id: "1"
+      network_id: "1",
+      gasPrice: 21000000000
     }
   }
 };
+
+/*
+ NETWORK	DESCRIPTION	URL
+Mainnet	production network	https://mainnet.infura.io/UuCmoCEeZA811FIwUpIM
+Ropsten	test network	https://ropsten.infura.io/UuCmoCEeZA811FIwUpIM
+INFURAnet	test network	https://infuranet.infura.io/UuCmoCEeZA811FIwUpIM
+Kovan	test network	https://kovan.infura.io/UuCmoCEeZA811FIwUpIM
+Rinkeby	test network	https://rinkeby.infura.io/UuCmoCEeZA811FIwUpIM
+IPFS	gateway	https://ipfs.infura.io
+*/

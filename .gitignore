@@ -65,3 +65,5 @@ coverage/
 coverage.json
 .cofounders.js
 .mnemonic.js
+.infura.js
+

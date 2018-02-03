@@ -32,7 +32,7 @@
       "absolutePath": "/Users/mishochu/Source/occ/occ-contracts/contracts/ERC165.sol",
       "exportedSymbols": {
         "ERC165": [
-          198
+          127
         ]
       }
     },
@@ -46,7 +46,7 @@
             ".17"
           ]
         },
-        "id": 190,
+        "id": 119,
         "name": "PragmaDirective",
         "src": "0:24:1"
       },
@@ -62,10 +62,10 @@
           "documentation": "@title Interface for contracts conforming to ERC-165: Pseudo-Introspection, or standard interface detection\n @author Mish Ochu",
           "fullyImplemented": false,
           "linearizedBaseContracts": [
-            198
+            127
           ],
           "name": "ERC165",
-          "scope": 199
+          "scope": 128
         },
         "children": [
           {
@@ -79,7 +79,7 @@
               ],
               "name": "supportsInterface",
               "payable": false,
-              "scope": 198,
+              "scope": 127,
               "stateMutability": "view",
               "superFunction": null,
               "visibility": "external"
@@ -91,7 +91,7 @@
                     "attributes": {
                       "constant": false,
                       "name": "interfaceID",
-                      "scope": 197,
+                      "scope": 126,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "bytes4",
@@ -104,17 +104,17 @@
                           "name": "bytes4",
                           "type": "bytes4"
                         },
-                        "id": 191,
+                        "id": 120,
                         "name": "ElementaryTypeName",
                         "src": "255:6:1"
                       }
                     ],
-                    "id": 192,
+                    "id": 121,
                     "name": "VariableDeclaration",
                     "src": "255:18:1"
                   }
                 ],
-                "id": 193,
+                "id": 122,
                 "name": "ParameterList",
                 "src": "254:20:1"
               },
@@ -124,7 +124,7 @@
                     "attributes": {
                       "constant": false,
                       "name": "",
-                      "scope": 197,
+                      "scope": 126,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "bool",
@@ -137,32 +137,32 @@
                           "name": "bool",
                           "type": "bool"
                         },
-                        "id": 194,
+                        "id": 123,
                         "name": "ElementaryTypeName",
                         "src": "302:4:1"
                       }
                     ],
-                    "id": 195,
+                    "id": 124,
                     "name": "VariableDeclaration",
                     "src": "302:4:1"
                   }
                 ],
-                "id": 196,
+                "id": 125,
                 "name": "ParameterList",
                 "src": "301:6:1"
               }
             ],
-            "id": 197,
+            "id": 126,
             "name": "FunctionDefinition",
             "src": "228:80:1"
           }
         ],
-        "id": 198,
+        "id": 127,
         "name": "ContractDefinition",
         "src": "160:150:1"
       }
     ],
-    "id": 199,
+    "id": 128,
     "name": "SourceUnit",
     "src": "0:312:1"
   },
@@ -172,5 +172,5 @@
   },
   "networks": {},
   "schemaVersion": "1.0.1",
-  "updatedAt": "2018-02-01T22:08:47.884Z"
+  "updatedAt": "2018-02-03T06:27:24.819Z"
 }

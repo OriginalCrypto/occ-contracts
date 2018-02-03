@@ -16,6 +16,8 @@ OCC is such a case. There's a dedicated team of individuals bringing it to fruit
 
 OCC's code is written and developed using the [TRUFFLE](http://truffleframework.com/) framework. This means you'll need [Node](https://nodejs.org/). Truffle comes with its own version of [testrpc](https://github.com/trufflesuite/ganache-cli) (there's a GUI version called [Ganache](https://github.com/trufflesuite/ganache) if that's your sort of thing).
 
+-----------------------
+OCC has been deployed to the [Ropsten](https://rinkeby.etherscan.io/token/0x75584b2bfa5eb391c8234abcfb4cde5c07e2cf30), [Rinkeby](https://rinkeby.etherscan.io/token/0xa8d33775033e415a920ee723c672605ca7675b42), [Kovan](https://kovan.etherscan.io/token/0xa8d33775033e415a920ee723c672605ca7675b42) and [main](https://etherscan.io/token/0x0235fe624e044a05eed7a43e16e3083bc8a4287a) networks.
 ### Quick Start
 
 Assuming you have npm (and node) setup, run the following to install truffle.
