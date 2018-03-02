@@ -1,8 +1,7 @@
-const HDWalletProvider = require("truffle-hdwallet-provider"),
+const HDWalletProvider = require('truffle-hdwallet-provider'),
       secret = require('./.mnemonic'),
       infura = require('./.infura'),
-      endpoint = infura ? `/${infura.token}` : '',
-      notSoSecret = 'candy maple cake sugar pudding cream honey rich smooth crumble sweet treat';
+      endpoint = infura ? `/${infura.token}` : ''
 
 module.exports = {
   // See <http://truffleframework.com/docs/advanced/configuration>
@@ -12,49 +11,49 @@ module.exports = {
   // see: http://truffleframework.com/docs/advanced/configuration#accessing-only-one-of-multiple-network-providers
   networks: {
     development: {
-      host: "127.0.0.1",
+      host: '127.0.0.1',
       port: 9545, // 'truffle develop' runs on 9545 by default
-      network_id: "4447" // Match any network id
+      network_id: '4447' // Match any network id
     },
     ganache: {
-      host: "127.0.0.1",
+      host: '127.0.0.1',
       port: 7545, // ganache runs on 7545 by default
-      network_id: "5777"
+      network_id: '5777'
     },
     ropsten: {
       provider: function() {
-        return new HDWalletProvider(secret.mnemonic, "https://ropsten.infura.io" + endpoint, 0, 100);
+        return new HDWalletProvider(secret.mnemonic, 'https://ropsten.infura.io' + endpoint, 0, 100)
       },
       gas: 2905540,
-      network_id: "3"
+      network_id: '3'
     },
     kovan: {
       provider: function() {
-        return new HDWalletProvider(secret.mnemonic, "https://kovan.infura.io" + endpoint, 0, 10);
+        return new HDWalletProvider(secret.mnemonic, 'https://kovan.infura.io' + endpoint, 0, 10)
       },
-      network_id: "42"
+      network_id: '42'
     },
     rinkeby: {
       provider: function() {
-        return new HDWalletProvider(secret.mnemonic, "https://rinkeby.infura.io" + endpoint, 0, 10);
+        return new HDWalletProvider(secret.mnemonic, 'https://rinkeby.infura.io' + endpoint, 0, 10)
       },
       port: 8545,
-      network_id: "4"
+      network_id: '4'
     },
     main: {
-      host: "127.0.0.1",
+      host: '127.0.0.1',
       port: 8545,
-      network_id: "1"
+      network_id: '1'
     },
     infura: {
       provider: function() {
-        return new HDWalletProvider(secret.mnemonic, "https://mainnet.infura.io" + endpoint, 0, 10);
+        return new HDWalletProvider(secret.mnemonic, 'https://mainnet.infura.io' + endpoint, 0, 10)
       },
-      network_id: "1",
+      network_id: '1',
       gasPrice: 6000000000
     }
   }
-};
+}
 
 /*
  NETWORK	DESCRIPTION	URL

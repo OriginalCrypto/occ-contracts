@@ -63,7 +63,6 @@ contract('AirdropCampaign', function (accounts) {
 
   it('prevents disbursementAmount of zero', async function () {
     await reverts(airdrop.setDisbursementAmount(0));
-    function ((){});
   });
 });
 
