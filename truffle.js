@@ -22,7 +22,7 @@ module.exports = {
     },
     ropsten: {
       provider: function() {
-        return new HDWalletProvider(secret.mnemonic, 'https://ropsten.infura.io' + endpoint, 0, 100)
+        return new HDWalletProvider(secret.mnemonic, 'https://ropsten.infura.io' + endpoint, 0, 10)
       },
       gas: 2905540,
       network_id: '3'
@@ -50,7 +50,7 @@ module.exports = {
         return new HDWalletProvider(secret.mnemonic, 'https://mainnet.infura.io' + endpoint, 0, 10)
       },
       network_id: '1',
-      gasPrice: 6000000000
+      gasPrice: 7000000000
     }
   }
 }

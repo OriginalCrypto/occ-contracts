@@ -1,3 +1,8 @@
+/* globals web3 */
+/* globals artifacts */
+/*eslint no-console: ["error", { allow: ["log"] }] */
+const OriginalToken = artifacts.require('OriginalToken')
+
 module.exports = async function (callback) {
   const getAccounts = async function () {
     const p = new Promise(function (resolve, reject) {
@@ -15,16 +20,42 @@ module.exports = async function (callback) {
     })
 
     return p
+  },
+  originalToken = await OriginalToken.deployed(),
+  accounts = await getAccounts(),
+  getBalances = async (accumulator, account, index) => {
+    if (typeof accumulator === 'string') {
+      return originalToken.balanceOf.call(accumulator)
+      .then(balance => {
+        balance = balance.div('1e18').toNumber().toLocaleString()
+        return [{ index: 0, account: accumulator, balance }]
+      })
+      .then(results => {
+        return originalToken.balanceOf.call(account)
+        .then(balance => {
+          balance = balance.div('1e18').toNumber().toLocaleString()
+          results.push({ index, account, balance })
+          return results
+        })
+      })
+    } else {
+      return accumulator.then(results => {
+        return originalToken.balanceOf.call(account)
+        .then(balance => {
+          balance = balance.div('1e18').toNumber().toLocaleString()
+          results.push({ index, account, balance })
+          return results
+        })
+      })
+    }
   }
 
-  const accounts = await getAccounts(),
-        keyPairs = {}
-
-
-  accounts.forEach((account) => {
-    keyPairs[account] = web3.currentProvider.wallets[account].getPrivateKey().toString('hex')
+  accounts.reduce(getBalances) 
+  .then(results => {
+    console.log('accounts:', JSON.stringify(results, null, 2))
   })
-  console.log('accounts: ', keyPairs)
+
+  //web3.currentProvider.wallets[account].getPrivateKey().toString('hex') }
 
   callback()
 }
